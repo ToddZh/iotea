@@ -1,0 +1,53 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body{
+	background:url(../img/4.jpg)  ;
+}
+
+.container {
+    margin: 1px auto;
+    max-width : document.body.clientWidth;
+}
+.container div {
+	margin:2px;
+	border: 2px solid #e8e8e8;
+}
+p {
+	font-family: "微软雅黑";
+	font-weight: 600;
+	color: #fff;
+	line-height: 30px;
+}
+
+@media (min-width: 200px) {
+  .container div {
+  width:95%;
+  height: 400px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container div {
+  width:46%;
+  height: 400px;
+  float: left;
+  }
+}
+
+@media (min-width: 992px) {
+  .container div {
+  width:32%;
+  height: 400px;
+    float: left;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container div {
+  width:24%;
+  height: 400px;
+    float: left;
+  }
+}
