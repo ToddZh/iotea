@@ -1,7 +1,5 @@
 from flask import Flask,request,url_for,render_template,redirect,jsonify
-from db import *
-import json
-import time
+import json,db,threading,loriot,time,datetime
 
 app=Flask(__name__)
 
@@ -12,46 +10,56 @@ def index():
 
 @app.route("/sendjson", methods=['GET','POST'])
 def sendjson():
-	data = readMax()
+	data = db.readMax()
 	t = {
-		'data1': data[0][2],#空气质量  通过data22参数计算
-		'data22': ['0','22', 3, 4,5,data[0][5]],#pm10 pm2.5 no2 so2 o3 co2
- 		'data3': [data[0][2], 4, 5],# data: ["空气温度","空气湿度","地下湿度"],
+		'data1': data[0][5],#空气质量  通过data22参数计算
+		'data22': ['0','22', 3, 4,data[0][11],data[0][8]],#pm10 pm2.5 no2 so2 o2 co2
+ 		'data3': [data[0][5], data[0][6], data[0][13]],# data: ["空气温度","空气湿度","地下湿度"],
 		'data4': [3, 4, 5]# ["N","P","K"],
 	}
-	data = json.dumps(t)
-	return data
+	send = json.dumps(t)
+	return send
 
-@app.route("/getdata", methods=['POST'])
-def getdata():
-	message = json.loads(request.get_data())
-	print(message)
-	ts = message['ts']
-	data = message['data']
+@app.route("/initjson", methods=['GET','POST'])
+def initjson():
+	data = db.readMax()
+	days = beforeDays()
+	olddate = []
+	oldtemp = []
+	oldhum = []
+	for day in days:
+		for hour in range(0,23):
+			time = [str(day),str(hour)]
+			old = db.readMinMinute(time)
+			olddate.append(old[0][1])
+			oldtemp.append(old[0][5])
+			oldhum.append(old[0][6])
 
+	t = {
+		'data1': data[0][5],#空气质量  通过data22参数计算
+		'data22': ['0','22', 3, 4,data[0][11],data[0][8]],#pm10 pm2.5 no2 so2 o2 co2
+ 		'data3': [data[0][5], data[0][6], data[0][13]],# data: ["空气温度","空气湿度","地下湿度"],
+		'data4': [3, 4, 5], # ["N","P","K"],
+		'olddate': olddate,
+		'oldtemp': oldtemp,
+		'oldhum': oldhum
+	}
+	init = json.dumps(t)
+	return init
 
-	tl = time.localtime(int(ts)/1000)
-	# 格式化时间
-	now = time.strftime('%Y-%m-%d %H:%M:%S', tl)
-	#print(now)
-
-	air_temp = str(int(data[0:2], 16))
-	air_hum = str(int(data[2:4], 16))
-	pressure = str(int((data[4:8]), 16))
-	co2 = str(int(data[8:12], 16))
-	dust = str(int(data[12:16], 16))
-	illumination = str(int(data[16:20], 16))
-	o2 = str(round(int(data[20:22], 16)/10,1))+"%"
-	soil_temp = str(int(data[22:24], 16))
-	soil_hum = str(int(data[24:26], 16))
-	voltage = str(round(int(data[26:28], 16)/int('ff',16)*5,1))+"V"
-	error = str(int(data[28:], 16))
-
-	list = [now,air_temp,air_hum,pressure,co2,dust,illumination,o2,soil_temp,soil_hum,voltage,error]
-	insert(list);
-
-	return 'OK'
+def beforeDays():
+	before_n_days = []
+	n = 7
+	for i in range(1, n+1)[::-1]:
+		before_n_days.append(str(datetime.date.today() - datetime.timedelta(days=i)))
+	return before_n_days
 
 
 if __name__=="__main__":
-	app.run(debug=True)
+	ta = threading.Thread(target=app.run)
+	tb = threading.Thread(target=loriot.getLoriotData)
+	#app.run()
+	ta.start()
+	tb.start()
+
+

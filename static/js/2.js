@@ -7,8 +7,8 @@ var myChart4 = echarts.init(document.getElementById('main4'));
 var myChart5 = echarts.init(document.getElementById('main5'));
 var myChart6 = echarts.init(document.getElementById('main6'));
 var span=document.getElementsByTagName("span");
-loriot();
-//getdata(); //先执行一次读取数据进行页面数据初始化
+
+initdata(); //先执行一次读取数据进行页面数据初始化
 //图表1
 var a= {
 		    series: [
@@ -627,61 +627,8 @@ window.addEventListener('resize',function(){
 //定时从后台读取数据,图表1和7暂时用不上
 setInterval(function(){
 	getdata();
-
-	//b.series[0].data[0].value=data2[0]
-    /*
-	b.series[0].data[0].value=Math.round(Math.random()*70);
-    for(i=0;i<3;i++){
-//   c.series[0].data[i]=data3[i];
-//   d.series[0].data[i]=data4[i];
-     c.series[0].data[i]=Math.round(Math.random()*5);
-     d.series[0].data[i]=Math.round(Math.random()*5);
-     }
-    for(i=0;i<6;i++){
-     //span[i].innerHTML=data22[i];
-     span[i].innerHTML=Math.round(Math.random()*5);
-    }
-     myChart1.setOption(b);
-     myChart2.setOption(c);
-     myChart3.setOption(d);
-     addData(true);
-     myChart4.setOption({
-      xAxis: {
-        data: date
-       },
-      series: [{
-        name:'温度',
-        data: data
-       }]
-    });
-	 myChart5.setOption({
-	   xAxis: {
-	         data: date
-	   },
-	     series: [{
-	         name:'湿度',
-	         data: data
-	      }]
-	  });*/
 	},3000);
 
-//ajax技术实现前后台交互
-/*function getdata(){
-	$.ajax({
-		type:"GET",
-		url:"",  //这里填入请求地址
-		dataType:"json",
-		success:function(data){
-		    if(data.success){
-			return data;
-			}else{
-
-			}
-			},
-			error:function(){
-			}
-	})
-}*/
 //ajax技术实现前后台交互
 function getdata(){
 	$.ajax({
@@ -741,37 +688,63 @@ function getdata(){
 	})
 }
 
-function loriot() {
-    var token = 'vnwD2wAAAA1jbjEubG9yaW90LmlvPeOCpVPCT9Ao2W5C5Fbtyw==';
-    var url = 'wss://cn1.loriot.io/app?token=vnwD2wAAAA1jbjEubG9yaW90LmlvPeOCpVPCT9Ao2W5C5Fbtyw==';
-    var ws = new WebSocket(url.replace('{token}', token));
-    ws.onopen = function() {
-        //document.querySelector('#status').textContent = 'Connected';
-    };
-
-    ws.onmessage = function(e) {
-        var json = JSON.parse(e.data);
-        //console.log(e);
-        if (json.cmd !== 'rx') return;
-        $.ajax({
-            url:"/getdata",
-            type:'post',
-            async:true,
-            dataType:"text",
-            contentType: 'application/json; charset=UTF-8',
-            data:e.data,
-            success:function () {
-                //alert(result)
+function initdata(){
+	$.ajax({
+		type:"GET",
+		url:"/initjson",  //这里填入请求地址
+		dataType:"json",
+		success:function(data){
+            //b 空气污染值  通过空气成分计算
+            b.series[0].data[0].value=data.data1;//Math.round(Math.random()*70);
+            console.log(data.data1)
+            //空气成分
+            for(i=0;i<6;i++){
+             span[i].innerHTML=data.data22.shift();
+             //span[i].innerHTML=Math.round(Math.random()*5);
             }
-        })
-/*
-        switch (Number(data.data.slice(0, 2))) {
-            case 0: document.body.style.backgroundColor = 'green'; break;
-            case 1: document.body.style.backgroundColor = 'red'; break;
-        }*/
-    };
 
-    ws.onclose = function() {
-        document.querySelector('#status').textContent = 'Disconnected';
-    };
+            //c 温度历史曲线
+            //d 湿度历史曲线
+
+            for (i=0;i<3;i++){
+                c.series[0].data[i]=data.data3.shift();
+                d.series[0].data[i]=data.data4.shift();
+            }
+
+
+            myChart1.setOption(b);
+            myChart2.setOption(c);
+            myChart3.setOption(d);
+            addData(true);
+
+
+            //date = data.date.shift();
+            console.log(data.olddate);
+            console.log(data.oldtemp);
+            console.log(data.oldhum);
+            myChart4.setOption({
+                xAxis: {
+                    data: date
+                },
+                series: [{
+                    name:'温度',
+                    data: data
+                }]
+            });
+            myChart5.setOption({
+                xAxis: {
+                     data: date
+                },
+                series: [{
+                     name:'湿度',
+                     data: data
+                }]
+            });
+
+            },
+            error:function(){
+            }
+
+	})
 }
+
