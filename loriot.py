@@ -9,7 +9,7 @@ def getLoriotData():
 	while flag:
 		result = json.loads(ws.recv())
 		print(result)
-		if( result ['cmd'] == 'rx' ):
+		if( result ['cmd'] == 'rx' and result['EUI'] != '47BAC8680042002D'):
 			ts = result['ts']
 			data = result['data']
 

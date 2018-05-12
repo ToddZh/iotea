@@ -56,10 +56,10 @@ def beforeDays():
 
 
 if __name__=="__main__":
-	ta = threading.Thread(target=app.run)
-	tb = threading.Thread(target=loriot.getLoriotData)
-	#app.run()
-	ta.start()
-	tb.start()
+	# ta = threading.Thread(target=app.run(debug=True, port=5000))#, ssl_context='adhoc'))
+	# tb = threading.Thread(target=loriot.getLoriotData)
+	app.run(debug=True, port=5000)
+	# ta.start()
+	# tb.start()
 
 

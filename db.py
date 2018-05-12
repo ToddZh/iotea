@@ -1,7 +1,8 @@
 import pymysql.cursors
 
 # 打开数据库连接
-conn = pymysql.connect("localhost", "root", "1234", "iotea")
+# conn = pymysql.connect("localhost", "root", "1234", "iotea")
+conn = pymysql.connect(host="47.89.243.140", user="root", password="root", db="iotea")
 # 使用cursor()方法获取操作游标
 cur = conn.cursor()
 
