@@ -1,0 +1,343 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+ul li {
+	list-style: none;
+}
+html {
+	width:100%;
+	height: 100%;
+}
+body {
+	width: 100%;
+	height: 100%; 
+	background:url(../../static/img/background.png) no-repeat center center fixed ;  /*背景图铺满全屏*/
+	background-size: cover;
+}
+.container {
+width: 100%;
+height: 100%;
+/*max-width:window.screen.width;*/
+}
+@media only screen and (min-width:320px) and (orientation:portrait){  
+   html{
+    	font-size:100%;
+    	}
+   .headpage {
+  width:100%;
+  height: 100%;
+  } 
+}  
+@media only screen and (min-width:360px) and (orientation:portrait){  
+    html{font-size:125%;}
+    .headpage {
+  width:100%;
+  height: 100%;
+  }  
+}  
+@media only screen and (min-width:400px) and (orientation:portrait){  
+    html{font-size:150%;}
+    .headpage {
+  width:100%;
+  height: 100%;
+  }  
+}  
+  
+@media only screen and (min-width:600px) and (orientation:portrait){  
+    html{font-size:200%;}
+    .headpage {
+  width:100%;
+  height: 100%;
+  }  
+}  
+  
+@media only screen and (max-width:768px) and (orientation:portrait){  
+    .wrap{width:90%;}
+    .headpage {
+  width:100%;
+  height: 100%;
+  }  
+}  
+@media only screen and (min-width:480px) and (orientation:landscape){  
+    html{font-size:100%;}
+    .headpage {
+  width:100%;
+  height: 100%;
+  }  
+}  
+@media only screen and (min-width:580px) and (orientation:landscape){  
+    html{font-size:107%;}
+    .headpage {
+  width:100%;
+  height: 100%;
+  }  
+}  
+@media only screen and (min-width:730px) and (orientation:landscape){  
+    html{font-size:130%;}
+    .headpage {
+  width:100%;
+  height: 100%;
+  }  
+}  
+@media only screen and (min-width:900px) and (orientation:landscape){  
+    html{font-size:175%;}
+    .headpage {
+  width:47%;
+  height: 400px;
+  float: left;
+  }
+}  
+@media only screen and (min-width:992px){  
+    html{font-size:200%;}
+    .headpage {
+  width:47%;
+  height: 400px;
+  float: left;
+  }
+}  
+img {
+	width: 100%;
+}
+.menu {
+	background: #385C3E;
+	width: 100%;
+	height: 13%;
+	position: relative;
+
+}
+.logo {
+	width: 60%;
+	padding: 15% 0;
+	margin:0 auto;
+}
+.bar {
+	width: 24%;
+	position: absolute;
+	bottom: 14%;
+	left:40% ;
+}
+.form {
+	background: #f9cb9c;
+}
+.left {
+    position: fixed;
+	height: 100%;
+	width: 22%;
+	color: #fff;
+	z-index: 100;
+	top:0;
+	left: 0;
+}
+.left ul {
+	height:100% ;
+	width: 100%;
+	opacity: 0.51;
+	background: #385C3E;
+	display: none;
+}
+.left ul li {
+	font-size: 0.7rem;
+	text-align: center;
+	padding: 20% 0;
+}
+.close {
+	height: 20%;
+	text-align: center;
+	padding-top: 30%;
+	font-size: 3rem;
+	opacity: 0.51;
+	background: #385C3E;
+    display: none;
+}
+.right {
+	width: 100%;
+	height: 100%;
+}
+#lw {
+	margin:60% auto 0 auto;
+
+}
+.biglogo {
+	width: 32%;
+	height: 5%;
+    margin: 0 auto;
+}
+.word {
+	width: 53%;
+	height: 3.5%;
+	margin: 0 auto;
+	margin-top: 8%;
+	margin-bottom: 5%;
+    text-align: center;
+    color: #fff;
+    font-size: 0.7rem;
+}
+.pre {
+	border: 1px solid #fff;
+	width: 41.8%;
+	height: 3.5%;
+	margin: 8% auto;
+	color: #fff;
+    font-size: 0.7rem;
+    text-align: center;
+}
+.active {
+	border-bottom: 1px solid #fff;
+}
+#about1 {
+	width: 100%;
+	height: 100%;
+}
+#about1 #box {
+	width: 100%;
+	margin-top: 29%;
+	height: 100%;
+}
+#teaimg {
+	float: left;
+	width:100% ;
+	height: 20%;
+	overflow: hidden;
+	/*height: 28.7%;*/
+}
+#teaimg img {
+	width:48%;
+	margin-right: 2%;
+
+}
+#article {
+	color: #4F6E62;
+	word-spacing: 3px;
+	font-size: 0.7rem;
+}
+#solution1 {
+	width: 100%;
+}
+#solutionimg {
+	width:100% ;
+    height: 55%;
+    position: fixed;  
+    top: 8%;  
+    left: 0%;  
+    bottom: 60%; /*距离底部的距离为底部盒子的高度，自己也可以设置*/
+    overflow-x: scroll;
+    width: 100%;  
+    -webkit-overflow-scrolling: touch;   /*这句是为了滑动更顺畅*/  
+}
+#solutionimg  img {
+	width:145% ;
+	height: 100%;
+}
+#article1{
+	position: fixed;
+	left:0;
+	top: 60%;
+	width:100%;
+	padding-top:4%;
+	bottom: 0%;
+	overflow-y: scroll; 
+	background:#A0AA8B;
+	-webkit-overflow-scrolling: touch;   /*这句是为了滑动更顺畅*/  
+}
+#solutionarticle {
+	width:70% ;
+	margin: 0 auto;
+	font-family: PingFangHK-Light;
+	font-size: 0.6rem;
+	color: #fff;
+	letter-spacing: 0;
+	line-height: 1.2rem;
+}
+.bgpic {
+	background:url(../../static/img/background.png) no-repeat center center fixed ;  /*背景图铺满全屏*/
+	background-size: cover;
+}
+#dat1,#dat2 {
+	width: 100%;
+	position: relative;
+	height: 100%;
+	color: #8FC31F;
+}
+#dat2{
+	background: #000;
+}
+#box2,#box3 {
+	width: 75%;
+	height: 90%;
+	margin-left: 26%;
+	margin-top:8% ;
+}
+#realtitle,#weeklydata {
+	font-family: PingFangHK-Semibold;
+	font-weight: 800;
+	font-size: 0.8rem;
+	letter-spacing: 0;
+	text-align: center;
+}
+#weeklydata {
+	margin-bottom: 20%;
+}
+#item {
+	margin-top:10%;
+	width: 70%;
+	text-align: left;
+	font-size: 0.6rem;
+}
+#item img {
+	width: 15%;
+	float: left;
+}
+#item li {
+    text-indent: 8%;
+	padding: 10% 0;
+}
+#item li span {
+	text-align: center;
+}
+#toright1 {
+	position: absolute;
+	top:50%;
+	right: 5%;
+}
+.sub {
+	font-size: 0.6rem;
+	text-align: left;
+	margin-top: 5%;
+	margin-left: 2%;
+	width: 60%;
+	height:13% ;
+    text-indent: 0.3rem;
+}
+.sub img {
+	width:13%;
+	float:left;
+}
+#box4{
+	width: 100%;
+	margin-top: 30%;
+	height: 100%;
+}
+#appimg {
+	width:100% ;
+	height: 45%;
+	margin-left: 2%;
+}
+#appimg img {
+	width: 36%;
+	height:20%;
+	margin-left:8%;
+	margin-bottom:4% ;
+}
+#article2 {
+	width: 83%;
+	margin-left: 10%;
+	line-height: 1.2rem;
+	font-family: PingFangHK-Light;
+	font-size: 0.6rem;
+	color: #4F6E62;
+	letter-spacing: 0;
+}
+.hide {
+	display: none;
+}

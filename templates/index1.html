@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link style="text:css" rel="stylesheet" href="../static/css/mobile.css">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/>
+	<title>lotea</title>
+</head>
+<body>
+	<div class="container">
+		<div class="headpage" >
+			<div class="left">
+				<div class="menu" id="menu">
+					<div class="logo"><img src="../static/img/logo.png"></div>
+					<div class="bar" id="bar"><img src="../static/img/bar.png"></div>
+				</div>
+					<div class="close" id="close">&times;</div>
+				        <ul>
+							<li id="about">About</li>
+							<li id="solution">Solution</li>
+							<li id="data">Data</li>
+							<li id="applicaton">Application</li>
+						</ul>
+			</div>
+			<div class="right" id="right">
+						<div id="lw">
+							<div class="biglogo"><img src="../static/img/dalogo.png"></div>
+							<div class="word">The loT Hardware Enabler</div>
+							<div class="pre">Presented by seed</div>
+					    </div>
+					    <div id="about1" class="hide">
+					    	<div id="box">
+					    		<div id="teaimg"><img src="../static/img/Group Copy 3.png"><img src="../static/img/Group Copy 6.png"></div>
+					    		<div id="article">
+					    			北纬30°，东经103°。坐落在四川雅安东北部的蒙顶山，是青藏高原与四川盆地在极度海拔落差之间的产物。山脉由西向东，茶园堆青叠翠，绿浪翻涌。这对在蒙顶山茶区土生土长的老邓来说，是最稀松平常的风景。</br>
+
+老邓不老，82年生，是蒙顶山茶区众多茶园主人里比较少见的80后，最爱喝自己茶园里的明前手工甘露，管着分布在1100多米海拔高度的方圆50亩的茶园。</br>
+
+小时候，因为家里有个小规模的老川茶园，父辈们种茶制茶卖茶过活的耳濡目染，老邓对茶多少有些独特的情感。“虽然跟茶结缘早，但长大了还是选择离开，去了城市生活，高山种茶太苦了。” 但2013年，城市创业失利，老邓命运般地回到了茶园，开始正经学茶、种茶、制茶，延续着祖辈留下的生活方式。
+
+“都说：扬子江心水，蒙山顶上茶。高山种茶海拔高，有机生态的生长环境，茶品质有保障。但同时因为茶园种植密度低，管理成本高，茶树发芽不齐，采茶难度大，导致高山茶产量小，在市场上的价值优势体现不出来。”</br>
+
+怎么让消费者深入了解高山茶的有机生长和制茶环境，提升高山茶的价值所在，是老邓这两年一直在思考的问题。机缘巧合，因为认识了上山探茶、为Seeed IoTea智慧生态茶园方案寻找试点茶园的樊老师（戳此樊老师上山找茶趣的故事），这个问题出现转机。
+
+双方确定合作意向后，方案细节探讨、原型制作与测试，到方案安装和调试，2018年3月底，高山茶与新科技结合，方案最终成功落地。
+					    		</div>
+					    	</div>
+					    </div>
+					    <div id="solution1" class="hide">
+					    		<div id="solutionimg"><img src="../static/img/solution.png"></div>
+					    		<div id="article1">
+					    			<div id="solutionarticle">
+					    			Seeed IoTea智慧生态茶园方案致力于如何在不破坏原本山茶古旧的种茶－摘茶－制茶生态的基础上，让技术帮助茶农更科学、生理地管理广袤的茶园，同时对消费者开放实时监测茶园的渠道，让大众直观地了解高山茶种茶、制茶的生态。</br></br>
+
+由一系列传感器、节点，网关等组成的智能环境监测系统，可以实时收集种茶过程中的大气温湿度、二氧化碳、氧气、PM、光照，土壤温湿度等影响茶树生长的关键数据。同时收集制茶过程中的房间温湿度、以及杀青温度。各个节点通过Lora协议把采集到的数据传输给网关，然后上传到云端数据库，最终通过可视化工具，把茶叶从茶园到制茶过程的数据以图表清晰呈现。
+					       </div>
+					       </div>
+					    </div>
+					    <div id="dat1" class="hide">
+					    	<div id="box2">
+					    	    <div id="realtitle">Real-time data</br><span id="time1"></span></div>
+					    	    <ul id="item">
+					    	    	<li><img src="../static/img/Temperature.png">Temperature
+					    	    		<div id="Temperature" style="text-indent:8%;"></div>
+					    	    	</li>
+					    	    	<li><img src="../static/img/Humidity.png">Humidity
+					    	    		<div id="Humidity" style="text-indent:8%;"></div>
+					    	    	</li>
+					    	    	<li><img src="../static/img/Illumination.png">Illumination
+					    	    		<div id="Illumination" style="text-indent:8%;"></div>
+					    	    	</li>
+					    	    	<li><img src="../static/img/CarbonDioxide.png">Carbon Dioxide
+					    	    		<div id="CarbonDioxide" style="text-indent:8%;"></div>
+					    	    	</li>
+					    	    	<li><img src="../static/img/Oxygen.png">Oxygen</br>
+					    	    		<div id="Oxygen" style="text-indent:8%;"></div>
+					    	    	</li>
+					    	    	<li><img src="../static/img/Dust.png">Dust</br>
+					    	    		<div id="Dust" style="text-indent:8%;"></div>
+					    	    	</li>				    	    	
+					    	    </ul>
+					    	</div>
+					    	<div id="toright1"><img src="../static/img/Path 5 Copy.png"> </div>
+					    </div>
+					    <div id="dat2" class="hide">
+					        <div id="box3">
+						    	 <div id="weeklydata">weekly data</div>
+						    	 <div class="sub"><img src="../static/img/Temperature.png">Temperature/°C</div>
+						    	 <div id="main1"></div>
+						    	 <div class="sub"><img src="../static/img/Humidity.png">Humidity/%</div>
+						    	 <div id="main2"></div>
+						    	 <div class="sub"><img src="../static/img/Illumination.png">Illumination</div>
+						    	 <div id="main3"></div>
+						    	 <div class="sub"><img src="../static/img/Dust.png">Dust/pcs 0.01cf</div>
+						    	 <div id="main4"></div>
+						    	 <div class="sub"><img src="../static/img/CarbonDioxide.png">Carbon Dioxide/PPM</div>
+						    	 <div id="main5"></div>
+						    	 <div class="sub"><img src="../static/img/Oxygen.png"> Oxygen/%</div>
+						    	 <div id="main6"></div>
+					        </div>
+				        </div>
+				        <div id="application1" class="hide">
+				        	<div id="box4">
+					    		<div id="appimg"><img src="../static/img/Group 6.png"><img src="../static/img/Group 7.png"> <img src="../static/img/Group 18.png"><img src="../static/img/Group 12.png"></div>
+					    		<div id="article2">
+					    			Seeed IoT智慧生态方案，通过对大气压、大气温湿度、二氧化碳、氧气、PM、土壤温湿度进行数据监测，通过无线技术传输至云端处理，并在页面上直观显示。从而达到农林业种植、畜牧业养殖的智能化管理，减轻管理的工作量和成本。茶园之外，Seeed IoT智慧生态方案可延伸应用农业、林业、畜牧业。
+				        	    </div>
+				        	</div>
+				        </div>
+	   </div>
+	</div>
+	</div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.0.4/echarts.js"></script>
+	<script type="text/javascript" src="../static/js/1.js"></script>
+</body>
+</html>

@@ -4,45 +4,55 @@ import json,db,threading,loriot,time,datetime
 app=Flask(__name__)
 
 
-@app.route('/')
+@app.route('/')#iotea
 def index():
-	return render_template('index.html')
+	return render_template('index1.html')
 
 @app.route("/sendjson", methods=['GET','POST'])
 def sendjson():
 	data = db.readMax()
 	t = {
-		'data1': data[0][5],#空气质量  通过data22参数计算
-		'data22': ['0','22', 3, 4,data[0][11],data[0][8]],#pm10 pm2.5 no2 so2 o2 co2
- 		'data3': [data[0][5], data[0][6], data[0][13]],# data: ["空气温度","空气湿度","地下湿度"],
-		'data4': [3, 4, 5]# ["N","P","K"],
+		'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9]]
+		# { Temperature, Humidity, Illumination, Carbon Dioxide, Oxygen, Dust }
 	}
 	send = json.dumps(t)
 	return send
 
 @app.route("/initjson", methods=['GET','POST'])
 def initjson():
+	Date = []
+	Temperature = []
+	Humidity = []
+	Illumination = []
+	CarbonDioxide = []
+	Oxygen = []
+	Dust = []
+
 	data = db.readMax()
 	days = beforeDays()
-	olddate = []
-	oldtemp = []
-	oldhum = []
 	for day in days:
-		for hour in range(0,23):
-			time = [str(day),str(hour)]
-			old = db.readMinMinute(time)
-			olddate.append(old[0][1])
-			oldtemp.append(old[0][5])
-			oldhum.append(old[0][6])
+		# for hour in range(0,23):
+		hour = 10
+		QueryTime = [str(day), str(hour)]
+		old = db.readMinMinute(QueryTime)
+		Date.append(old[0][1])
+		Temperature.append(old[0][5])
+		Humidity.append(old[0][6])
+		Illumination.append(data[0][10])
+		CarbonDioxide.append(data[0][8])
+		Oxygen.append(data[0][11])
+		Dust.append(data[0][9])
 
+	data = db.readMax()
 	t = {
-		'data1': data[0][5],#空气质量  通过data22参数计算
-		'data22': ['0','22', 3, 4,data[0][11],data[0][8]],#pm10 pm2.5 no2 so2 o2 co2
- 		'data3': [data[0][5], data[0][6], data[0][13]],# data: ["空气温度","空气湿度","地下湿度"],
-		'data4': [3, 4, 5], # ["N","P","K"],
-		'olddate': olddate,
-		'oldtemp': oldtemp,
-		'oldhum': oldhum
+		'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9]],
+		'Date': Date,
+		'Temperature': Temperature,
+		'Humidity': Humidity,
+		'Illumination': Illumination,
+		'CarbonDioxide': CarbonDioxide,
+		'Oxygen': Oxygen,
+		'Dust': Dust
 	}
 	init = json.dumps(t)
 	return init
