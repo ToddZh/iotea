@@ -15,6 +15,7 @@ def sendjson():
 		'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9]]
 		# { Temperature, Humidity, Illumination, Carbon Dioxide, Oxygen, Dust }
 	}
+	print(t)
 	send = json.dumps(t)
 	return send
 
@@ -35,15 +36,15 @@ def initjson():
 		hour = 10
 		QueryTime = [str(day), str(hour)]
 		old = db.readMinMinute(QueryTime)
+		print(old)
 		Date.append(old[0][1])
 		Temperature.append(old[0][5])
 		Humidity.append(old[0][6])
-		Illumination.append(data[0][10])
-		CarbonDioxide.append(data[0][8])
-		Oxygen.append(data[0][11])
-		Dust.append(data[0][9])
+		Illumination.append(old[0][10])
+		CarbonDioxide.append(old[0][8])
+		Oxygen.append(old[0][11])
+		Dust.append(old[0][9])
 
-	data = db.readMax()
 	t = {
 		'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9]],
 		'Date': Date,

@@ -6,7 +6,12 @@ conn = pymysql.connect(host="47.89.243.140", user="root", password="root", db="i
 # 使用cursor()方法获取操作游标
 cur = conn.cursor()
 
+conn2 = pymysql.connect(host="47.89.243.140", user="root", password="root", db="iotea")
+cur2 = conn.cursor()
 
+# cursor = connection.cursor()
+# cursor.execute(query)
+# cursor.close()
 # SQL 插入语句
 def insert(list):
 	sql = "insert into iotea (date,hour, minute ,second ,air_temp,air_hum,pressure,co2,dust,illumination," \
@@ -19,21 +24,29 @@ def insert(list):
 
 
 
+
+
 # SQL 查询语句
 def readMax():
 	sql="SELECT  * FROM iotea.iotea where id =(SELECT  max(id) FROM iotea.iotea)"
-	cur.execute(sql)
-	result = cur.fetchall()
-	conn.commit()
+	cur2.execute(sql)
+	result = cur2.fetchall()
+	conn2.commit()
 	return result
 
 
 # SQL 按时间查询
 def readMinMinute(time): # time[date,hour]
-	sql="SELECT  * FROM iotea.iotea where minute = (SELECT min(minute) FROM iotea.iotea where date = '%s' and hour = '%s')"\
+	sql="SELECT  * FROM iotea.iotea where date = '%s' and hour = '%s' LIMIT 1"\
 		%(time[0], time[1])
 	cur.execute(sql)
 	result = cur.fetchall()
 	conn.commit()
-	#print(result)
+	# print(result)
+	# if result:
 	return result
+	# else:
+	# 	date = time[0]
+	# 	hour = int(time[1])+1
+	# 	QueryTime = [str(date),str(hour)]
+	# 	return readMinMinute(QueryTime)

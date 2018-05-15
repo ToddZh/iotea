@@ -25,7 +25,7 @@ var box3=document.getElementById("box3");
 var box4=document.getElementById("box4");
 var article2=document.getElementById("article2");
 
-var realtime = [document.getElementById("Temperature"),document.getElementById("Humidity"),document.getElementById("Illumination"),
+var realdata = [document.getElementById("Temperature"),document.getElementById("Humidity"),document.getElementById("Illumination"),
     document.getElementById("CarbonDioxide"),document.getElementById("Oxygen"),document.getElementById("Dust")]
 
 bar.onclick=function(){
@@ -298,7 +298,7 @@ var c={
     },
     series: [
         {
-            name:'空气温度',
+            name:'光照',
             type:'line',
             stack: '总量',
              itemStyle:{
@@ -311,6 +311,9 @@ var c={
     ]
 };
 var d= {
+    tooltip:{
+        trigger:'axis'
+    },
 	grid: {
         left: '3%',
         right: '4%',
@@ -342,6 +345,7 @@ var d= {
             },
     },
     series: [{
+        name:'灰尘',
         data: [820, 932, 901, 934, 1290, 1330, 1320],
          itemStyle:{
                         normal:{
@@ -353,6 +357,9 @@ var d= {
     }]
 };
 var e= {
+    tooltip:{
+        trigger:'axis'
+    },
 	grid: {
         left: '3%',
         right: '4%',
@@ -384,17 +391,21 @@ var e= {
             },
     },
     series: [{
+        name:'二氧化碳',
         data: [820, 932, 901, 934, 1290, 1330, 1320],
-         itemStyle:{
-                        normal:{
-                            color:'#ADEC25'
-                                    }
-                                },
+        itemStyle:{
+                    normal:{
+                        color:'#ADEC25'
+                    }
+                    },
         type: 'line',
         areaStyle: {}
     }]
 };
 var f= {
+    tooltip:{
+        trigger:'axis'
+    },
 	grid: {
         left: '3%',
         right: '4%',
@@ -426,6 +437,7 @@ var f= {
             },
     },
     series: [{
+        name:'氧气',
         data: [820, 932, 901, 934, 1290, 1330, 1320],
          itemStyle:{
                         normal:{
@@ -470,7 +482,7 @@ function getdata(){
 
             //空气成分
             for(i=0;i<6;i++){
-                realtime[i].innerHTML=data.Data.shift();
+                realdata[i].innerHTML=data.Data.shift();
             }
 
             },
@@ -496,13 +508,20 @@ function initdata(){
             a.series[0].data = data.Temperature;
             b.series[0].data = data.Humidity;
             c.series[0].data = data.Illumination;
-            d.series[0].data = data.CarbonDioxide;
-            e.series[0].data = data.Oxygen;
-            f.series[0].data = data.Dust;
+            d.series[0].data = data.Dust;//灰尘
+            e.series[0].data = data.CarbonDioxide;//二氧化碳
+            f.series[0].data = data.Oxygen;//氧气
+
+            a.xAxis.data = data.Date;
+            b.xAxis.data = data.Date;
+            c.xAxis.data = data.Date;
+            d.xAxis.data = data.Date;
+            e.xAxis.data = data.Date;
+            f.xAxis.data = data.Date;
 
             //空气成分
             for(i=0;i<6;i++){
-                realtime[i].innerHTML=data.Data.shift();
+                realdata[i].innerHTML=data.Data.shift();
             }
 
             myChart1.setOption(a);
@@ -511,7 +530,6 @@ function initdata(){
             myChart4.setOption(d);
             myChart5.setOption(e);
             myChart6.setOption(f);
-            addData(true);
             },
             error:function(){
             }
