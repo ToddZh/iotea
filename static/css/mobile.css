@@ -336,10 +336,6 @@ img {
 .hide {
 	display: none;
 }
-.bgpic {
-	background:url(../img/background.png) no-repeat center center fixed ;
-	background-size: cover;
-}
 .bgcolor0 {
 	background: #000;
 }

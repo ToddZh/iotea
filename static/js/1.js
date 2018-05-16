@@ -353,14 +353,7 @@ var d= {
             		width:'1'
             	}
             },
-        min:function(value)
-        {
-            return value.min * 0.9;
-        },
-        max:function(value)
-        {
-            return value.max * 1.2;
-        }
+
     },
     series: [{
         name:'灰尘',
@@ -453,14 +446,16 @@ var f= {
             		width:'1'
             	}
             },
-        min:function(value)
-        {
-            return value.min - 0.1;
-        },
-        max:function(value)
-        {
-            return value.max + 0.1;
-        }
+        // min:function(value)
+        // {
+        //     return value.min - 0.1;
+        // },
+        min:0,
+        max:30
+        // max:function(value)
+        // {
+        //     return Math.ceil(value.max + 0.15);
+        // }
     },
     series: [{
         name:'氧气',
@@ -471,7 +466,7 @@ var f= {
                                     }
                                 },
         type: 'line',
-        areaStyle: {}
+        areaStyle: {}////
     }]
 };
 
