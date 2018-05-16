@@ -21,6 +21,7 @@ var dat1=document.getElementById("dat1");
 var dat2=document.getElementById("dat2");
 var application1=document.getElementById("application1");
 var toright1=document.getElementById("toright1");
+var toleft1=document.getElementById("toleft1");
 var box3=document.getElementById("box3");
 var box4=document.getElementById("box4");
 var article2=document.getElementById("article2");
@@ -41,6 +42,7 @@ bar.onclick=function(){
 	box3.style.width="75%";
 	teaimg.style.float="none";
 	box4.style.marginLeft="17%";
+	toleft1.className="hide";
 };
 
 close.onclick=function(){
@@ -56,6 +58,7 @@ close.onclick=function(){
 	box3.style.width="80%";
 	teaimg.style.float="left";
 	box4.style.marginLeft="2%";
+	toleft1.className="";
 };
 
 about.onclick=function(){	
@@ -63,7 +66,7 @@ about.onclick=function(){
 		lis[n].className="";
 	}
 	this.className="active";
-	body.style.background="#fff";
+	body.className="bgcolorf";
 	lw.className="hide";
 	about1.className="";
 	solution1.className="hide";
@@ -77,7 +80,7 @@ solution.onclick=function(){
 		lis[n].className="";
 	}
 	this.className="active";
-	body.style.background="#fff";
+	body.className="bgcolorf";
 	lw.className="hide";
 	about1.className="hide";
 	solution1.className="";
@@ -91,7 +94,7 @@ dat.onclick=function(){
 			lis[n].className="";
 		}
 		this.className="active";
-		body.style.background="#000";
+		body.className="bgpic";
 		lw.className="hide";
 		about1.className="hide";
 		solution1.className="hide";
@@ -105,7 +108,7 @@ application.onclick=function(){
 			lis[n].className="";
 		}
 		this.className="active";
-		body.style.background="#fff";
+		body.className="bgcolorf";
 		lw.className="hide";
 		about1.className="hide";
 		solution1.className="hide";
@@ -115,9 +118,15 @@ application.onclick=function(){
 };
 
 toright1.onclick=function(){
-	body.style.background="#000";
+    body.className="bgcolor0";
 	dat1.className="hide";
 	dat2.className="";
+};
+
+toleft1.onclick=function(){
+	body.className="bgpic";
+	dat1.className="";
+	dat2.className="hide";
 };
 
 //real-data

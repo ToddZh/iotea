@@ -80,22 +80,7 @@ height: 100%;
   height: 100%;
   }  
 }  
-@media only screen and (min-width:900px) and (orientation:landscape){  
-    html{font-size:175%;}
-    .headpage {
-  width:47%;
-  height: 400px;
-  float: left;
-  }
-}  
-@media only screen and (min-width:992px){  
-    html{font-size:200%;}
-    .headpage {
-  width:47%;
-  height: 400px;
-  float: left;
-  }
-}  
+
 img {
 	width: 100%;
 }
@@ -300,6 +285,12 @@ img {
 	top:50%;
 	right: 5%;
 }
+#toleft1 {
+	position: absolute;
+	top:20%;
+	left: 5%;
+	z-index: 200;
+}
 .sub {
 	font-size: 0.6rem;
 	text-align: left;
@@ -312,6 +303,10 @@ img {
 .sub img {
 	width:13%;
 	float:left;
+}
+#application1 {
+	width: 100%;
+	height: 100%;
 }
 #box4{
 	width: 100%;
@@ -340,4 +335,14 @@ img {
 }
 .hide {
 	display: none;
+}
+.bgpic {
+	background:url(../img/background.png) no-repeat center center fixed ;
+	background-size: cover;
+}
+.bgcolor0 {
+	background: #000;
+}
+.bgcolorf {
+	background: #fff;
 }

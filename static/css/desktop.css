@@ -1,0 +1,106 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+ul li {
+	list-style: none;
+}
+@media only screen and (min-width:900px) and (orientation:landscape){  
+    html{font-size:175%;}
+    .headpage {
+  width:100%;
+  height: 100%;
+  }
+}  
+@media only screen and (min-width:992px){  
+    html{font-size:200%;}
+    .headpage {
+   width:100%;
+  height: 100%;
+  }
+}  
+html {
+	width:100%;
+	height: 100%;
+}
+body {
+	width: 100%;
+	height: 100%; 
+	background:url(../img/background.png) no-repeat center center fixed ;  /*背景图铺满全屏*/
+	background-size: cover;
+}
+.container {
+width: 100%;
+height: 100%;
+}
+img {
+	width: 100%;
+}
+.left {
+    position: fixed;
+	height: 100%;
+	width: 11%;
+	color: #fff;
+	z-index: 100;
+	top:0;
+	left: 0;
+}
+.left ul {
+	height:100% ;
+	width: 100%;
+	opacity: 0.51;
+	background: #385C3E;
+	display: none;
+}
+.left ul li {
+	font-size: 0.7rem;
+	text-align: center;
+	padding: 20% 0;
+}
+.menu {
+	background: #385C3E;
+	width: 100%;
+	height: 15%;
+	position: relative;
+
+}
+.logo {
+	width: 60%;
+	padding: 15% 0;
+	margin:0 auto;
+}
+.bar {
+	width: 24%;
+	position: absolute;
+	bottom: 10%;
+	left:40% ;
+}
+.close {
+	height: 20%;
+	text-align: center;
+	padding-top: 30%;
+	font-size: 3rem;
+	opacity: 0.51;
+	background: #385C3E;
+    display: none;
+}
+.form {
+	background: #f9cb9c;
+}
+.right {
+	width: 100%;
+	height: 100%;
+}
+#lw {
+	margin:60% auto 0 auto;
+}
+.hide {
+	display: none;
+}
+.bgpic {
+	background:url(../img/background.png) no-repeat center center fixed ;  /*背景图铺满全屏*/
+	background-size: cover;
+}
+.bgcolor {
+	background: #000;
+}
