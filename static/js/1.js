@@ -310,6 +310,7 @@ var c={
         },
     ]
 };
+
 var d= {
     tooltip:{
         trigger:'axis'
@@ -343,6 +344,14 @@ var d= {
             		width:'1'
             	}
             },
+        min:function(value)
+        {
+            return value.min * 0.9;
+        },
+        max:function(value)
+        {
+            return value.max * 1.2;
+        }
     },
     series: [{
         name:'灰尘',
@@ -435,6 +444,14 @@ var f= {
             		width:'1'
             	}
             },
+        min:function(value)
+        {
+            return value.min - 0.1;
+        },
+        max:function(value)
+        {
+            return value.max + 0.1;
+        }
     },
     series: [{
         name:'氧气',

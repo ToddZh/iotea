@@ -27,10 +27,10 @@ def getLoriotData():
 			co2 = str(int(data[8:12], 16))
 			dust = str(int(data[12:16], 16))
 			illumination = str(int(data[16:20], 16))
-			o2 = str(round(int(data[20:22], 16) / 10, 1)) + "%"
+			o2 = str(round(int(data[20:22], 16) / 10, 1))
 			soil_temp = str(int(data[22:24], 16))
 			soil_hum = str(int(data[24:26], 16))
-			voltage = str(round(int(data[26:28], 16) / int('ff', 16) * 5, 1)) + "V"
+			voltage = str(round(int(data[26:28], 16) / int('ff', 16) * 5, 1))
 			error = str(int(data[28:], 16))
 
 			list = [date, hour, minute, second, air_temp, air_hum, pressure, co2, dust, illumination,
@@ -38,8 +38,4 @@ def getLoriotData():
 			db.insert(list)
 	ws.close()
 
-
-
-
-
-
+getLoriotData()

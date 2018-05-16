@@ -1,6 +1,6 @@
 from flask import Flask,request,url_for,render_template,redirect,jsonify
-import json,db,threading,loriot,time,datetime
-
+import json,db,threading,time,datetime
+#loriot
 app=Flask(__name__)
 
 
@@ -37,12 +37,20 @@ def initjson():
 		QueryTime = [str(day), str(hour)]
 		old = db.readMinMinute(QueryTime)
 		print(old)
-		Date.append(old[0][1])
+
+		date = old[0][1]
+		Date.append(date[5:])
 		Temperature.append(old[0][5])
 		Humidity.append(old[0][6])
 		Illumination.append(old[0][10])
 		CarbonDioxide.append(old[0][8])
-		Oxygen.append(old[0][11])
+
+		oxy = old[0][11]
+		if oxy.find('%'):
+			Oxygen.append(oxy[:-1])
+		else:
+			Oxygen.append(oxy)
+
 		Dust.append(old[0][9])
 
 	t = {
