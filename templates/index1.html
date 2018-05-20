@@ -11,38 +11,50 @@
 	<title>lotea</title>
 </head>
 <body>
+	<div id="shard" ></div>
 	<div class="container">
-		<div class="headpage" >
-			<div class="left">
-				<div class="menu" id="menu">
-					<div class="logo"><img src="../static/img/logo.png"></div>
-					<div class="bar" id="bar"><img src="../static/img/bar.png"></div>
-				</div>
-					<div class="close" id="close">&times;</div>
-				        <ul>
-							<li id="about">关于</li>
-							<li id="solution">解决方案</li>
-							<li id="data">数据展示</li>
-							<li id="applicaton">行业应用</li>
-						</ul>
+        <div id="left">
+            <div id="menu">
+					<div class="logo" id="logo"><img src="../static/img/logo.png"></div>
+					<div id="bar"><img src="../static/img/bar.png"></div>
+            </div>
+            <div id="ulcontainer" class="hide">
+                <ul id="barul">
+                    <li class="even" id="about">故事</li>
+                    <li class="odd hide">故事</br>__</li>
+                    <li class="even" id="solution">解决方案</li>
+                    <li class="odd hide">解决方案</br>__</li>
+                    <li class="even" id="data">数据展示</li>
+                    <li class="odd hide">数据展示</br>__</li>
+                    <li class="even" id="applicaton">行业应用</li>
+                    <li class="odd hide">行业应用</br>__</li>
+                </ul>
 			</div>
-			<div class="right" id="right">
+
+        </div>
+        <div id="right">
 						<div id="lw">
-							<div class="biglogo"><img src="../static/img/dalogo.png"></div>
-							<div class="word">The loT Hardware Enabler</div>
-							<div class="pre">Presented by seeed</div>
+							<div class="biglogo"><img src="../static/img/Page 1 Copy 3.png"></div>
+							<div class="word">蒙顶山，物联网的茶</div>
+							<div class="pre">Seeed IoTea 智慧生态茶园</div>
+							<div id="down"><img src="../static/img/Group.png"></div>
 					    </div>
 					    <div id="about1" class="hide">
-					    	<div id="box">
-					    		<div id="teaimg"><img src="../static/img/Group Copy 3.png"><img src="../static/img/Group Copy 6.png"></div>
+					    	<div class="abstory">Story</br>故事</div>
+					    		<div id="teaimg">
+					    			<div id="teaimg1">
+					    				<img src="../static/img/Group Copy 3.png"><img src="../static/img/Group Copy 6.png">
+					    			</div>
+					    			</div>
 					    		<div id="article">
-					    			北纬30°，东经103°。坐落在四川雅安东北部的蒙顶山，是青藏高原与四川盆地在极度海拔落差之间的产物。山脉由西向东，茶园堆青叠翠，绿浪翻涌。这对在蒙顶山茶区土生土长的老邓来说，是最稀松平常的风景。</br>
+					    			<div id="aboutarticle">
+					    			北纬30°，东经103°。坐落在四川雅安东北部的蒙顶山，是青藏高原与四川盆地在极度海拔落差之间的产物。山脉由西向东，茶园堆青叠翠，绿浪翻涌。这对在蒙顶山茶区土生土长的老邓来说，是最稀松平常的风景。</br></br>
 
-老邓不老，82年生，是蒙顶山茶区众多茶园主人里比较少见的80后，最爱喝自己茶园里的明前手工甘露，管着分布在1100多米海拔高度的方圆50亩的茶园。</br>
+老邓不老，82年生，是蒙顶山茶区众多茶园主人里比较少见的80后，最爱喝自己茶园里的明前手工甘露，管着分布在1100多米海拔高度的方圆50亩的茶园。</br></br>
 
 小时候，因为家里有个小规模的老川茶园，父辈们种茶制茶卖茶过活的耳濡目染，老邓对茶多少有些独特的情感。“虽然跟茶结缘早，但长大了还是选择离开，去了城市生活，高山种茶太苦了。” 但2013年，城市创业失利，老邓命运般地回到了茶园，开始正经学茶、种茶、制茶，延续着祖辈留下的生活方式。
 
-“都说：扬子江心水，蒙山顶上茶。高山种茶海拔高，有机生态的生长环境，茶品质有保障。但同时因为茶园种植密度低，管理成本高，茶树发芽不齐，采茶难度大，导致高山茶产量小，在市场上的价值优势体现不出来。”</br>
+“都说：扬子江心水，蒙山顶上茶。高山种茶海拔高，有机生态的生长环境，茶品质有保障。但同时因为茶园种植密度低，管理成本高，茶树发芽不齐，采茶难度大，导致高山茶产量小，在市场上的价值优势体现不出来。”</br></br>
 
 怎么让消费者深入了解高山茶的有机生长和制茶环境，提升高山茶的价值所在，是老邓这两年一直在思考的问题。机缘巧合，因为认识了上山探茶、为Seeed IoTea智慧生态茶园方案寻找试点茶园的樊老师（戳此樊老师上山找茶趣的故事），这个问题出现转机。
 
@@ -51,7 +63,9 @@
 					    	</div>
 					    </div>
 					    <div id="solution1" class="hide">
-					    		<div id="solutionimg"><img src="../static/img/solution.png"></div>
+					    	<div class="absolution">Solution</br>智慧生态茶园方案</div>
+					    		<div id="solutionimg"><img id="solimg" src="../static/img/2X.png"></div>
+					    		<div id="solutionbg"><img src="../static/img/solution%202X.png"></div>
 					    		<div id="article1">
 					    			<div id="solutionarticle">
 					    			Seeed IoTea智慧生态茶园方案致力于如何在不破坏原本山茶古旧的种茶－摘茶－制茶生态的基础上，让技术帮助茶农更科学、生理地管理广袤的茶园，同时对消费者开放实时监测茶园的渠道，让大众直观地了解高山茶种茶、制茶的生态。</br></br>
@@ -61,50 +75,126 @@
 					       </div>
 					    </div>
 					    <div id="dat1" class="hide">
-					    	<div id="box2">
-					    	    <div id="realtitle">实时数据</br><span id="time1"></span></div>
-					    	    <ul id="item">
-					    	    	<li><img src="../static/img/Temperature.png">温度
-					    	    		<div id="Temperature" style="text-indent:8%;"></div>
-					    	    	</li>
-					    	    	<li><img src="../static/img/Humidity.png">湿度
-					    	    		<div id="Humidity" style="text-indent:8%;"></div>
-					    	    	</li>
-					    	    	<li><img src="../static/img/Illumination.png">日照
-					    	    		<div id="Illumination" style="text-indent:8%;"></div>
-					    	    	</li>
-					    	    	<li><img src="../static/img/CarbonDioxide.png">二氧化碳
-					    	    		<div id="CarbonDioxide" style="text-indent:8%;"></div>
-					    	    	</li>
-					    	    	<li><img src="../static/img/Oxygen.png">氧气</br>
-					    	    		<div id="Oxygen" style="text-indent:8%;"></div>
-					    	    	</li>
-					    	    	<li><img src="../static/img/Dust.png">灰尘</br>
-					    	    		<div id="Dust" style="text-indent:8%;"></div>
-					    	    	</li>				    	    	
-					    	    </ul>
-					    	</div>
+					    	    <div id="realtitle">Real-time data</br>茶园实时数据<span id="time1"></span></div>
+					    	    <div class="dat1contain">
+					    	    		<div class="td td3 td4">
+					    	    			<img src="../static/img/Temperature.png"></br>
+					    	    			<span class="dif">温度</span></br>
+					    	    			<span id="Temperature"></span>℃
+					    	    		</div>
+					    	    		<div class="td1 td3 td4">
+					    	    			<img src="../static/img/Humidity.png"></br>
+					    	    			<span class="dif">湿度</span></br>
+					    	    			<span id="Humidity"></span>%
+					    	    		</div>					
+					    	    		<div class="td td4">
+					    	    			<img src="../static/img/Illumination.png"></br>
+					    	    			<span class="dif">日照</span></br>
+					    	    			<span id="Illumination"></span>/Day
+					    	    		</div>
+					    	    		<div class="td1 td3">
+					    	    			<img src="../static/img/CarbonDioxide.png"></br>
+					    	    			<span class="dif">二氧化碳</span></br>
+					    	    			<span id="CarbonDioxide"></span>PPM
+					    	    		</div>					
+					    	    		<div class="td3 td5">
+					    	    			<img src="../static/img/Oxygen.png"></br>
+					    	    			 <span class="dif">氧气</span></br>
+					    	    			<span id="Oxygen"></span>%
+					    	    		</div>
+					    	    		<div>
+					    	    			<img src="../static/img/Dust.png"></br>
+					    	    			<span class="dif">灰尘</span></br>
+					    	    			<span id="Dust"></span>pcs/0.01cf
+					    	    		</div>
+					    	    </div>
 					    	<div id="toright1"><img src="../static/img/Path 5 Copy.png"> </div>
 					    </div>
 					    <div id="dat2" class="hide">
-					    	<div id="toleft1"><img src="../static/img/Path 551.png"></div>                       <!--这一行为新加的部分-->
-					        <div id="box3">
-						    	 <div id="weeklydata">历史数据</div>
-						    	 <div class="sub"><img src="../static/img/Temperature.png">温度/°C</div>
-						    	 <div id="main1"></div>
-						    	 <div class="sub"><img src="../static/img/Humidity.png">湿度/%</div>
-						    	 <div id="main2"></div>
-						    	 <div class="sub"><img src="../static/img/Illumination.png">日照</div>
-						    	 <div id="main3"></div>
-						    	 <div class="sub"><img src="../static/img/Dust.png">灰尘/pcs 0.01cf</div>
-						    	 <div id="main4"></div>
-						    	 <div class="sub"><img src="../static/img/CarbonDioxide.png">二氧化碳/PPM</div>
-						    	 <div id="main5"></div>
-						    	 <div class="sub"><img src="../static/img/Oxygen.png">氧气/%</div>
-						    	 <div id="main6"></div>
-					        </div>
+					    	<div id="toleft1"><img src="../static/img/Path 55 Copy.png"></div>
+                            <div id="weeklydata"><div id="slider"><div id="sl1">&nbsp;&nbsp;日</div><div id="sl2">&nbsp;&nbsp;周</div><div id="sl3">&nbsp;&nbsp;月</div></div><div id="time11"></div></div>
+                            <div id="box3" class="hide">
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Temperature.png">温度/°C</div>
+							    	 <div id="main1"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Humidity.png">湿度/%</div>
+							    	 <div id="main2"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Illumination.png">日照</div>
+							    	 <div id="main3"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Dust.png">灰尘/pcs 0.01cf</div>
+							    	 <div id="main4"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/CarbonDioxide.png">二氧化碳/PPM</div>
+							    	 <div id="main5"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Oxygen.png">氧气/%</div>
+							    	 <div id="main6"></div>
+                                     </div>
+                            </div>
+                            <div id="box33" class="hide">
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Temperature.png">温度/°C</div>
+							    	 <div id="main11"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Humidity.png">湿度/%</div>
+							    	 <div id="main22"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Illumination.png">日照</div>
+							    	 <div id="main33"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Dust.png">灰尘/pcs 0.01cf</div>
+							    	 <div id="main44"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/CarbonDioxide.png">二氧化碳/PPM</div>
+							    	 <div id="main55"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Oxygen.png">氧气/%</div>
+							    	 <div id="main66"></div>
+                                     </div>
+                            </div>
+                            <div id="box333">
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Temperature.png">温度/°C</div>
+							    	 <div id="main111"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Humidity.png">湿度/%</div>
+							    	 <div id="main222"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Illumination.png">日照</div>
+							    	 <div id="main333"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Dust.png">灰尘/pcs 0.01cf</div>
+							    	 <div id="main444"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/CarbonDioxide.png">二氧化碳/PPM</div>
+							    	 <div id="main555"></div>
+							    	 </div>
+							    	 <div class="tabcontain">
+							    	 <div class="sub"><img src="../static/img/Oxygen.png">氧气/%</div>
+							    	 <div id="main666"></div>
+                                     </div>
+                            </div>
 				        </div>
 				        <div id="application1" class="hide">
+                            <div class="abapplication">Application</br>延伸应用</div>
+
 				        	<div id="box4">
 					    		<div id="appimg"><img src="../static/img/Group 6.png"><img src="../static/img/Group 7.png"> <img src="../static/img/Group 18.png"><img src="../static/img/Group 12.png"></div>
 					    		<div id="article2">
@@ -113,7 +203,6 @@
 				        	</div>
 				        </div>
 	   </div>
-	</div>
 	</div>
     <script type="text/javascript" src="math.js"></script>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>

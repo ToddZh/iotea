@@ -12,91 +12,92 @@ html {
 body {
 	width: 100%;
 	height: 100%; 
-	background:url(../../static/img/background.png) no-repeat center center fixed ;  /*背景图铺满全屏*/
+	background:url(../../static/img/newbg.png) no-repeat center center fixed ;
 	background-size: cover;
+	overflow-x:hidden;
 }
 .container {
 width: 100%;
 height: 100%;
 /*max-width:window.screen.width;*/
 }
-@media only screen and (min-width:320px) and (orientation:portrait){  
+@media only screen and (min-width:320px) and (orientation:portrait){
    html{
     	font-size:100%;
     	}
-   .headpage {
+   .container>div {
   width:100%;
   height: 100%;
-  } 
-}  
-@media only screen and (min-width:360px) and (orientation:portrait){  
+  }
+}
+@media only screen and (min-width:360px) and (orientation:portrait){
     html{font-size:125%;}
-    .headpage {
+    .container>div {
   width:100%;
   height: 100%;
-  }  
-}  
-@media only screen and (min-width:400px) and (orientation:portrait){  
+  }
+}
+@media only screen and (min-width:400px) and (orientation:portrait){
     html{font-size:150%;}
-    .headpage {
+    .container>div {
   width:100%;
   height: 100%;
-  }  
-}  
-  
-@media only screen and (min-width:600px) and (orientation:portrait){  
-    html{font-size:200%;}
-    .headpage {
-  width:100%;
-  height: 100%;
-  }  
-}  
-  
-@media only screen and (max-width:768px) and (orientation:portrait){  
-    .wrap{width:90%;}
-    .headpage {
-  width:100%;
-  height: 100%;
-  }  
-}  
-@media only screen and (min-width:480px) and (orientation:landscape){  
-    html{font-size:100%;}
-    .headpage {
-  width:100%;
-  height: 100%;
-  }  
-}  
-@media only screen and (min-width:580px) and (orientation:landscape){  
-    html{font-size:107%;}
-    .headpage {
-  width:100%;
-  height: 100%;
-  }  
-}  
-@media only screen and (min-width:730px) and (orientation:landscape){  
-    html{font-size:130%;}
-    .headpage {
-  width:100%;
-  height: 100%;
-  }  
-}  
+  }
+}
 
+@media only screen and (min-width:600px) and (orientation:portrait){
+    html{font-size:200%;}
+    .container>div {
+  width:100%;
+  height: 100%;
+  }
+}
+
+@media only screen and (max-width:768px) and (orientation:portrait){
+    .wrap{width:90%;}
+    .container>div {
+  width:100%;
+  height: 100%;
+  }
+}
+@media only screen and (min-width:480px) and (orientation:landscape){
+    html{font-size:100%;}
+    .container>div {
+  width:100%;
+  height: 100%;
+  }
+}
+@media only screen and (min-width:580px) and (orientation:landscape){
+    html{font-size:107%;}
+    .container>div {
+  width:100%;
+  height: 100%;
+  }
+}
+@media only screen and (min-width:730px) and (orientation:landscape){
+    html{font-size:130%;}
+    .container>div {
+  width:100%;
+  height: 100%;
+  }
+}
 img {
 	width: 100%;
 }
-.menu {
-	background: #385C3E;
+#menu {
+	background:#427F98;
 	width: 100%;
 	height: 13%;
 	position: relative;
+	opacity: 0.9;
 
 }
 .logo {
-	width: 60%;
+	width: 50%;
 	padding: 15% 0;
 	margin:0 auto;
 }
-.bar {
+#bar {
 	width: 24%;
 	position: absolute;
 	bottom: 14%;
@@ -105,7 +106,7 @@ img {
 .form {
 	background: #f9cb9c;
 }
-.left {
+#left {
     position: fixed;
 	height: 100%;
 	width: 22%;
@@ -113,120 +114,192 @@ img {
 	z-index: 100;
 	top:0;
 	left: 0;
+	opacity: 0.9;
 }
-.left ul {
+#right {
+	width: 100%;
+	height: 100%;
+}
+#ulcontainer {
 	height:100% ;
 	width: 100%;
-	opacity: 0.51;
-	background: #385C3E;
+	background: #427F98;
+	opacity: 0.9;
 	display: none;
 }
-.left ul li {
+#barul {
+	height:100% ;
+	width: 100%;
+	position: absolute;
+	top: 56%;
+	left: 0;
+}
+#barul li {
 	font-size: 0.7rem;
 	text-align: center;
 	padding: 20% 0;
+	margin: 0 auto;
 }
-.close {
-	height: 20%;
-	text-align: center;
-	padding-top: 30%;
-	font-size: 3rem;
-	opacity: 0.51;
-	background: #385C3E;
-    display: none;
-}
+
 .right {
 	width: 100%;
 	height: 100%;
 }
 #lw {
-	margin:60% auto 0 auto;
-
+	height: 100%;
+	margin:40% auto 0 auto;
 }
 .biglogo {
-	width: 32%;
-	height: 5%;
+	width: 26%;
+	height: 4%;
     margin: 0 auto;
 }
 .word {
-	width: 53%;
-	height: 3.5%;
+     width: 73%;
+	height: 7%;
 	margin: 0 auto;
-	margin-top: 8%;
-	margin-bottom: 5%;
+	margin-top: 7%;
+	margin-bottom: 3%;
     text-align: center;
-    color: #fff;
-    font-size: 0.7rem;
+    color: #013A4C;
+    font-size: 1.2rem;
 }
 .pre {
-	border: 1px solid #fff;
-	width: 41.8%;
+	width: 60%;
 	height: 3.5%;
-	margin: 8% auto;
-	color: #fff;
+	margin: 3% auto;
+	color: #013A4C;
     font-size: 0.7rem;
     text-align: center;
 }
-.active {
-	border-bottom: 1px solid #fff;
+#down {
+	width: 4%;
+	height: 7%;
+	position: absolute;
+	z-index: 600;
+	left: 50%;
+	bottom: 0%;
 }
 #about1 {
 	width: 100%;
 	height: 100%;
+	position:relative;
 }
-#about1 #box {
-	width: 100%;
-	margin-top: 29%;
-	height: 100%;
-}
-#teaimg {
-	float: left;
-	width:100% ;
-	height: 20%;
-	overflow: hidden;
-	/*height: 28.7%;*/
-}
-#teaimg img {
-	width:48%;
-	margin-right: 2%;
+.abstory {
+	text-align: right;
+	width: 12%;
+	height: 8%;
+	color: #406C77;
+	font-size: 0.8rem;
+	font-weight: 600;
+    font-family: PingFangHK-Semibold;
+	position: absolute;
+	top:7%;
+	right:10% ;
 
 }
+.absolution {
+	text-align: right;
+	width: 40%;
+	height: 8%;
+	color: #406C77;
+	font-weight: 600;
+	font-size: 0.8rem;
+    font-family: PingFangHK-Semibold;
+	position: absolute;
+	top:7%;
+	right:10% ;
+
+}
+.abapplication {
+	text-align: right;
+	width: 40%;
+	height: 8%;
+	color: #406C77;
+	font-weight: 600;
+	font-size: 0.8rem;
+    font-family: PingFangHK-Semibold;
+	position: absolute;
+	top:7%;
+	right:10% ;
+
+}
+#teaimg {
+	width:100% ;
+	height: 29%;
+	margin-left: 5%;
+    position: fixed;
+    top: 20%;
+    left: 0%;
+    bottom: 70%;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;   /*这句是为了滑动更顺畅*/
+}
+#teaimg1 {
+	width:200% ;
+	height: 100%;
+}
+#teaimg img {
+	/*float: left;*/
+	width:40%;
+	height: 100%;
+	margin-right: 2%;
+}
 #article {
-	color: #4F6E62;
 	word-spacing: 3px;
+	height:38% ;
+	position: fixed;
+	left:0;
+	top: 50%;
+	width:100%;
+	padding-top:4%;
+	bottom: 0%;
+	overflow-y: scroll;
+	background:#fff;
+	-webkit-overflow-scrolling: touch;   /*这句是为了滑动更顺畅*/
+}
+#aboutarticle {
+	width:84% ;
+	margin: 0 auto;
+	font-family: PingFangHK-Light;
 	font-size: 0.7rem;
+	color:#4F6E62;
+	letter-spacing: 0;
+	line-height: 1.2rem;
 }
 #solution1 {
 	width: 100%;
+	height: 100%;
 }
 #solutionimg {
 	width:100% ;
-    height: 55%;
-    position: fixed;  
-    top: 8%;  
-    left: 0%;  
-    bottom: 60%; /*距离底部的距离为底部盒子的高度，自己也可以设置*/
+    height: 100%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    bottom: 0%;
     overflow-x: scroll;
-    width: 100%;  
-    -webkit-overflow-scrolling: touch;   /*这句是为了滑动更顺畅*/  
+    overflow-y: hidden;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;   /*这句是为了滑动更顺畅*/
 }
-#solutionimg  img {
-	width:145% ;
+#solimg {
 	height: 100%;
 }
 #article1{
 	position: fixed;
 	left:0;
-	top: 60%;
+	top: 65%;
 	width:100%;
 	padding-top:4%;
 	bottom: 0%;
-	overflow-y: scroll; 
+	overflow-y: scroll;
+	overflow-x: hidden;
 	background:#A0AA8B;
-	-webkit-overflow-scrolling: touch;   /*这句是为了滑动更顺畅*/  
+	-webkit-overflow-scrolling: touch;   /*这句是为了滑动更顺畅*/
 }
 #solutionarticle {
-	width:70% ;
+	width:80% ;
 	margin: 0 auto;
 	font-family: PingFangHK-Light;
 	font-size: 0.6rem;
@@ -234,75 +307,138 @@ img {
 	letter-spacing: 0;
 	line-height: 1.2rem;
 }
+#solutionbg {
+	position: fixed;
+	width: 200%;
+	z-index: -100;
+}
 .bgpic {
-	background:url(../../static/img/background.png) no-repeat center center fixed ;  /*背景图铺满全屏*/
+	background:url(../img/background.png) no-repeat center center fixed ;
 	background-size: cover;
 }
 #dat1,#dat2 {
 	width: 100%;
+	height: 100%;
 	position: relative;
 	height: 100%;
-	color: #8FC31F;
+	color: #fff;
 }
-#dat2{
-	background: #000;
-}
-#box2,#box3 {
-	width: 75%;
+#box3 {
+	width: 80%;
 	height: 90%;
-	margin-left: 26%;
-	margin-top:8% ;
+	padding-left: 10%;
+	padding-top:30% ;
+}
+#box33 {
+	width: 80%;
+	height: 90%;
+	padding-left: 10%;
+	padding-top:30% ;
+}
+#box333 {
+	width: 80%;
+	height: 90%;
+	padding-left: 10%;
+	padding-top:30% ;
 }
 #realtitle,#weeklydata {
+	width: 32%;
+	height: 10%;
+	position: fixed;
+	top:7%;
+	right:10% ;
 	font-family: PingFangHK-Semibold;
 	font-weight: 800;
 	font-size: 0.8rem;
 	letter-spacing: 0;
 	text-align: center;
+	z-index: 600;
 }
 #weeklydata {
 	margin-bottom: 20%;
 }
-#item {
-	margin-top:10%;
-	width: 70%;
-	text-align: left;
-	font-size: 0.6rem;
+#slider {
+	width: 100%;
+	height: 50%;
+	background: #759F1F;
 }
-#item img {
-	width: 15%;
+#time11 {
+	margin-top:2% ;
+}
+#sl1 {
+	background: #92C627;
+}
+#sl1,#sl2,#sl3 {
+	display:flex;/*Flex布局*/
+    align-items:center;/*指定垂直居中*/
+	border-radius: 50%;
+	width: 30%;
+	height:100% ;
 	float: left;
 }
-#item li {
-    text-indent: 8%;
-	padding: 10% 0;
-}
-#item li span {
+.dat1contain {
+	padding-top: 38%;
+	margin-left:5% ;
+	width:100% ;
+	height:100%;
+	font-size: 0.5rem;
+	color:#fff ;
 	text-align: center;
+}
+.dat1contain>div{
+	padding-bottom: 5%;
+	width: 45%;
+	height:20% ;
+	float: left;
+}
+.td {
+	border-right:1px #8FC31F solid;
+	 border-bottom:1px #8FC31F solid;
+	 }
+.td1 {
+	border-bottom:1px #8FC31F solid;
+	 }
+.td5 {
+	border-right:1px #8FC31F solid;
+}
+.dat1contain img {
+	width:38% ;
+	margin-bottom: 5%;
+}
+.dat1contain span {
+	font-size: 1rem;
+}
+.dat1contain .dif {
+ 	font-size: 0.5rem;
+	color:#36E39C ;
+}
+.tabcontain {
+	margin-bottom: 8%;
 }
 #toright1 {
 	position: absolute;
-	top:50%;
+	z-index: 600;
+	top:47%;
 	right: 5%;
 }
 #toleft1 {
-	position: absolute;
-	top:20%;
+	position: fixed;
+	top:47%;
 	left: 5%;
 	z-index: 200;
 }
 .sub {
 	font-size: 0.6rem;
 	text-align: left;
-	margin-top: 5%;
 	margin-left: 2%;
 	width: 60%;
 	height:13% ;
+	vertical-align: middle;
     text-indent: 0.3rem;
 }
 .sub img {
-	width:13%;
-	float:left;
+	vertical-align: middle;
+	width:22%;
 }
 #application1 {
 	width: 100%;
@@ -310,17 +446,17 @@ img {
 }
 #box4{
 	width: 100%;
-	margin-top: 30%;
+	margin-top: 35%;
 	height: 100%;
 }
 #appimg {
 	width:100% ;
-	height: 45%;
-	margin-left: 2%;
+	height: 50%;
+	margin: 0 auto;
 }
 #appimg img {
-	width: 36%;
-	height:20%;
+	width: 38%;
+	height:42%;
 	margin-left:8%;
 	margin-bottom:4% ;
 }
@@ -336,9 +472,33 @@ img {
 .hide {
 	display: none;
 }
-.bgcolor0 {
-	background: #000;
+.hide1 {
+	display: none;
+}
+
+/*
+ * 新加的部分*/
+.bgcolor {
+	background: #427F98;
+	opacity: 0.9;
+}
+.bgpic {
+	background:url(../../static/img/newbg.png) no-repeat center center fixed ;
+	background-size: cover;
+}
+.bgblue {
+	background:#25637C;
 }
 .bgcolorf {
 	background: #fff;
 }
+  #shard {
+        position: absolute;
+        display: block;
+        top: 0px;
+        left:25%;
+        width: 100%;
+        height: 100%;
+        z-index: 500;
+        opacity: 0;
+    }
