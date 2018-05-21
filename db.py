@@ -1,8 +1,8 @@
 import pymysql.cursors
 
 # 打开数据库连接
-# conn = pymysql.connect("localhost", "root", "1234", "iotea")
-conn = pymysql.connect(host="47.89.243.140", user="root", password="root", db="iotea")
+conn = pymysql.connect("localhost", "root", "1234", "iotea")
+# conn = pymysql.connect(host="47.89.243.140", user="root", password="root", db="iotea")
 # 使用cursor()方法获取操作游标
 cur = conn.cursor()
 
@@ -26,10 +26,18 @@ def readMax():
 
 # SQL 按时间查询
 def readMinMinute(time): # time[date,hour]
-	sql = "SELECT  * FROM iotea.iotea where date = '%s' LIMIT 1"\
-		% (time[0])
+	sql = "SELECT  * FROM iotea.iotea where date = '%s' and hour = '%s' LIMIT 1" % (time[0], time[1])
 	cur.execute(sql)
 	result = cur.fetchall()
 	conn.commit()
-	print(result)
+	# print(result)
+	return result
+
+
+# SQL 按时间查询
+def readByDate(date):
+	sql = "SELECT  * FROM iotea.iotea where date = '%s' LIMIT 1" % (date)
+	cur.execute(sql)
+	result = cur.fetchall()
+	conn.commit()
 	return result

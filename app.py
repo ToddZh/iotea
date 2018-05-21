@@ -15,12 +15,13 @@ def sendjson():
 		'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9]]
 		# { Temperature, Humidity, Illumination, Carbon Dioxide, Oxygen, Dust }
 	}
-	print(t)
+	# print(t)
 	send = json.dumps(t)
 	return send
 
-@app.route("/initjson", methods=['GET','POST'])
-def initjson():
+@app.route("/initday", methods=['GET','POST'])
+def initday():
+	anchorDay = []
 	DateDay = []
 	TemperatureDay = []
 	HumidityDay = []
@@ -29,6 +30,58 @@ def initjson():
 	OxygenDay = []
 	DustDay = []
 
+	data = db.readMax()
+	days = beforeDays(1)
+	today = str(datetime.date.today())
+	# 显示的坐标轴锚点
+	anchorDay.append({'value': [str(days[0])[5:] + " 00:00:00", 0]})
+	anchorDay.append({'value': [today[5:] + " 00:00:00", 0]})
+
+
+	for day in days:
+		for hour in range(0, 23):
+			QueryTime = []
+			if hour < 10:
+				QueryTime = [str(day), '0' + str(hour)]
+			else:
+				QueryTime = [str(day), str(hour)]
+			old = db.readMinMinute(QueryTime)
+			try:
+				date = old[0][1]
+				moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+				# {value: ['2016/12/18 6:38:08', 80]}
+				# dict1 = {'abc': 456};
+				DateDay.append(str(hour))
+				TemperatureDay.append({'value': [moment, old[0][5]]})
+				HumidityDay.append({'value': [moment, old[0][6]]})
+				IlluminationDay.append({'value': [moment, old[0][10]]})
+				CarbonDioxideDay.append({'value': [moment, old[0][8]]})
+				oxy = old[0][11]
+				if oxy.find('%'):
+					OxygenDay.append({'value': [moment, oxy[:-1]]})
+				else:
+					OxygenDay.append(oxy)
+				DustDay.append({'value': [moment, old[0][9]]})
+			except Exception:
+				pass  #应该传给前端数据缺少标志 前端显示缺少数据
+
+	t = {
+		'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9]],
+		'anchorDay': anchorDay,
+		'DateDay': DateDay,
+		'TemperatureDay': TemperatureDay,
+		'HumidityDay': HumidityDay,
+		'IlluminationDay': IlluminationDay,
+		'CarbonDioxideDay': CarbonDioxideDay,
+		'OxygenDay': OxygenDay,
+		'DustDay': DustDay
+	}
+	init = json.dumps(t)
+	return init
+
+@app.route("/initweek", methods=['GET','POST'])
+def initweek():
+	anchorWeek = []
 	DateWeek = []
 	TemperatureWeek = []
 	HumidityWeek = []
@@ -37,6 +90,50 @@ def initjson():
 	OxygenWeek = []
 	DustWeek = []
 
+	week = beforeDays(7)
+	today = str(datetime.date.today())
+	anchorWeek.append({'value': [str(week[0])[5:] + " 00:00:00", 0]})
+	anchorWeek.append({'value': [today[5:] + " 00:00:00", 0]})
+	for day in week:
+		for hour in range(0, 23, 6):
+			QueryTime = []
+			if hour < 10:
+				QueryTime = [str(day), '0' + str(hour)]
+			else:
+				QueryTime = [str(day), str(hour)]
+			old = db.readMinMinute(QueryTime)
+			try:
+				date = old[0][1]
+				DateWeek.append(date[5:])
+				moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+				TemperatureWeek.append({'value': [moment, old[0][5]]})
+				HumidityWeek.append({'value': [moment, old[0][6]]})
+				IlluminationWeek.append({'value': [moment, old[0][10]]})
+				CarbonDioxideWeek.append({'value': [moment, old[0][8]]})
+				oxy = old[0][11]
+				if oxy.find('%'):
+					OxygenWeek.append({'value': [moment, oxy[:-1]]})
+				else:
+					OxygenWeek.append({'value': [moment, oxy]})
+				DustWeek.append({'value': [moment, old[0][9]]})
+			except Exception:
+				pass
+	t = {
+		'anchorWeek': anchorWeek,
+		'DateWeek': DateWeek,
+		'TemperatureWeek': TemperatureWeek,
+		'HumidityWeek': HumidityWeek,
+		'IlluminationWeek': IlluminationWeek,
+		'CarbonDioxideWeek': CarbonDioxideWeek,
+		'OxygenWeek': OxygenWeek,
+		'DustWeek': DustWeek
+	}
+	init = json.dumps(t)
+	return init
+
+@app.route("/initmonth", methods=['GET','POST'])
+def initmonth():
+	anchorMonth = []
 	DateMonth = []
 	TemperatureMonth = []
 	HumidityMonth = []
@@ -45,93 +142,41 @@ def initjson():
 	OxygenMonth = []
 	DustMonth = []
 
-	data = db.readMax()
-	week = beforeDays(7)
+	month = beforeDays(30)
+	today = str(datetime.date.today())
 
-	for day in week:
-		# for hour in range(0,23):
-		hour = 10
-		QueryTime = [str(day), str(hour)]
-		old = db.readMinMinute(QueryTime)
-		print(old)
-
-		date = old[0][1]
-		DateWeek.append(date[5:])
-		TemperatureWeek.append(old[0][5])
-		HumidityWeek.append(old[0][6])
-		IlluminationWeek.append(old[0][10])
-		CarbonDioxideWeek.append(old[0][8])
-
-		oxy = old[0][11]
-		if oxy.find('%'):
-			OxygenWeek.append(oxy[:-1])
-		else:
-			OxygenWeek.append(oxy)
-
-		DustWeek.append(old[0][9])
-
-
+	anchorMonth.append({'value': [str(month[0])[5:] + " 00:00:00", 0]})
+	anchorMonth.append(	{'value': [today[5:] + " 00:00:00", 0]})
+	for day in month:
+		old = db.readByDate(str(day))
+		try:
+			date = old[0][1]
+			DateMonth.append(date[5:])
+			moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+			TemperatureMonth.append({'value': [moment, old[0][5]]})
+			HumidityMonth.append({'value': [moment, old[0][6]]})
+			IlluminationMonth.append({'value': [moment, old[0][10]]})
+			CarbonDioxideMonth.append({'value': [moment, old[0][8]]})
+			oxy = old[0][11]
+			if oxy.find('%'):
+				OxygenMonth.append({'value': [moment, oxy[:-1]]})
+			else:
+				OxygenMonth.append({'value': [moment, oxy]})
+			DustMonth.append({'value': [moment, old[0][9]]})
+		except Exception:
+			pass
 	t = {
-		'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9]],
-		'Date1': Date,
-		'Temperature1': Temperature,
-		'Humidity1': Humidity,
-		'Illumination1': Illumination,
-		'CarbonDioxide1': CarbonDioxide,
-		'Oxygen1': Oxygen,
-		'Dust1': Dust
+		'anchorMonth': anchorMonth,
+		'DateMonth': DateMonth,
+		'TemperatureMonth': TemperatureMonth,
+		'HumidityMonth': HumidityMonth,
+		'IlluminationMonth': IlluminationMonth,
+		'CarbonDioxideMonth': CarbonDioxideMonth,
+		'OxygenMonth': OxygenMonth,
+		'DustMonth': DustMonth
 	}
 	init = json.dumps(t)
 	return init
-
-# @app.route("/datechanged", methods=['GET','POST'])
-# def datechanged(json):#{date,type}
-# 	jsonData = json.loads(json)
-# 	Date = []
-# 	Temperature = []
-# 	Humidity = []
-# 	Illumination = []
-# 	CarbonDioxide = []
-# 	Oxygen = []
-# 	Dust = []
-#
-# 	days = beforeDays()
-# 	for day in days:
-# 		# for hour in range(0,23):
-# 		hour = 10
-# 		QueryTime = [str(day), str(hour)]
-# 		old = db.readMinMinute(QueryTime)
-# 		print(old)
-#
-# 		date = old[0][1]
-# 		Date.append(date[5:])
-# 		Temperature.append(old[0][5])
-# 		Humidity.append(old[0][6])
-# 		Illumination.append(old[0][10])
-# 		CarbonDioxide.append(old[0][8])
-#
-# 		oxy = old[0][11]
-# 		if oxy.find('%'):
-# 			Oxygen.append(oxy[:-1])
-# 		else:
-# 			Oxygen.append(oxy)
-#
-# 		Dust.append(old[0][9])
-#
-# 	t = {
-# 		'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9]],
-# 		'Date': Date,
-# 		'Temperature': Temperature,
-# 		'Humidity': Humidity,
-# 		'Illumination': Illumination,
-# 		'CarbonDioxide': CarbonDioxide,
-# 		'Oxygen': Oxygen,
-# 		'Dust': Dust
-# 	}
-#
-# 	relatedData = json.dumps(t)
-# 	return relatedData
-
 
 def beforeDays(n):
 	before_n_days = []

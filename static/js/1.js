@@ -67,7 +67,7 @@ logo.onclick=function(){
 	dat1.className="hide";
 	dat2.className="hide";
 	application1.className="hide";
-}
+};
 
  $('#shard').show();
  $('#shard').one('click',function(){
@@ -93,7 +93,8 @@ logo.onclick=function(){
                 $('#shard').hide();
             })
         }, 0);
-    })
+    });
+
 down.onclick=function(){
 	for(var i=0;i<4;i++){
 	even[i].className="even";
@@ -108,7 +109,8 @@ down.onclick=function(){
 	dat1.className="hide";
 	dat2.className="hide";
 	application1.className="hide";
-	}
+};
+
 about.onclick=function(e){
 	e.stopPropagation();
 	for(var i=0;i<4;i++){
@@ -163,79 +165,87 @@ time1.innerHTML=year+'/'+month+'/'+day;
 
 var curMonthDays=new Date(year,month,0).getDate();
 dat.onclick=function(e){
-	    e.stopPropagation();
-		for(var i=0;i<4;i++){
-	even[i].className="even";
-	odd[i].className="odd hide";
+    e.stopPropagation();
+    for(var i=0;i<4;i++){
+        even[i].className="even";
+        odd[i].className="odd hide";
 	}
 	even[2].className="even hide";
 	odd[2].className="odd";
-		lw.className="hide";
-		body.className="bgblue";
-		about1.className="hide";
-		solution1.className="hide";
-		dat1.className="";
-		dat2.className="hide";
-		application1.className="hide";
-	};
-	time11.innerHTML=year+'/'+month+'/'+day;
-	sl1.onclick=function(){
-		sl1.style.background="#92C627";
-		sl2.style.background="#759F1F";
-		sl3.style.background="#759F1F";
-		time11.innerHTML=year+'/'+month+'/'+day;
-		box3.className="";
-		box33.className="hide";
-		box33.className="hide";
-	}
+    lw.className="hide";
+    body.className="bgblue";
+    about1.className="hide";
+    solution1.className="hide";
+    dat1.className="";
+    dat2.className="hide";
+    application1.className="hide";
+    box3.className="";
+    box33.className="hide";
+    box333.className="hide";
+};
 
-	sl2.onclick=function(){
-		sl2.style.background="#92C627";
-		sl1.style.background="#759F1F";
-		sl3.style.background="#759F1F";
-		if(day<7){
-			if(day==1){
-			var monthh1="0"+month-1;
-			var monthh=month-1;
-			var dayy=curMonthDays-(7-day);
-			var dayy1=curMonthDays;
-			}else{
-			monthh1=month;
-			monthh="0"+month-1;
-			dayy=curMonthDays-(7-day);
-			dayy1="0"+day-1;
-			}
-		}else{
-			monthh1=month;
-		    monthh=month;
-			dayy=day-7;
-			dayy1=day-1;
-		}
-		box3.className="hide";
-		box33.className="";
-		box33.className="hide";
-		time11.innerHTML=monthh+'/'+dayy+'-'+monthh1+'/'+dayy1;
-	}
-	sl3.onclick=function(){
-		sl3.style.background="#92C627";
-		sl1.style.background="#759F1F";
-		sl2.style.background="#759F1F";
-			if(day==1){
-			var dayy1=curMonthDays;
-			var monthh1="0"+month-1;
-			var monthh="0"+month-1;
-			var dayy=curMonthDays-(31-day);
-			}else{
-			dayy1=day-1;
-			monthh1=month;
-			monthh=month-1;
-		    dayy=curMonthDays-(31-day);
-		}
-		time11.innerHTML=monthh+'/'+dayy+'-'+monthh1+'/'+dayy1;
-		box3.className="hide";
-		box33.className="hide";
-		box33.className="";
-	}
+
+time11.innerHTML=year+'/'+month+'/'+day;
+
+
+
+sl1.onclick=function(){
+    sl1.style.background="#92C627";
+    sl2.style.background="#759F1F";
+    sl3.style.background="#759F1F";
+    time11.innerHTML=year+'/'+month+'/'+day;
+    box3.className="";
+    box33.className="hide";
+    box33.className="hide";
+};
+
+sl2.onclick=function(){
+    sl2.style.background="#92C627";
+    sl1.style.background="#759F1F";
+    sl3.style.background="#759F1F";
+    if(day<7){
+        if(day==1){
+        var monthh1="0"+month-1;
+        var monthh=month-1;
+        var dayy=curMonthDays-(7-day);
+        var dayy1=curMonthDays;
+        }else{
+        monthh1=month;
+        monthh="0"+month-1;
+        dayy=curMonthDays-(7-day);
+        dayy1="0"+day-1;
+        }
+    }else{
+        monthh1=month;
+        monthh=month;
+        dayy=day-7;
+        dayy1=day-1;
+    }
+    box3.className="hide";
+    box33.className="";
+    box333.className="hide";
+    time11.innerHTML=monthh+'/'+dayy+'-'+monthh1+'/'+dayy1;
+};
+sl3.onclick=function(){
+    sl3.style.background="#92C627";
+    sl1.style.background="#759F1F";
+    sl2.style.background="#759F1F";
+        if(day==1){
+        var dayy1=curMonthDays;
+        var monthh1="0"+month-1;
+        var monthh="0"+month-1;
+        var dayy=curMonthDays-(31-day);
+        }else{
+        dayy1=day-1;
+        monthh1=month;
+        monthh=month-1;
+        dayy=curMonthDays-(31-day);
+    }
+    time11.innerHTML=monthh+'/'+dayy+'-'+monthh1+'/'+dayy1;
+    box3.className="hide";
+    box33.className="hide";
+    box333.className="";
+};
 application.onclick=function(e){
 	    e.stopPropagation(e);
 		for(var i=0;i<4;i++){
@@ -416,10 +426,10 @@ var a ={
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
+        boundaryGap: [0, '10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -441,8 +451,19 @@ var a ={
                             color:'#ADEC25'
                                     }
                                 },
-            data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
         },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }
     ]
 };
 var b = {
@@ -464,10 +485,10 @@ var b = {
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
+        boundaryGap: [0, '10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -489,8 +510,19 @@ var b = {
                             color:'#ADEC25'
                                     }
                                 },
-            data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
         },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }
     ]
 };
 var c ={
@@ -512,10 +544,10 @@ var c ={
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
+        boundaryGap: [0, '10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -537,8 +569,19 @@ var c ={
                             color:'#ADEC25'
                                     }
                                 },
-            data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
         },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }
     ]
 };
 var d = {
@@ -560,10 +603,10 @@ var d = {
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        boundaryGap: [0, '10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -578,7 +621,7 @@ var d = {
     },
     series: [{
         name:'灰尘',
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        data: [],
          itemStyle:{
                         normal:{
                             color:'#ADEC25'
@@ -586,7 +629,18 @@ var d = {
                                 },
         type: 'line',
         areaStyle: {}
-    }]
+    },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }]
 };
 var e = {
     tooltip:{
@@ -607,10 +661,10 @@ var e = {
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        boundaryGap: [0, '10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -624,7 +678,7 @@ var e = {
     },
     series: [{
         name:'二氧化碳',
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        data: [],
         itemStyle:{
                     normal:{
                         color:'#ADEC25'
@@ -632,7 +686,18 @@ var e = {
                     },
         type: 'line',
         areaStyle: {}
-    }]
+    },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }]
 };
 var f = {
     tooltip:{
@@ -653,10 +718,10 @@ var f = {
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        boundaryGap: [0,'10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -680,7 +745,7 @@ var f = {
     },
     series: [{
         name:'氧气',
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        data: [],
          itemStyle:{
                         normal:{
                             color:'#ADEC25'
@@ -688,7 +753,18 @@ var f = {
                                 },
         type: 'line',
         areaStyle: {}////
-    }]
+    },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }]
 };
 //周数据
 var aa ={
@@ -710,10 +786,10 @@ var aa ={
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
+        boundaryGap: [0, '10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -735,8 +811,19 @@ var aa ={
                             color:'#ADEC25'
                                     }
                                 },
-            data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
         },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }
     ]
 };
 var bb = {
@@ -758,10 +845,10 @@ var bb = {
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
+        boundaryGap: [0,'10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -783,8 +870,19 @@ var bb = {
                             color:'#ADEC25'
                                     }
                                 },
-            data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
         },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }
     ]
 };
 var cc ={
@@ -806,10 +904,10 @@ var cc ={
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
+        boundaryGap: [0 , '10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -831,8 +929,19 @@ var cc ={
                             color:'#ADEC25'
                                     }
                                 },
-            data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
         },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }
     ]
 };
 var dd = {
@@ -854,10 +963,10 @@ var dd = {
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        boundaryGap: [0, '10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -872,7 +981,7 @@ var dd = {
     },
     series: [{
         name:'灰尘',
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        data: [],
          itemStyle:{
                         normal:{
                             color:'#ADEC25'
@@ -880,7 +989,18 @@ var dd = {
                                 },
         type: 'line',
         areaStyle: {}
-    }]
+    },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }]
 };
 var ee = {
     tooltip:{
@@ -901,10 +1021,10 @@ var ee = {
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        boundaryGap: [0, '10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -918,7 +1038,7 @@ var ee = {
     },
     series: [{
         name:'二氧化碳',
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        data: [],
         itemStyle:{
                     normal:{
                         color:'#ADEC25'
@@ -926,7 +1046,18 @@ var ee = {
                     },
         type: 'line',
         areaStyle: {}
-    }]
+    },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }]
 };
 var ff = {
     tooltip:{
@@ -947,10 +1078,10 @@ var ff = {
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        boundaryGap: [0, '10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -974,7 +1105,7 @@ var ff = {
     },
     series: [{
         name:'氧气',
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        data: [],
          itemStyle:{
                         normal:{
                             color:'#ADEC25'
@@ -982,7 +1113,18 @@ var ff = {
                                 },
         type: 'line',
         areaStyle: {}////
-    }]
+    },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }]
 };
 //月数据
 var aaa ={
@@ -1004,10 +1146,10 @@ var aaa ={
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
+        boundaryGap: [0, '10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -1029,8 +1171,19 @@ var aaa ={
                             color:'#ADEC25'
                                     }
                                 },
-            data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
         },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }
     ]
 };
 var bbb = {
@@ -1052,10 +1205,10 @@ var bbb = {
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
+        boundaryGap: [0, '10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -1077,8 +1230,19 @@ var bbb = {
                             color:'#ADEC25'
                                     }
                                 },
-            data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
         },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }
     ]
 };
 var ccc ={
@@ -1100,10 +1264,13 @@ var ccc ={
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
+        boundaryGap: [0, '10%'],
+        splitLine: {
+            show: false
+        }
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -1125,8 +1292,19 @@ var ccc ={
                             color:'#ADEC25'
                                     }
                                 },
-            data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
         },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }
     ]
 };
 var ddd = {
@@ -1142,16 +1320,19 @@ var ddd = {
     },
     xAxis: {
         type: 'category',
+        splitLine: {
+            show: false
+        },
         axisLine:{
             	lineStyle:{
             		color:'#C1FF3D',
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        boundaryGap: [0, '10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -1166,7 +1347,7 @@ var ddd = {
     },
     series: [{
         name:'灰尘',
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        data: [],
          itemStyle:{
                         normal:{
                             color:'#ADEC25'
@@ -1174,7 +1355,18 @@ var ddd = {
                                 },
         type: 'line',
         areaStyle: {}
-    }]
+    },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }]
 };
 var eee = {
     tooltip:{
@@ -1195,10 +1387,11 @@ var eee = {
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        boundaryGap: [0, '10%']
+        // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -1212,7 +1405,7 @@ var eee = {
     },
     series: [{
         name:'二氧化碳',
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        data: [],
         itemStyle:{
                     normal:{
                         color:'#ADEC25'
@@ -1220,7 +1413,18 @@ var eee = {
                     },
         type: 'line',
         areaStyle: {}
-    }]
+    },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }]
 };
 var fff = {
     tooltip:{
@@ -1241,10 +1445,10 @@ var fff = {
             		width:'1'
             	}
             },
-        boundaryGap: false,
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        boundaryGap: [0, '10%']
     },
     yAxis: {
+        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
@@ -1268,7 +1472,7 @@ var fff = {
     },
     series: [{
         name:'氧气',
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        data: [],
          itemStyle:{
                         normal:{
                             color:'#ADEC25'
@@ -1276,28 +1480,23 @@ var fff = {
                                 },
         type: 'line',
         areaStyle: {}////
-    }]
+    },
+        {
+            name:'.anchor',
+            type:'line',
+            showSymbol:false,
+            data:[
+                {value:['2016/12/18 00:00:00', 0]},
+                {value:['2016/12/19 00:00:00', 0]}
+                ],
+            itemStyle:{normal:{opacity:0}},
+            lineStyle:{normal:{opacity:0}}
+        }]
 };
-initdata();
 
-myChart1.setOption(a);
-myChart2.setOption(b);
-myChart3.setOption(c);
-myChart4.setOption(d);
-myChart5.setOption(e);
-myChart6.setOption(f);
-myChart11.setOption(aa);
-myChart22.setOption(bb);
-myChart33.setOption(cc);
-myChart44.setOption(dd);
-myChart55.setOption(ee);
-myChart66.setOption(ff);
-myChart111.setOption(aaa);
-myChart222.setOption(bbb);
-myChart333.setOption(ccc);
-myChart444.setOption(ddd);
-myChart555.setOption(eee);
-myChart666.setOption(fff);
+initday();
+initweek();
+initmonth();
 
 window.addEventListener('resize',function(){
     myChart1.resize();
@@ -1344,45 +1543,27 @@ function getdata(){
 	})
 }
 
-function initdata(){
+function initday(){
 	$.ajax({
 		type:"GET",
-		url:"/initjson",  //这里填入请求地址
+		url:"/initday",  //这里填入请求地址
 		dataType:"json",
 		success:function(data){
-            // console.log(data.Date);
-            // console.log(data.Temperature);
-            // console.log(data.Humidity);
-            // console.log(data.Illumination);
-            // console.log(data.CarbonDioxide);
-            // console.log(data.Oxygen);
-            // console.log(data.Dust);
+		    console.log(data);
+            a.series[0].data = data.TemperatureDay;
+            b.series[0].data = data.HumidityDay;
+            c.series[0].data = data.IlluminationDay;
+            d.series[0].data = data.DustDay;//灰尘
+            e.series[0].data = data.CarbonDioxideDay;//二氧化碳
+            f.series[0].data = data.OxygenDay;//氧气
 
-            a.series[0].data = data.Temperature1;
-            b.series[0].data = data.Humidity1;
-            c.series[0].data = data.Illumination1;
-            d.series[0].data = data.Dust1;//灰尘
-            e.series[0].data = data.CarbonDioxide1;//二氧化碳
-            f.series[0].data = data.Oxygen1;//氧气
+            a.series[1].data = data.anchorDay;//日数据
+            b.series[1].data = data.anchorDay;
+            c.series[1].data = data.anchorDay;
+            d.series[1].data = data.anchorDay;
+            e.series[1].data = data.anchorDay;
+            f.series[1].data = data.anchorDay;
 
-            a.xAxis.data = data.Date1;//日数据
-            b.xAxis.data = data.Date1;
-            c.xAxis.data = data.Date1;
-            d.xAxis.data = data.Date1;
-            e.xAxis.data = data.Date1;
-            f.xAxis.data = data.Date1;
-            aa.xAxis.data = data.Date2;//周数据
-            bb.xAxis.data = data.Date2;
-            cc.xAxis.data = data.Date2;
-            dd.xAxis.data = data.Date2;
-            ee.xAxis.data = data.Date2;
-            ff.xAxis.data = data.Date2;
-            aaa.xAxis.data = data.Date3;//月数据
-            bbb.xAxis.data = data.Date3;
-            ccc.xAxis.data = data.Date3;
-            ddd.xAxis.data = data.Date3;
-            eee.xAxis.data = data.Date3;
-            fff.xAxis.data = data.Date3;
 
             //空气成分
             for(i=0;i<6;i++){
@@ -1395,6 +1576,35 @@ function initdata(){
             myChart4.setOption(d);
             myChart5.setOption(e);
             myChart6.setOption(f);
+            },
+            error:function(){
+            }
+
+	})
+}
+
+function initweek(){
+	$.ajax({
+		type:"GET",
+		url:"/initweek",  //这里填入请求地址
+		dataType:"json",
+		success:function(data){
+		    console.log(data);
+
+            aa.series[0].data = data.TemperatureWeek;
+            bb.series[0].data = data.HumidityWeek;
+            cc.series[0].data = data.IlluminationWeek;
+            dd.series[0].data = data.DustWeek;//灰尘
+            ee.series[0].data = data.CarbonDioxideWeek;//二氧化碳
+            ff.series[0].data = data.OxygenWeek;//氧气
+
+
+            aa.series[1].data = data.anchorWeek;//周数据
+            bb.series[1].data = data.anchorWeek;
+            cc.series[1].data = data.anchorWeek;
+            dd.series[1].data = data.anchorWeek;
+            ee.series[1].data = data.anchorWeek;
+            ff.series[1].data = data.anchorWeek;
 
             myChart11.setOption(aa);
             myChart22.setOption(bb);
@@ -1402,6 +1612,35 @@ function initdata(){
             myChart44.setOption(dd);
             myChart55.setOption(ee);
             myChart66.setOption(ff);
+
+            },
+            error:function(){
+            }
+
+	})
+}
+
+function initmonth(){
+	$.ajax({
+		type:"GET",
+		url:"/initmonth",  //这里填入请求地址
+		dataType:"json",
+		success:function(data){
+		    console.log(data);
+
+            aaa.series[0].data = data.TemperatureMonth;
+            bbb.series[0].data = data.HumidityMonth;
+            ccc.series[0].data = data.IlluminationMonth;
+            ddd.series[0].data = data.DustMonth;//灰尘
+            eee.series[0].data = data.CarbonDioxideMonth;//二氧化碳
+            fff.series[0].data = data.OxygenMonth;//氧气
+
+            aaa.series[1].data = data.anchorMonth;//月数据
+            bbb.series[1].data = data.anchorMonth;
+            ccc.series[1].data = data.anchorMonth;
+            ddd.series[1].data = data.anchorMonth;
+            eee.series[1].data = data.anchorMonth;
+            fff.series[1].data = data.anchorMonth;
 
             myChart111.setOption(aaa);
             myChart222.setOption(bbb);
