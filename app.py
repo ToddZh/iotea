@@ -32,10 +32,10 @@ def initday():
 
 	data = db.readMax()
 	days = beforeDays(1)
-	today = str(datetime.date.today())
+	# today = str(datetime.date.today())
 	# 显示的坐标轴锚点
-	anchorDay.append({'value': [str(days[0])[5:] + " 00:00:00", 0]})
-	anchorDay.append({'value': [today[5:] + " 00:00:00", 0]})
+	# anchorDay.append({'value': [str(days[0])[5:] + " 00:00:00", 0]})
+	# anchorDay.append({'value': [today[5:] + " 00:00:00", 0]})
 
 
 	for day in days:
@@ -48,7 +48,8 @@ def initday():
 			old = db.readMinMinute(QueryTime)
 			try:
 				date = old[0][1]
-				moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+				# date[5:] + ' ' +
+				moment = old[0][2] + ':' + old[0][3] + ':' + old[0][4]
 				# {value: ['2016/12/18 6:38:08', 80]}
 				# dict1 = {'abc': 456};
 				DateDay.append(str(hour))
@@ -67,7 +68,7 @@ def initday():
 
 	t = {
 		'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9]],
-		'anchorDay': anchorDay,
+		# 'anchorDay': anchorDay,
 		'DateDay': DateDay,
 		'TemperatureDay': TemperatureDay,
 		'HumidityDay': HumidityDay,
@@ -91,9 +92,9 @@ def initweek():
 	DustWeek = []
 
 	week = beforeDays(7)
-	today = str(datetime.date.today())
-	anchorWeek.append({'value': [str(week[0])[5:] + " 00:00:00", 0]})
-	anchorWeek.append({'value': [today[5:] + " 00:00:00", 0]})
+	# today = str(datetime.date.today())
+	# anchorWeek.append({'value': [str(week[0])[5:] + " 00:00:00", 0]})
+	# anchorWeek.append({'value': [today[5:] + " 00:00:00", 0]})
 	for day in week:
 		for hour in range(0, 23, 6):
 			QueryTime = []
@@ -119,7 +120,7 @@ def initweek():
 			except Exception:
 				pass
 	t = {
-		'anchorWeek': anchorWeek,
+		# 'anchorWeek': anchorWeek,
 		'DateWeek': DateWeek,
 		'TemperatureWeek': TemperatureWeek,
 		'HumidityWeek': HumidityWeek,
@@ -143,10 +144,9 @@ def initmonth():
 	DustMonth = []
 
 	month = beforeDays(30)
-	today = str(datetime.date.today())
-
-	anchorMonth.append({'value': [str(month[0])[5:] + " 00:00:00", 0]})
-	anchorMonth.append(	{'value': [today[5:] + " 00:00:00", 0]})
+	# today = str(datetime.date.today())
+	# anchorMonth.append({'value': [str(month[0])[5:] + " 00:00:00", 0]})
+	# anchorMonth.append(	{'value': [today[5:] + " 00:00:00", 0]})
 	for day in month:
 		old = db.readByDate(str(day))
 		try:
@@ -166,7 +166,7 @@ def initmonth():
 		except Exception:
 			pass
 	t = {
-		'anchorMonth': anchorMonth,
+		# 'anchorMonth': anchorMonth,
 		'DateMonth': DateMonth,
 		'TemperatureMonth': TemperatureMonth,
 		'HumidityMonth': HumidityMonth,

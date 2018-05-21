@@ -406,6 +406,42 @@ var myChart444 = echarts.init(tabContainer444);
 var myChart555 = echarts.init(tabContainer555);
 var myChart666 = echarts.init(tabContainer666);
 
+
+//标签换行
+function newLine(params){
+    var newParamsName = "";// 最终拼接成的字符串
+    var paramsNameNumber = params.length;// 实际标签的个数
+    var provideNumber = 10;// 每行能显示的字的个数
+    var rowNumber = Math.ceil(paramsNameNumber / provideNumber);// 换行的话，需要显示几行，向上取整
+    /**
+     * 判断标签的个数是否大于规定的个数， 如果大于，则进行换行处理 如果不大于，即等于或小于，就返回原标签
+     */
+    // 条件等同于rowNumber>1
+    if (paramsNameNumber > provideNumber) {
+        /** 循环每一行,p表示行 */
+        for (var p = 0; p < rowNumber; p++) {
+            var tempStr = "";// 表示每一次截取的字符串
+            var start = p * provideNumber;// 开始截取的位置
+            var end = start + provideNumber;// 结束截取的位置
+            // 此处特殊处理最后一行的索引值
+            if (p == rowNumber - 1) {
+                // 最后一次不换行
+                tempStr = params.substring(start, paramsNameNumber);
+            } else {
+                // 每一次拼接字符串并换行
+                tempStr = params.substring(start, end) + "\n";
+            }
+            newParamsName += tempStr;// 最终拼成的字符串
+        }
+
+    } else {
+        // 将旧标签的值赋给新标签
+        newParamsName = params;
+    }
+    //将最终的字符串返回
+    return newParamsName
+}
+
 //日数据
 var a ={
     tooltip: {
@@ -419,6 +455,12 @@ var a ={
         containLabel: true
     },
     xAxis: {
+        //  axisLabel:{
+        //     interval: 0,//标签设置为全部显示
+        //     formatter:function(params){
+        //         newLine(params);
+        //     }
+        // },
         type: 'category',
         axisLine:{
             	lineStyle:{
@@ -452,18 +494,18 @@ var a ={
                                     }
                                 },
             data:[]
-        },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
         }
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
     ]
 };
 var b = {
@@ -512,17 +554,17 @@ var b = {
                                 },
             data:[]
         },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
     ]
 };
 var c ={
@@ -571,17 +613,17 @@ var c ={
                                 },
             data:[]
         },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
     ]
 };
 var d = {
@@ -630,17 +672,18 @@ var d = {
         type: 'line',
         areaStyle: {}
     },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }]
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
+        ]
 };
 var e = {
     tooltip:{
@@ -687,17 +730,18 @@ var e = {
         type: 'line',
         areaStyle: {}
     },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }]
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
+        ]
 };
 var f = {
     tooltip:{
@@ -754,17 +798,18 @@ var f = {
         type: 'line',
         areaStyle: {}////
     },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }]
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
+        ]
 };
 //周数据
 var aa ={
@@ -813,17 +858,17 @@ var aa ={
                                 },
             data:[]
         },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
     ]
 };
 var bb = {
@@ -872,17 +917,17 @@ var bb = {
                                 },
             data:[]
         },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
     ]
 };
 var cc ={
@@ -931,17 +976,17 @@ var cc ={
                                 },
             data:[]
         },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
     ]
 };
 var dd = {
@@ -990,17 +1035,18 @@ var dd = {
         type: 'line',
         areaStyle: {}
     },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }]
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
+        ]
 };
 var ee = {
     tooltip:{
@@ -1047,17 +1093,18 @@ var ee = {
         type: 'line',
         areaStyle: {}
     },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }]
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
+        ]
 };
 var ff = {
     tooltip:{
@@ -1114,17 +1161,18 @@ var ff = {
         type: 'line',
         areaStyle: {}////
     },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }]
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
+        ]
 };
 //月数据
 var aaa ={
@@ -1173,17 +1221,17 @@ var aaa ={
                                 },
             data:[]
         },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
     ]
 };
 var bbb = {
@@ -1232,17 +1280,17 @@ var bbb = {
                                 },
             data:[]
         },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
     ]
 };
 var ccc ={
@@ -1294,17 +1342,17 @@ var ccc ={
                                 },
             data:[]
         },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
     ]
 };
 var ddd = {
@@ -1356,17 +1404,18 @@ var ddd = {
         type: 'line',
         areaStyle: {}
     },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }]
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
+        ]
 };
 var eee = {
     tooltip:{
@@ -1414,17 +1463,18 @@ var eee = {
         type: 'line',
         areaStyle: {}
     },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }]
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
+        ]
 };
 var fff = {
     tooltip:{
@@ -1481,17 +1531,18 @@ var fff = {
         type: 'line',
         areaStyle: {}////
     },
-        {
-            name:'.anchor',
-            type:'line',
-            showSymbol:false,
-            data:[
-                {value:['2016/12/18 00:00:00', 0]},
-                {value:['2016/12/19 00:00:00', 0]}
-                ],
-            itemStyle:{normal:{opacity:0}},
-            lineStyle:{normal:{opacity:0}}
-        }]
+        // {
+        //     name:'.anchor',
+        //     type:'line',
+        //     showSymbol:false,
+        //     data:[
+        //         {value:['2016/12/18 00:00:00', 0]},
+        //         {value:['2016/12/19 00:00:00', 0]}
+        //         ],
+        //     itemStyle:{normal:{opacity:0}},
+        //     lineStyle:{normal:{opacity:0}}
+        // }
+        ]
 };
 
 initday();
@@ -1557,12 +1608,12 @@ function initday(){
             e.series[0].data = data.CarbonDioxideDay;//二氧化碳
             f.series[0].data = data.OxygenDay;//氧气
 
-            a.series[1].data = data.anchorDay;//日数据
-            b.series[1].data = data.anchorDay;
-            c.series[1].data = data.anchorDay;
-            d.series[1].data = data.anchorDay;
-            e.series[1].data = data.anchorDay;
-            f.series[1].data = data.anchorDay;
+            // a.series[1].data = data.anchorDay;//日数据
+            // b.series[1].data = data.anchorDay;
+            // c.series[1].data = data.anchorDay;
+            // d.series[1].data = data.anchorDay;
+            // e.series[1].data = data.anchorDay;
+            // f.series[1].data = data.anchorDay;
 
 
             //空气成分
@@ -1599,12 +1650,12 @@ function initweek(){
             ff.series[0].data = data.OxygenWeek;//氧气
 
 
-            aa.series[1].data = data.anchorWeek;//周数据
-            bb.series[1].data = data.anchorWeek;
-            cc.series[1].data = data.anchorWeek;
-            dd.series[1].data = data.anchorWeek;
-            ee.series[1].data = data.anchorWeek;
-            ff.series[1].data = data.anchorWeek;
+            // aa.series[1].data = data.anchorWeek;//周数据
+            // bb.series[1].data = data.anchorWeek;
+            // cc.series[1].data = data.anchorWeek;
+            // dd.series[1].data = data.anchorWeek;
+            // ee.series[1].data = data.anchorWeek;
+            // ff.series[1].data = data.anchorWeek;
 
             myChart11.setOption(aa);
             myChart22.setOption(bb);
@@ -1635,12 +1686,12 @@ function initmonth(){
             eee.series[0].data = data.CarbonDioxideMonth;//二氧化碳
             fff.series[0].data = data.OxygenMonth;//氧气
 
-            aaa.series[1].data = data.anchorMonth;//月数据
-            bbb.series[1].data = data.anchorMonth;
-            ccc.series[1].data = data.anchorMonth;
-            ddd.series[1].data = data.anchorMonth;
-            eee.series[1].data = data.anchorMonth;
-            fff.series[1].data = data.anchorMonth;
+            // aaa.series[1].data = data.anchorMonth;//月数据
+            // bbb.series[1].data = data.anchorMonth;
+            // ccc.series[1].data = data.anchorMonth;
+            // ddd.series[1].data = data.anchorMonth;
+            // eee.series[1].data = data.anchorMonth;
+            // fff.series[1].data = data.anchorMonth;
 
             myChart111.setOption(aaa);
             myChart222.setOption(bbb);
