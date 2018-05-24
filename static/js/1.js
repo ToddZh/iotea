@@ -1,19 +1,9 @@
 var body=document.getElementsByTagName("body")[0];
-var menu=document.getElementById("menu");
-var logo=document.getElementById("logo");
-var bar=document.getElementById("bar");
-var ulcontainer=document.getElementById("ulcontainer");
-var left=document.getElementById("left");
-var right=document.getElementById("left");
-var barul=document.getElementById("barul");
-var down=document.getElementById("down");
-var even=barul.getElementsByClassName("even");
-var odd=barul.getElementsByClassName("odd");
-var about=document.getElementById("about");
-var solution=document.getElementById("solution");
-var solutionbg=document.getElementById("solutionbg");
-var dat=document.getElementById("data");
-var application=document.getElementById("applicaton");
+var lgbtn1=document.getElementById("lgbtn1");
+var lgbtn2=document.getElementById("lgbtn2");
+var lgbtn3=document.getElementById("lgbtn3");
+var lgbtn4=document.getElementById("lgbtn4");
+var lgbtn5=document.getElementById("lgbtn5");
 var solutionimg=document.getElementById("solutionimg");
 var solutionbg=document.getElementById("solutionbg");
 var solimg=document.getElementById("solimg");
@@ -27,101 +17,102 @@ var article=document.getElementById("article");
 var article1=document.getElementById("article1");
 var dat1=document.getElementById("dat1");
 var dat2=document.getElementById("dat2");
-var application1=document.getElementById("application1");
-var toright1=document.getElementById("toright1");
-var toleft1=document.getElementById("toleft1");
+var application1=document.getElementById("application1");                 
 var box3=document.getElementById("box3");
 var box33=document.getElementById("box33");
 var box333=document.getElementById("box333");
 var box4=document.getElementById("box4");
 var article2=document.getElementById("article2");
-
-// function datechanged() {
-//     var date = '2018-05-18';
-//     var type = 'week';
-// 	$.ajax({
-// 		type:"POST",
-// 		url:"/datechanged",  //这里填入请求地址
-// 		dataType:"json",
-//         data:{'date':date,
-//             'type':type},
-// 		success:function(data){
-// 		    },
-//         error:function(){
-//         }
-// 	})
-// }
+var sl1=document.getElementById("sl1");
+var sl2=document.getElementById("sl2");
+var sl3=document.getElementById("sl3");
+var time11=document.getElementById("time11");
 
 var realdata = [document.getElementById("Temperature"),document.getElementById("Humidity"),document.getElementById("Illumination"),
-    document.getElementById("CarbonDioxide"),document.getElementById("Oxygen"),document.getElementById("Dust")]
+    document.getElementById("CarbonDioxide"),document.getElementById("Oxygen"),document.getElementById("Dust"),
+    document.getElementById("SoilTemperature"),document.getElementById("SoilMoisture")];
 
-logo.onclick=function(){
-	for(var i=0;i<4;i++){
-	even[i].className="even";
-	odd[i].className="odd hide";
-	}
-	body.className="bgpic";
+var green=document.getElementsByClassName("green")[0];
+    // 触摸
+    lgbtn1.ontouchstart = function() {
+        this.style.backgroundColor = "#8FC421";
+        this.style.opacity="0.3";
+    };
+    // 停止触摸
+    lgbtn1.ontouchend = function() {
+        this.style.backgroundColor = "white";	
+        this.style.opacity="1";
+        lw.className="hide";
+	    about1.className="";
+	    solution1.className="hide";
+	    dat1.className="hide";
+	    dat2.className="hide";
+	    application1.className="hide";
+        
+    };
+     lgbtn2.ontouchstart = function() {
+        this.style.backgroundColor = "#8FC421";
+        this.style.opacity="0.3";
+    };
+    lgbtn2.ontouchend = function() {
+        this.style.backgroundColor = "white";	
+        this.style.opacity="1";
+        lw.className="hide";
+	    about1.className="hide";
+	    solution1.className="hide";
+	    dat1.className="";
+	    dat2.className="hide";
+	    application1.className="hide";
+        
+    };
+     lgbtn3.ontouchstart = function() {
+        this.style.backgroundColor = "#8FC421";
+        this.style.opacity="0.3";
+    };
+    lgbtn3.ontouchend = function() {
+        this.style.backgroundColor = "white";	
+        this.style.opacity="1";
+        lw.className="hide";
+	    about1.className="hide";
+	    solution1.className="hide";
+	    dat1.className="hide";
+	    dat2.className="";
+	    application1.className="hide";
+        
+    };
+     lgbtn4.ontouchstart = function() {
+        this.style.backgroundColor = "#8FC421";
+        this.style.opacity="0.3";
+    };
+    lgbtn4.ontouchend = function() {
+        this.style.backgroundColor = "white";	
+        this.style.opacity="1";
+        lw.className="hide";
+	    about1.className="hide";
+	    solution1.className="";
+	    dat1.className="hide";
+	    dat2.className="hide";
+	    application1.className="hide";
+        
+    };
+    lgbtn5.ontouchstart = function() {
+        this.style.backgroundColor = "#8FC421";
+        this.style.opacity="0.3";
+    };
+    lgbtn5.ontouchend = function() {
+        this.style.backgroundColor = "white";	
+        this.style.opacity="1";
+        lw.className="hide";
+	    about1.className="hide";
+	    solution1.className="hide";
+	    dat1.className="hide";
+	    dat2.className="hide";
+	    application1.className="";
+        
+    };
+function back(){  
 	lw.className="";
 	about1.className="hide";
-	solution1.className="hide";
-	dat1.className="hide";
-	dat2.className="hide";
-	application1.className="hide";
-};
-
- $('#shard').show();
- $('#shard').one('click',function(){
-                console.log('click ...');
-                $('#ulcontainer').css('display','none');
-                 $('#bar').css('display','block');
-                  $('#toleft1').css('display','block');
-                $('#shard').hide();
-           });
-    $('#bar').on('click',function(){
-        $('#ulcontainer').css('display','block');
-        $('#toleft1').css('display','none');
-        $('#bar').css('display','none');
-        $('#shard').off('click');
-        $('#shard').hide();
-        setTimeout(function(){
-            $('#shard').show();
-            $('#shard').one('click',function(){
-                console.log('click ...');
-                $('#ulcontainer').css('display','none');
-                 $('#bar').css('display','block');
-                  $('#toleft1').css('display','block');
-                $('#shard').hide();
-            })
-        }, 0);
-    });
-
-down.onclick=function(){
-	for(var i=0;i<4;i++){
-	even[i].className="even";
-	odd[i].className="odd hide";
-	}
-	even[0].className="even hide";
-	odd[0].className="odd";
-	body.className="bgcolorf";
-	about1.className="";
-	lw.className="hide";
-	solution1.className="hide";
-	dat1.className="hide";
-	dat2.className="hide";
-	application1.className="hide";
-};
-
-about.onclick=function(e){
-	e.stopPropagation();
-	for(var i=0;i<4;i++){
-	even[i].className="even";
-	odd[i].className="odd hide";
-	}
-	even[0].className="even hide";
-	odd[0].className="odd";
-	body.className="bgcolorf";
-	lw.className="hide";
-	about1.className="";
 	solution1.className="hide";
 	dat1.className="hide";
 	dat2.className="hide";
@@ -130,158 +121,65 @@ about.onclick=function(e){
 var wid=window.innerHeight/window.innerWidth/1.22*100+"%";
 var topp=(window.innerHeight*0.65-window.innerWidth*0.92)*100/window.innerHeight;
 var top1=(window.innerHeight-window.innerWidth*0.92)*100/window.innerHeight;
-solution.onclick=function(e){
-	e.stopPropagation();
-	for(var i=0;i<4;i++){
-	even[i].className="even";
-	odd[i].className="odd hide";
-	}
-	solimg.style.width=wid;
-	if(window.innerWidth<800){
-	solutionbg.style.top=topp+1+"%";
-	}else{
-		solutionbg.style.top=top1+1+"%";
-	}
-	even[1].className="even hide";
-	odd[1].className="odd";
-	body.className="bgcolorf";
-	lw.className="hide";
-	about1.className="hide";
-	solution1.className="";
-	dat1.className="hide";
-	dat2.className="hide";
-	application1.className="hide";
-};
-
-//real-data
+	//real-data
 var date=new Date();
 var year=date.getFullYear();
-var month="0"+(date.getMonth()+1);
+var month=date.getMonth()+1;
 var day=date.getDate();
-if(day<10){
-	day="0"+day;
-}
-time1.innerHTML=year+'/'+month+'/'+day;
 
+time1.innerHTML=year+'/'+month+'/'+day;
 var curMonthDays=new Date(year,month,0).getDate();
-dat.onclick=function(e){
-    e.stopPropagation();
-    for(var i=0;i<4;i++){
-        even[i].className="even";
-        odd[i].className="odd hide";
+	time11.innerHTML=year+'/'+month+'/'+day;
+	sl1.onclick=function(){
+    green.style.left="0";
+		time11.innerHTML=year+'/'+month+'/'+day;
+		box3.className="";
+		box33.className="hide";
+		box333.className="hide";
 	}
-	even[2].className="even hide";
-	odd[2].className="odd";
-    lw.className="hide";
-    body.className="bgblue";
-    about1.className="hide";
-    solution1.className="hide";
-    dat1.className="";
-    dat2.className="hide";
-    application1.className="hide";
-    box3.className="";
-    box33.className="hide";
-    box333.className="hide";
-};
-
-
-time11.innerHTML=year+'/'+month+'/'+day;
-
-
-
-sl1.onclick=function(){
-    sl1.style.background="#92C627";
-    sl2.style.background="#759F1F";
-    sl3.style.background="#759F1F";
-    time11.innerHTML=year+'/'+month+'/'+day;
-    box3.className="";
-    box33.className="hide";
-    box33.className="hide";
-};
-
-sl2.onclick=function(){
-    sl2.style.background="#92C627";
-    sl1.style.background="#759F1F";
-    sl3.style.background="#759F1F";
-    if(day<7){
-        if(day==1){
-        var monthh1="0"+month-1;
-        var monthh=month-1;
-        var dayy=curMonthDays-(7-day);
-        var dayy1=curMonthDays;
-        }else{
-        monthh1=month;
-        monthh="0"+month-1;
-        dayy=curMonthDays-(7-day);
-        dayy1="0"+day-1;
-        }
-    }else{
-        monthh1=month;
-        monthh=month;
-        dayy=day-7;
-        dayy1=day-1;
-    }
-    box3.className="hide";
-    box33.className="";
-    box333.className="hide";
-    time11.innerHTML=monthh+'/'+dayy+'-'+monthh1+'/'+dayy1;
-};
-sl3.onclick=function(){
-    sl3.style.background="#92C627";
-    sl1.style.background="#759F1F";
-    sl2.style.background="#759F1F";
-        if(day==1){
-        var dayy1=curMonthDays;
-        var monthh1="0"+month-1;
-        var monthh="0"+month-1;
-        var dayy=curMonthDays-(31-day);
-        }else{
-        dayy1=day-1;
-        monthh1=month;
-        monthh=month-1;
-        dayy=curMonthDays-(31-day);
-    }
-    time11.innerHTML=monthh+'/'+dayy+'-'+monthh1+'/'+dayy1;
-    box3.className="hide";
-    box33.className="hide";
-    box333.className="";
-};
-application.onclick=function(e){
-	    e.stopPropagation(e);
-		for(var i=0;i<4;i++){
-	even[i].className="even";
-	odd[i].className="odd hide";
+	sl2.onclick=function(){
+green.style.left="0.32666666rem";
+		if(day<7){
+			if(day==1){
+			var monthh1=month-1;
+			var monthh=month-1;
+			var dayy=curMonthDays-(7-day);
+			var dayy1=curMonthDays;
+			}else{
+			monthh1=month;
+			monthh=month-1;
+			dayy=curMonthDays-(7-day);
+			dayy1=day-1;
+			}
+		}else{
+			monthh1=month;
+		    monthh=month;
+			dayy=day-7;
+			dayy1=day-1;
+		}
+		box3.className="hide";
+		box33.className="";
+		box333.className="hide";
+		time11.innerHTML=monthh+'/'+dayy+'-'+monthh1+'/'+dayy1;
 	}
-	even[3].className="even hide";
-	odd[3].className="odd";
-		body.className="bgcolorf";
-		lw.className="hide";
-		about1.className="hide";
-		solution1.className="hide";
-		dat1.className="hide";
-		dat2.className="hide";
-		application1.className="";
-	};
-toright1.onclick=function(){
-	body.className="bgblue";
-	dat1.className="hide";
-	dat2.className="";
-}
-toleft1.onclick=function(){
-	dat1.className="";
-	dat2.className="hide";
-}
-
-
-//real-data
-var date=new Date();
-var year=date.getFullYear();
-var month="0"+(date.getMonth()+1);
-var day=date.getDate();
-if(day<10){
-	day="0"+day;
-}
-time1.innerHTML=year+'/'+month+'/'+day;
+	sl3.onclick=function(){
+        green.style.left="0.6533333rem";
+			if(day==1){
+			var dayy1=curMonthDays;
+			var monthh1=month-1;
+			var monthh=month-1;
+			var dayy=curMonthDays-(31-day);
+			}else{
+			dayy1=day-1;
+			monthh1=month;
+			monthh=month-1;
+		    dayy=curMonthDays-(31-day);
+		}
+		time11.innerHTML=monthh+'/'+dayy+'-'+monthh1+'/'+dayy1;
+		box3.className="hide";
+		box33.className="hide";
+		box333.className="";
+	}
 
 /*图表开始
  * 
@@ -308,83 +206,82 @@ var tabContainer666= document.getElementById('main666');
 //用于使chart自适应高度和宽度,通过窗体高宽计算容器高宽
 var resizeContainer = function () {
 	if(window.innerWidth<800){
-    tabContainer1.style.width = window.innerWidth*0.76+'px';
+   tabContainer1.style.width = window.innerWidth*0.83+'px';
     tabContainer1.style.height = window.innerHeight*0.28+'px';
-    tabContainer2.style.width = window.innerWidth*0.76+'px';
+    tabContainer2.style.width = window.innerWidth*0.83+'px';
     tabContainer2.style.height = window.innerHeight*0.28+'px';
-    tabContainer3.style.width = window.innerWidth*0.76+'px';
+    tabContainer3.style.width = window.innerWidth*0.83+'px';
     tabContainer3.style.height = window.innerHeight*0.28+'px';
-    tabContainer4.style.width = window.innerWidth*0.76+'px';
+    tabContainer4.style.width = window.innerWidth*0.83+'px';
     tabContainer4.style.height = window.innerHeight*0.28+'px';
-    tabContainer5.style.width = window.innerWidth*0.76+'px';
+    tabContainer5.style.width = window.innerWidth*0.83+'px';
     tabContainer5.style.height = window.innerHeight*0.28+'px';
-    tabContainer6.style.width = window.innerWidth*0.76+'px';
+    tabContainer6.style.width = window.innerWidth*0.83+'px';
     tabContainer6.style.height = window.innerHeight*0.28+'px';
-    tabContainer11.style.width = window.innerWidth*0.76+'px';
+    tabContainer11.style.width = window.innerWidth*0.83+'px';
     tabContainer11.style.height = window.innerHeight*0.28+'px';
-    tabContainer22.style.width = window.innerWidth*0.76+'px';
+    tabContainer22.style.width = window.innerWidth*0.83+'px';
     tabContainer22.style.height = window.innerHeight*0.28+'px';
-    tabContainer33.style.width = window.innerWidth*0.76+'px';
+    tabContainer33.style.width = window.innerWidth*0.83+'px';
     tabContainer33.style.height = window.innerHeight*0.28+'px';
-    tabContainer44.style.width = window.innerWidth*0.76+'px';
+    tabContainer44.style.width = window.innerWidth*0.83+'px';
     tabContainer44.style.height = window.innerHeight*0.28+'px';
-    tabContainer55.style.width = window.innerWidth*0.76+'px';
+    tabContainer55.style.width = window.innerWidth*0.83+'px';
     tabContainer55.style.height = window.innerHeight*0.28+'px';
-    tabContainer66.style.width = window.innerWidth*0.76+'px';
+    tabContainer66.style.width = window.innerWidth*0.83+'px';
     tabContainer66.style.height = window.innerHeight*0.28+'px';
-     tabContainer111.style.width = window.innerWidth*0.76+'px';
+     tabContainer111.style.width = window.innerWidth*0.83+'px';
     tabContainer111.style.height = window.innerHeight*0.28+'px';
-    tabContainer222.style.width = window.innerWidth*0.76+'px';
+    tabContainer222.style.width = window.innerWidth*0.83+'px';
     tabContainer222.style.height = window.innerHeight*0.28+'px';
-    tabContainer333.style.width = window.innerWidth*0.76+'px';
+    tabContainer333.style.width = window.innerWidth*0.83+'px';
     tabContainer333.style.height = window.innerHeight*0.28+'px';
-    tabContainer444.style.width = window.innerWidth*0.76+'px';
+    tabContainer444.style.width = window.innerWidth*0.83+'px';
     tabContainer444.style.height = window.innerHeight*0.28+'px';
-    tabContainer555.style.width = window.innerWidth*0.76+'px';
+    tabContainer555.style.width = window.innerWidth*0.83+'px';
     tabContainer555.style.height = window.innerHeight*0.28+'px';
-    tabContainer666.style.width = window.innerWidth*0.76+'px';
+    tabContainer666.style.width = window.innerWidth*0.83+'px';
     tabContainer666.style.height = window.innerHeight*0.28+'px';
 	}else{
-//	ulcontainer.removeClass("hide");
-	tabContainer1.style.width = window.innerWidth*0.25+'px';
+//	ulcontainer.removeClass("hide");	
+   tabContainer1.style.width = window.innerWidth*0.2+'px';
     tabContainer1.style.height = window.innerHeight*0.28+'px';
-    tabContainer2.style.width = window.innerWidth*0.25+'px';
+    tabContainer2.style.width = window.innerWidth*0.2+'px';
     tabContainer2.style.height = window.innerHeight*0.28+'px';
-    tabContainer3.style.width = window.innerWidth*0.25+'px';
+    tabContainer3.style.width = window.innerWidth*0.2+'px';
     tabContainer3.style.height = window.innerHeight*0.28+'px';
-    tabContainer4.style.width = window.innerWidth*0.25+'px';
+    tabContainer4.style.width = window.innerWidth*0.2+'px';
     tabContainer4.style.height = window.innerHeight*0.28+'px';
-    tabContainer5.style.width = window.innerWidth*0.25+'px';
+    tabContainer5.style.width = window.innerWidth*0.2+'px';
     tabContainer5.style.height = window.innerHeight*0.28+'px';
-    tabContainer6.style.width = window.innerWidth*0.25+'px';
+    tabContainer6.style.width = window.innerWidth*0.2+'px';
     tabContainer6.style.height = window.innerHeight*0.28+'px';
-    tabContainer11.style.width = window.innerWidth*0.25+'px';
+    tabContainer11.style.width = window.innerWidth*0.2+'px';
     tabContainer11.style.height = window.innerHeight*0.28+'px';
-    tabContainer22.style.width = window.innerWidth*0.25+'px';
+    tabContainer22.style.width = window.innerWidth*0.2+'px';
     tabContainer22.style.height = window.innerHeight*0.28+'px';
-    tabContainer33.style.width = window.innerWidth*0.25+'px';
+    tabContainer33.style.width = window.innerWidth*0.2+'px';
     tabContainer33.style.height = window.innerHeight*0.28+'px';
-    tabContainer44.style.width = window.innerWidth*0.25+'px';
+    tabContainer44.style.width = window.innerWidth*0.2+'px';
     tabContainer44.style.height = window.innerHeight*0.28+'px';
-    tabContainer55.style.width = window.innerWidth*0.25+'px';
+    tabContainer55.style.width = window.innerWidth*0.2+'px';
     tabContainer55.style.height = window.innerHeight*0.28+'px';
-    tabContainer66.style.width = window.innerWidth*0.25+'px';
+    tabContainer66.style.width = window.innerWidth*0.2+'px';
     tabContainer66.style.height = window.innerHeight*0.28+'px';
-    tabContainer111.style.width = window.innerWidth*0.25+'px';
+    tabContainer111.style.width = window.innerWidth*0.2+'px';
     tabContainer111.style.height = window.innerHeight*0.28+'px';
-    tabContainer222.style.width = window.innerWidth*0.25+'px';
+    tabContainer222.style.width = window.innerWidth*0.2+'px';
     tabContainer222.style.height = window.innerHeight*0.28+'px';
-    tabContainer333.style.width = window.innerWidth*0.25+'px';
+    tabContainer333.style.width = window.innerWidth*0.2+'px';
     tabContainer333.style.height = window.innerHeight*0.28+'px';
-    tabContainer444.style.width = window.innerWidth*0.25+'px';
+    tabContainer444.style.width = window.innerWidth*0.2+'px';
     tabContainer444.style.height = window.innerHeight*0.28+'px';
-    tabContainer555.style.width = window.innerWidth*0.25+'px';
+    tabContainer555.style.width = window.innerWidth*0.2+'px';
     tabContainer555.style.height = window.innerHeight*0.28+'px';
-    tabContainer666.style.width = window.innerWidth*0.25+'px';
+    tabContainer666.style.width = window.innerWidth*0.2+'px';
     tabContainer666.style.height = window.innerHeight*0.28+'px';
 	}
 };
-
 //设置容器高宽
 resizeContainer();
 var myChart1 = echarts.init(tabContainer1);
@@ -406,44 +303,8 @@ var myChart444 = echarts.init(tabContainer444);
 var myChart555 = echarts.init(tabContainer555);
 var myChart666 = echarts.init(tabContainer666);
 
-
-//标签换行
-function newLine(params){
-    var newParamsName = "";// 最终拼接成的字符串
-    var paramsNameNumber = params.length;// 实际标签的个数
-    var provideNumber = 10;// 每行能显示的字的个数
-    var rowNumber = Math.ceil(paramsNameNumber / provideNumber);// 换行的话，需要显示几行，向上取整
-    /**
-     * 判断标签的个数是否大于规定的个数， 如果大于，则进行换行处理 如果不大于，即等于或小于，就返回原标签
-     */
-    // 条件等同于rowNumber>1
-    if (paramsNameNumber > provideNumber) {
-        /** 循环每一行,p表示行 */
-        for (var p = 0; p < rowNumber; p++) {
-            var tempStr = "";// 表示每一次截取的字符串
-            var start = p * provideNumber;// 开始截取的位置
-            var end = start + provideNumber;// 结束截取的位置
-            // 此处特殊处理最后一行的索引值
-            if (p == rowNumber - 1) {
-                // 最后一次不换行
-                tempStr = params.substring(start, paramsNameNumber);
-            } else {
-                // 每一次拼接字符串并换行
-                tempStr = params.substring(start, end) + "\n";
-            }
-            newParamsName += tempStr;// 最终拼成的字符串
-        }
-
-    } else {
-        // 将旧标签的值赋给新标签
-        newParamsName = params;
-    }
-    //将最终的字符串返回
-    return newParamsName
-}
-
 //日数据
-var a ={
+var a={
     tooltip: {
         trigger: 'axis'
     },
@@ -455,30 +316,24 @@ var a ={
         containLabel: true
     },
     xAxis: {
-        //  axisLabel:{
-        //     interval: 0,//标签设置为全部显示
-        //     formatter:function(params){
-        //         newLine(params);
-        //     }
-        // },
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#36E39C',
             		width:'1'
             	}
             },
-        boundaryGap: [0, '10%']
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
             	axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#36E39C',
             		width:'1'
             	}
             },
@@ -490,31 +345,23 @@ var a ={
             stack: '总量',
              itemStyle:{
                         normal:{
-                            color:'#ADEC25'
+                            color:'#36E39C'
                                     }
                                 },
+            // data:[120, 132, 101, 134, 90, 230, 210]
             data:[]
-        }
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
+        },
     ]
 };
+
+
 var b = {
     tooltip: {
         trigger: 'axis'
     },
     grid: {
         left: '3%',
-        right: '4%',
+        right: '4%',                                               
         bottom: '3%',
         top:'5%',
         containLabel: true
@@ -523,21 +370,21 @@ var b = {
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#3CA5CF',
             		width:'1'
             	}
             },
-        boundaryGap: [0, '10%']
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
             	axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#3CA5CF',
             		width:'1'
             	}
             },
@@ -549,25 +396,16 @@ var b = {
             stack: '总量',
             itemStyle:{
                         normal:{
-                            color:'#ADEC25'
+                            color:'#3CA5CF'
                                     }
                                 },
+            // data:[120, 132, 101, 134, 90, 230, 210]
             data:[]
         },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
     ]
 };
-var c ={
+
+var c={
     tooltip: {
         trigger: 'axis'
     },
@@ -582,21 +420,21 @@ var c ={
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#ADEC25 ',
             		width:'1'
             	}
             },
-        boundaryGap: [0, '10%']
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
             	axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#ADEC25 ',
             		width:'1'
             	}
             },
@@ -608,86 +446,18 @@ var c ={
             stack: '总量',
              itemStyle:{
                         normal:{
-                            color:'#ADEC25'
+                            color:'#ADEC25 '
                                     }
                                 },
+            // data:[120, 132, 101, 134, 90, 230, 210]
             data:[]
         },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
     ]
 };
-var d = {
-    tooltip:{
-        trigger:'axis'
-    },
-	grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        top:'5%',
-        containLabel: true
-    },
-    xAxis: {
-        type: 'category',
-        axisLine:{
-            	lineStyle:{
-            		color:'#C1FF3D',
-            		width:'1'
-            	}
-            },
-        boundaryGap: [0, '10%']
-    },
-    yAxis: {
-        boundaryGap: [0, '20%'],
-        type: 'value',
-        splitLine: {     //网格线
-                   show: false
-                         },
-        axisLine:{
-            	lineStyle:{
-            		color:'#C1FF3D',
-            		width:'1'
-            	}
-            },
 
-    },
-    series: [{
-        name:'灰尘',
-        data: [],
-         itemStyle:{
-                        normal:{
-                            color:'#ADEC25'
-                                    }
-                                },
-        type: 'line',
-        areaStyle: {}
-    },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
-        ]
-};
-var e = {
-    tooltip:{
-        trigger:'axis'
+var d= {
+        tooltip: {
+        trigger: 'axis'
     },
 	grid: {
         left: '3%',
@@ -700,52 +470,41 @@ var e = {
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#36E39C',
             		width:'1'
             	}
             },
-        boundaryGap: [0, '10%']
+        boundaryGap: false,
+        // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#36E39C',
             		width:'1'
             	}
             },
     },
     series: [{
-        name:'二氧化碳',
-        data: [],
-        itemStyle:{
-                    normal:{
-                        color:'#ADEC25'
-                    }
-                    },
+        // data: [820, 932, 901, 934, 1290, 1330, 1320],
+         itemStyle:{
+                        normal:{
+                            color:'#36E39C'
+                                    }
+                                },
         type: 'line',
-        areaStyle: {}
-    },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
-        ]
+        areaStyle: {},
+        data:[]
+    }]
 };
-var f = {
-    tooltip:{
-        trigger:'axis'
+
+var e= {
+    tooltip: {
+        trigger: 'axis'
     },
 	grid: {
         left: '3%',
@@ -758,61 +517,87 @@ var f = {
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#3CA5CF',
             		width:'1'
             	}
             },
-        boundaryGap: [0,'10%']
+        boundaryGap: false,
+        // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#3CA5CF',
             		width:'1'
             	}
             },
-        // min:function(value)
-        // {
-        //     return value.min - 0.1;
-        // },
-        min:0,
-        max:30
-        // max:function(value)
-        // {
-        //     return Math.ceil(value.max + 0.15);
-        // }
     },
     series: [{
-        name:'氧气',
-        data: [],
+	    data:[],
+        // data: [820, 932, 901, 934, 1290, 1330, 1320],
          itemStyle:{
                         normal:{
-                            color:'#ADEC25'
+                            color:'#3CA5CF'
                                     }
                                 },
         type: 'line',
-        areaStyle: {}////
-    },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
-        ]
+        areaStyle: {}
+    }]
 };
+
+var f= {
+        tooltip: {
+        trigger: 'axis'
+    },
+	grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        top:'5%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        axisLine:{
+            	lineStyle:{
+            		color:'#ADEC25 ',
+            		width:'1'
+            	}
+            },
+        boundaryGap: false,
+        // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+        type: 'value',
+        splitLine: {     //网格线
+                   show: false
+                         },
+        axisLine:{
+            	lineStyle:{
+            		color:'#ADEC25 ',
+            		width:'1'
+            	}
+            },
+    },
+    series: [{
+	    data:[],
+        // data: [820, 932, 901, 934, 1290, 1330, 1320],
+         itemStyle:{
+                        normal:{
+                            color:'#ADEC25 '
+                                    }
+                                },
+        type: 'line',
+        areaStyle: {}
+    }]
+};
+
 //周数据
-var aa ={
+var aa={
     tooltip: {
         trigger: 'axis'
     },
@@ -827,21 +612,21 @@ var aa ={
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#36E39C',
             		width:'1'
             	}
             },
-        boundaryGap: [0, '10%']
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
             	axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#36E39C',
             		width:'1'
             	}
             },
@@ -853,24 +638,16 @@ var aa ={
             stack: '总量',
              itemStyle:{
                         normal:{
-                            color:'#ADEC25'
+                            color:'#36E39C'
                                     }
                                 },
+            // data:[120, 132, 101, 134, 90, 230, 210]
             data:[]
         },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
     ]
 };
+
+
 var bb = {
     tooltip: {
         trigger: 'axis'
@@ -886,21 +663,21 @@ var bb = {
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#3CA5CF',
             		width:'1'
             	}
             },
-        boundaryGap: [0,'10%']
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
             	axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#3CA5CF',
             		width:'1'
             	}
             },
@@ -912,25 +689,16 @@ var bb = {
             stack: '总量',
             itemStyle:{
                         normal:{
-                            color:'#ADEC25'
+                            color:'#3CA5CF'
                                     }
                                 },
+            // data:[120, 132, 101, 134, 90, 230, 210]
             data:[]
         },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
     ]
 };
-var cc ={
+
+var cc={
     tooltip: {
         trigger: 'axis'
     },
@@ -945,21 +713,21 @@ var cc ={
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#ADEC25 ',
             		width:'1'
             	}
             },
-        boundaryGap: [0 , '10%']
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
             	axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#ADEC25 ',
             		width:'1'
             	}
             },
@@ -971,86 +739,18 @@ var cc ={
             stack: '总量',
              itemStyle:{
                         normal:{
-                            color:'#ADEC25'
+                            color:'#ADEC25 '
                                     }
                                 },
             data:[]
+            // data:[120, 132, 101, 134, 90, 230, 210]
         },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
     ]
 };
-var dd = {
-    tooltip:{
-        trigger:'axis'
-    },
-	grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        top:'5%',
-        containLabel: true
-    },
-    xAxis: {
-        type: 'category',
-        axisLine:{
-            	lineStyle:{
-            		color:'#C1FF3D',
-            		width:'1'
-            	}
-            },
-        boundaryGap: [0, '10%']
-    },
-    yAxis: {
-        boundaryGap: [0, '20%'],
-        type: 'value',
-        splitLine: {     //网格线
-                   show: false
-                         },
-        axisLine:{
-            	lineStyle:{
-            		color:'#C1FF3D',
-            		width:'1'
-            	}
-            },
 
-    },
-    series: [{
-        name:'灰尘',
-        data: [],
-         itemStyle:{
-                        normal:{
-                            color:'#ADEC25'
-                                    }
-                                },
-        type: 'line',
-        areaStyle: {}
-    },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
-        ]
-};
-var ee = {
-    tooltip:{
-        trigger:'axis'
+var dd= {
+        tooltip: {
+        trigger: 'axis'
     },
 	grid: {
         left: '3%',
@@ -1063,52 +763,41 @@ var ee = {
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#36E39C',
             		width:'1'
             	}
             },
-        boundaryGap: [0, '10%']
+        boundaryGap: false,
+        // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#36E39C',
             		width:'1'
             	}
             },
     },
     series: [{
-        name:'二氧化碳',
-        data: [],
-        itemStyle:{
-                    normal:{
-                        color:'#ADEC25'
-                    }
-                    },
+	    data:[],
+        // data: [820, 932, 901, 934, 1290, 1330, 1320],
+         itemStyle:{
+                        normal:{
+                            color:'#36E39C'
+                                    }
+                                },
         type: 'line',
         areaStyle: {}
-    },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
-        ]
+    }]
 };
-var ff = {
-    tooltip:{
-        trigger:'axis'
+
+var ee= {
+        tooltip: {
+        trigger: 'axis'
     },
 	grid: {
         left: '3%',
@@ -1121,61 +810,87 @@ var ff = {
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#3CA5CF',
             		width:'1'
             	}
             },
-        boundaryGap: [0, '10%']
+        boundaryGap: false,
+        // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#3CA5CF',
             		width:'1'
             	}
             },
-        // min:function(value)
-        // {
-        //     return value.min - 0.1;
-        // },
-        min:0,
-        max:30
-        // max:function(value)
-        // {
-        //     return Math.ceil(value.max + 0.15);
-        // }
     },
     series: [{
-        name:'氧气',
-        data: [],
+	    data:[],
+        // data: [820, 932, 901, 934, 1290, 1330, 1320],
          itemStyle:{
                         normal:{
-                            color:'#ADEC25'
+                            color:'#3CA5CF'
                                     }
                                 },
         type: 'line',
-        areaStyle: {}////
-    },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
-        ]
+        areaStyle: {}
+    }]
 };
+
+var ff= {
+        tooltip: {
+        trigger: 'axis'
+    },
+	grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        top:'5%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        axisLine:{
+            	lineStyle:{
+            		color:'#ADEC25 ',
+            		width:'1'
+            	}
+            },
+        boundaryGap: false,
+        // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+        type: 'value',
+        splitLine: {     //网格线
+                   show: false
+                         },
+        axisLine:{
+            	lineStyle:{
+            		color:'#ADEC25 ',
+            		width:'1'
+            	}
+            },
+    },
+    series: [{
+	    data:[],
+        // data: [820, 932, 901, 934, 1290, 1330, 1320],
+         itemStyle:{
+                        normal:{
+                            color:'#ADEC25 '
+                                    }
+                                },
+        type: 'line',
+        areaStyle: {}
+    }]
+};
+
 //月数据
-var aaa ={
+var aaa={
     tooltip: {
         trigger: 'axis'
     },
@@ -1190,21 +905,21 @@ var aaa ={
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#36E39C',
             		width:'1'
             	}
             },
-        boundaryGap: [0, '10%']
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
             	axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#36E39C',
             		width:'1'
             	}
             },
@@ -1216,24 +931,16 @@ var aaa ={
             stack: '总量',
              itemStyle:{
                         normal:{
-                            color:'#ADEC25'
+                            color:'#36E39C'
                                     }
                                 },
             data:[]
+            // data:[120, 132, 101, 134, 90, 230, 210]
         },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
     ]
 };
+
+
 var bbb = {
     tooltip: {
         trigger: 'axis'
@@ -1249,21 +956,21 @@ var bbb = {
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#3CA5CF',
             		width:'1'
             	}
             },
-        boundaryGap: [0, '10%']
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
             	axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#3CA5CF',
             		width:'1'
             	}
             },
@@ -1275,25 +982,16 @@ var bbb = {
             stack: '总量',
             itemStyle:{
                         normal:{
-                            color:'#ADEC25'
+                            color:'#3CA5CF'
                                     }
                                 },
             data:[]
+            // data:[120, 132, 101, 134, 90, 230, 210]
         },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
     ]
 };
-var ccc ={
+
+var ccc={
     tooltip: {
         trigger: 'axis'
     },
@@ -1308,24 +1006,21 @@ var ccc ={
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#ADEC25  ',
             		width:'1'
             	}
             },
-        boundaryGap: [0, '10%'],
-        splitLine: {
-            show: false
-        }
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
             	axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#ADEC25  ',
             		width:'1'
             	}
             },
@@ -1337,89 +1032,18 @@ var ccc ={
             stack: '总量',
              itemStyle:{
                         normal:{
-                            color:'#ADEC25'
+                            color:'#ADEC25 '
                                     }
                                 },
             data:[]
+            // data:[120, 132, 101, 134, 90, 230, 210]
         },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
     ]
 };
-var ddd = {
-    tooltip:{
-        trigger:'axis'
-    },
-	grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        top:'5%',
-        containLabel: true
-    },
-    xAxis: {
-        type: 'category',
-        splitLine: {
-            show: false
-        },
-        axisLine:{
-            	lineStyle:{
-            		color:'#C1FF3D',
-            		width:'1'
-            	}
-            },
-        boundaryGap: [0, '10%']
-    },
-    yAxis: {
-        boundaryGap: [0, '20%'],
-        type: 'value',
-        splitLine: {     //网格线
-                   show: false
-                         },
-        axisLine:{
-            	lineStyle:{
-            		color:'#C1FF3D',
-            		width:'1'
-            	}
-            },
 
-    },
-    series: [{
-        name:'灰尘',
-        data: [],
-         itemStyle:{
-                        normal:{
-                            color:'#ADEC25'
-                                    }
-                                },
-        type: 'line',
-        areaStyle: {}
-    },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
-        ]
-};
-var eee = {
-    tooltip:{
-        trigger:'axis'
+var ddd= {
+        tooltip: {
+        trigger: 'axis'
     },
 	grid: {
         left: '3%',
@@ -1432,53 +1056,41 @@ var eee = {
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#36E39C',
             		width:'1'
             	}
             },
-        boundaryGap: [0, '10%']
+        boundaryGap: false,
         // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#36E39C',
             		width:'1'
             	}
             },
     },
     series: [{
-        name:'二氧化碳',
-        data: [],
-        itemStyle:{
-                    normal:{
-                        color:'#ADEC25'
-                    }
-                    },
+	    data:[],
+        // data: [820, 932, 901, 934, 1290, 1330, 1320],
+         itemStyle:{
+                        normal:{
+                            color:'#36E39C'
+                                    }
+                                },
         type: 'line',
         areaStyle: {}
-    },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
-        ]
+    }]
 };
-var fff = {
-    tooltip:{
-        trigger:'axis'
+
+var eee= {
+        tooltip: {
+        trigger: 'axis'
     },
 	grid: {
         left: '3%',
@@ -1491,60 +1103,86 @@ var fff = {
         type: 'category',
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#3CA5CF',
             		width:'1'
             	}
             },
-        boundaryGap: [0, '10%']
+        boundaryGap: false,
+        // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     },
     yAxis: {
-        boundaryGap: [0, '20%'],
         type: 'value',
         splitLine: {     //网格线
                    show: false
                          },
         axisLine:{
             	lineStyle:{
-            		color:'#C1FF3D',
+            		color:'#3CA5CF',
             		width:'1'
             	}
             },
-        // min:function(value)
-        // {
-        //     return value.min - 0.1;
-        // },
-        min:0,
-        max:30
-        // max:function(value)
-        // {
-        //     return Math.ceil(value.max + 0.15);
-        // }
     },
     series: [{
-        name:'氧气',
-        data: [],
+	    data:[],
+        // data: [820, 932, 901, 934, 1290, 1330, 1320],
          itemStyle:{
                         normal:{
-                            color:'#ADEC25'
+                            color:'#3CA5CF'
                                     }
                                 },
         type: 'line',
-        areaStyle: {}////
-    },
-        // {
-        //     name:'.anchor',
-        //     type:'line',
-        //     showSymbol:false,
-        //     data:[
-        //         {value:['2016/12/18 00:00:00', 0]},
-        //         {value:['2016/12/19 00:00:00', 0]}
-        //         ],
-        //     itemStyle:{normal:{opacity:0}},
-        //     lineStyle:{normal:{opacity:0}}
-        // }
-        ]
+        areaStyle: {}
+    }]
 };
 
+var fff= {
+        tooltip: {
+        trigger: 'axis'
+    },
+	grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        top:'5%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        axisLine:{
+            	lineStyle:{
+            		color:'#ADEC25 ',
+            		width:'1'
+            	}
+            },
+        boundaryGap: false,
+        // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+        type: 'value',
+        splitLine: {     //网格线
+                   show: false
+                         },
+        axisLine:{
+            	lineStyle:{
+            		color:'#ADEC25 ',
+            		width:'1'
+            	}
+            },
+    },
+    series: [{
+        data:[],
+        // data: [820, 932, 901, 934, 1290, 1330, 1320],
+         itemStyle:{
+                        normal:{
+                            color:'#ADEC25 '
+                                    }
+                                },
+        type: 'line',
+        areaStyle: {}
+    }]
+};
+
+getdata();
 initday();
 initweek();
 initmonth();
@@ -1573,7 +1211,7 @@ window.addEventListener('resize',function(){
 //定时从后台读取数据
 setInterval(function(){
 	getdata();
-	},3000);
+	},5000);
 
 //ajax技术实现前后台交互
 function getdata(){
@@ -1584,10 +1222,9 @@ function getdata(){
 		success:function(data){
 
             //空气成分
-            for(i=0;i<6;i++){
+            for(i=0;i<8;i++){
                 realdata[i].innerHTML=data.Data.shift();
             }
-
             },
 			error:function(){
 			}
@@ -1608,18 +1245,10 @@ function initday(){
             e.series[0].data = data.CarbonDioxideDay;//二氧化碳
             f.series[0].data = data.OxygenDay;//氧气
 
-            // a.series[1].data = data.anchorDay;//日数据
-            // b.series[1].data = data.anchorDay;
-            // c.series[1].data = data.anchorDay;
-            // d.series[1].data = data.anchorDay;
-            // e.series[1].data = data.anchorDay;
-            // f.series[1].data = data.anchorDay;
-
-
-            //空气成分
-            for(i=0;i<6;i++){
-                realdata[i].innerHTML=data.Data.shift();
-            }
+            // //空气成分
+            // for(i=0;i<6;i++){
+            //     realdata[i].innerHTML=data.Data.shift();
+            // }
 
             myChart1.setOption(a);
             myChart2.setOption(b);
@@ -1648,7 +1277,6 @@ function initweek(){
             dd.series[0].data = data.DustWeek;//灰尘
             ee.series[0].data = data.CarbonDioxideWeek;//二氧化碳
             ff.series[0].data = data.OxygenWeek;//氧气
-
 
             // aa.series[1].data = data.anchorWeek;//周数据
             // bb.series[1].data = data.anchorWeek;

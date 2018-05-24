@@ -12,8 +12,8 @@ def index():
 def sendjson():
 	data = db.readMax()
 	t = {
-		'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9]]
-		# { Temperature, Humidity, Illumination, Carbon Dioxide, Oxygen, Dust }
+		'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9], data[0][12], data[0][13]]
+		# { Temperature, Humidity, Illumination, Carbon Dioxide, Oxygen, Dust, soil_temp, soil_hum }
 	}
 	# print(t)
 	send = json.dumps(t)

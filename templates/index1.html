@@ -1,46 +1,45 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <!--<script type="text/javascript">
+    !function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(320,780);
+    </script>-->
+    <script type="text/javascript">
+    // 根据屏幕尺寸
+    if (window.innerWidth <800) {
+    document.write('<script type="text/javascript" >!function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(320,780);<\/script>');
+    }
+    </script>
     <link media="(min-width:800px)" style="text:css" rel="stylesheet" href="../static/css/desktop.css">
-	<link media="(max-width:800px)" style="text:css" rel="stylesheet" href="../static/css/mobile.css">
-	<title>lotea</title>
+    <link media="(max-width:800px)" style="text:css" rel="stylesheet" href="../static/css/mobile.css">
+    <!--!function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(1024,2000);-->
+    <title>lotea</title>
+
 </head>
 <body>
-	<div id="shard" ></div>
 	<div class="container">
-        <div id="left">
-            <div id="menu">
-					<div class="logo" id="logo"><img src="../static/img/logo.png"></div>
-					<div id="bar"><img src="../static/img/bar.png"></div>
-            </div>
-            <div id="ulcontainer" class="hide">
-                <ul id="barul">
-                    <li class="even" id="about">故事</li>
-                    <li class="odd hide">故事</br>__</li>
-                    <li class="even" id="solution">解决方案</li>
-                    <li class="odd hide">解决方案</br>__</li>
-                    <li class="even" id="data">数据展示</li>
-                    <li class="odd hide">数据展示</br>__</li>
-                    <li class="even" id="applicaton">行业应用</li>
-                    <li class="odd hide">行业应用</br>__</li>
-                </ul>
-			</div>
-
-        </div>
-        <div id="right">
+			<div id="right">
 						<div id="lw">
-							<div class="biglogo"><img src="../static/img/Page 1 Copy 3.png"></div>
+							<div class="biglogo"><img src="../static/img/Artboard 1 Copy.png"></div>
 							<div class="word">蒙顶山，物联网的茶</div>
-							<div class="pre">Seeed IoTea 智慧生态茶园</div>
-							<div id="down"><img src="../static/img/Group.png"></div>
+							<!--<div class="pre">Seeed IoTea 智慧生态茶园</div>-->
+							<div class="lg0"><img src="../static/img/INTERNET OF TEA Copy.png"></div>
+							<div id="lg1"><div class="line1"></div><div class="w1">故事</div><div id="lgbtn1"><img src="../static/img/3.png"></div></div>
+							<div id="lg2"><div class="line2"></div><div class="w2">茶园</br>实时数据</div><div id="lgbtn2"><img src="../static/img/1.png"></div></div>
+							<div id="lg3"><div class="line3"></div><div class="w3">茶园</br>历史数据</div><div id="lgbtn3"><img src="../static/img/2.png"></div></div>
+							<div id="lg4"><div class="line4"></div><div class="w4">生态茶园</br>解决方案</div><div id="lgbtn4"><img src="../static/img/4.png"></div></div>
+							<div id="lg5"><div class="line5"></div><div class="w5">延伸应用</div><div id="lgbtn5"><img src="../static/img/5.png"></div></div>							
 					    </div>
 					    <div id="about1" class="hide">
-					    	<div class="abstory">Story</br>故事</div>
+					    	<div class="abstory">Story</div><div class="gushi">故事</div>
+					    	<div class="back" onclick="back()"><img src="../static/img/back1.png"></div>
 					    		<div id="teaimg">
 					    			<div id="teaimg1">
 					    				<img src="../static/img/Group Copy 3.png"><img src="../static/img/Group Copy 6.png">
@@ -63,149 +62,173 @@
 					    	</div>
 					    </div>
 					    <div id="solution1" class="hide">
-					    	<div class="absolution">Solution</br>智慧生态茶园方案</div>
-					    		<div id="solutionimg"><img id="solimg" src="../static/img/2X.png"></div>
-					    		<div id="solutionbg"><img src="../static/img/solution%202X.png"></div>
+					    	<div class="back" onclick="back()"><img src="../static/img/back1.png"></div>
+					    	<div class="absolution">Solution</div><div class="aabs">智慧生态茶园方案</div>
+					    		<div id="solutionimg"><div class="soll"><img id="solimg" src="../static/img/2X11.png"></div></div>
+					    		<div id="solutionbg"><img src="../static/img/rebg.png"></div>
 					    		<div id="article1">
 					    			<div id="solutionarticle">
 					    			Seeed IoTea智慧生态茶园方案致力于如何在不破坏原本山茶古旧的种茶－摘茶－制茶生态的基础上，让技术帮助茶农更科学、生理地管理广袤的茶园，同时对消费者开放实时监测茶园的渠道，让大众直观地了解高山茶种茶、制茶的生态。</br></br>
 
 由一系列传感器、节点，网关等组成的智能环境监测系统，可以实时收集种茶过程中的大气温湿度、二氧化碳、氧气、PM、光照，土壤温湿度等影响茶树生长的关键数据。同时收集制茶过程中的房间温湿度、以及杀青温度。各个节点通过Lora协议把采集到的数据传输给网关，然后上传到云端数据库，最终通过可视化工具，把茶叶从茶园到制茶过程的数据以图表清晰呈现。
-					       </div>
+					    </div>
 					       </div>
 					    </div>
 					    <div id="dat1" class="hide">
-					    	    <div id="realtitle">Real-time data</br>茶园实时数据<span id="time1"></span></div>
-					    	    <div class="dat1contain">
+					    	<div class="back" onclick="back()"><img src="../static/img/back2.png"></div>
+					    	    <div id="realtitle">茶园实时数据</div><div class="rea"><span id="time1"></span></div>
+					    	    <div class="dat1contain" >
 					    	    		<div class="td td3 td4">
-					    	    			<img src="../static/img/Temperature.png"></br>
-					    	    			<span class="dif">温度</span></br>
+					    	    			<img src="../static/img/tempreture.png"></br>
+					    	    			<span class="dif">空气温度</span></br>
 					    	    			<span id="Temperature"></span>℃
 					    	    		</div>
 					    	    		<div class="td1 td3 td4">
 					    	    			<img src="../static/img/Humidity.png"></br>
-					    	    			<span class="dif">湿度</span></br>
+					    	    			<span class="dif">空气湿度</span></br>
 					    	    			<span id="Humidity"></span>%
 					    	    		</div>					
-					    	    		<div class="td td4">
+					    	    		<div class="td td4 tt">
 					    	    			<img src="../static/img/Illumination.png"></br>
-					    	    			<span class="dif">日照</span></br>
+					    	    			<span class="dif">光照</span></br>
 					    	    			<span id="Illumination"></span>/Day
 					    	    		</div>
-					    	    		<div class="td1 td3">
-					    	    			<img src="../static/img/CarbonDioxide.png"></br>
+					    	    		<div class="td1 td3 tt">
+					    	    			<img src="../static/img/Carbon Dioxide.png"></br>
 					    	    			<span class="dif">二氧化碳</span></br>
 					    	    			<span id="CarbonDioxide"></span>PPM
 					    	    		</div>					
-					    	    		<div class="td3 td5">
-					    	    			<img src="../static/img/Oxygen.png"></br>
+					    	    		<div class="td td4 tt">
+					    	    			<img src="../static/img/Group 8 Copy.png"></br>
 					    	    			 <span class="dif">氧气</span></br>
 					    	    			<span id="Oxygen"></span>%
 					    	    		</div>
-					    	    		<div>
+					    	    		<div class="td1 td3 tt">
 					    	    			<img src="../static/img/Dust.png"></br>
-					    	    			<span class="dif">灰尘</span></br>
+					    	    			<span class="dif">PM</span></br>
 					    	    			<span id="Dust"></span>pcs/0.01cf
 					    	    		</div>
+					    	    		<div class="td3 td5 tt">
+					    	    			<img src="../static/img/tempreture.png"></br>
+					    	    			<span class="dif">土壤温度</span></br>
+					    	    			<span id="SoilTemperature"></span>℃
+					    	    		</div>
+					    	    		<div class="tt">
+					    	    			<img src="../static/img/Humidity.png"></br>
+					    	    			<span class="dif">土壤湿度</span></br>
+					    	    			<span id="SoilMoisture"></span>%
+					    	    		</div>					
 					    	    </div>
-					    	<div id="toright1"><img src="../static/img/Path 5 Copy.png"> </div>
 					    </div>
 					    <div id="dat2" class="hide">
-					    	<div id="toleft1"><img src="../static/img/Path 55 Copy.png"></div>
-                            <div id="weeklydata"><div id="slider"><div id="sl1">&nbsp;&nbsp;日</div><div id="sl2">&nbsp;&nbsp;周</div><div id="sl3">&nbsp;&nbsp;月</div></div><div id="time11"></div></div>
-                            <div id="box3" class="hide">
+					    	<div class="back" onclick="back()"><img src="../static/img/back2.png"></div>                 					   
+						    	 <div id="slider"><div class="green"></div><div id="sl1">&nbsp;&nbsp;&nbsp;日</div><div id="sl2">&nbsp;&nbsp;&nbsp;周</div><div id="sl3">&nbsp;&nbsp;&nbsp;月</div></div>
+						    	 <div id="time11"></div>
+						    	 <div id="box3" >
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Temperature.png">温度/°C</div>
+							    	 <div class="sub"><img src="../static/img/tempreture.png">Temperature/°C</div>
 							    	 <div id="main1"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Humidity.png">湿度/%</div>
+							    	 <div class="sub"><img src="../static/img/Humidity.png">Humidity/%</div>
 							    	 <div id="main2"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Illumination.png">日照</div>
+							    	 <div class="sub tt"><img src="../static/img/Illumination.png">Illumination</div>
 							    	 <div id="main3"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Dust.png">灰尘/pcs 0.01cf</div>
+							    	 <div class="sub"><img src="../static/img/Dust.png">Dust/pcs 0.01cf</div>
 							    	 <div id="main4"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/CarbonDioxide.png">二氧化碳/PPM</div>
+							    	 <div class="sub"><img src="../static/img/Carbon Dioxide.png">Carbon Dioxide/PPM</div>
 							    	 <div id="main5"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Oxygen.png">氧气/%</div>
+							    	 <div class="sub"><img src="../static/img/Group 8 Copy.png"> Oxygen/%</div>
 							    	 <div id="main6"></div>
-                                     </div>
-                            </div>
-                            <div id="box33" class="hide">
+					            </div>
+					           </div>
+					            <div id="box33" class="hide">
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Temperature.png">温度/°C</div>
+							    	 <div class="sub"><img src="../static/img/tempreture.png">Temperature/°C</div>
 							    	 <div id="main11"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Humidity.png">湿度/%</div>
+							    	 <div class="sub"><img src="../static/img/Humidity.png">Humidity/%</div>
 							    	 <div id="main22"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Illumination.png">日照</div>
+							    	 <div class="sub"><img src="../static/img/Illumination.png">Illumination</div>
 							    	 <div id="main33"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Dust.png">灰尘/pcs 0.01cf</div>
+							    	 <div class="sub"><img src="../static/img/Dust.png">Dust/pcs 0.01cf</div>
 							    	 <div id="main44"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/CarbonDioxide.png">二氧化碳/PPM</div>
+							    	 <div class="sub"><img src="../static/img/Carbon Dioxide.png">Carbon Dioxide/PPM</div>
 							    	 <div id="main55"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Oxygen.png">氧气/%</div>
+							    	 <div class="sub"><img src="../static/img/Group 8 Copy.png"> Oxygen/%</div>
 							    	 <div id="main66"></div>
-                                     </div>
-                            </div>
-                            <div id="box333">
+					            </div>
+					            </div>
+					            <div id="box333" class="hide">
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Temperature.png">温度/°C</div>
+							    	 <div class="sub"><img src="../static/img/tempreture.png">Temperature/°C</div>
 							    	 <div id="main111"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Humidity.png">湿度/%</div>
+							    	 <div class="sub"><img src="../static/img/Humidity.png">Humidity/%</div>
 							    	 <div id="main222"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Illumination.png">日照</div>
+							    	 <div class="sub"><img src="../static/img/Illumination.png">Illumination</div>
 							    	 <div id="main333"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Dust.png">灰尘/pcs 0.01cf</div>
+							    	 <div class="sub"><img src="../static/img/Dust.png">Dust/pcs 0.01cf</div>
 							    	 <div id="main444"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/CarbonDioxide.png">二氧化碳/PPM</div>
+							    	 <div class="sub"><img src="../static/img/Carbon Dioxide.png">Carbon Dioxide/PPM</div>
 							    	 <div id="main555"></div>
 							    	 </div>
 							    	 <div class="tabcontain">
-							    	 <div class="sub"><img src="../static/img/Oxygen.png">氧气/%</div>
+							    	 <div class="sub"><img src="../static/img/Group 8 Copy.png"> Oxygen/%</div>
 							    	 <div id="main666"></div>
-                                     </div>
-                            </div>
+					            </div>
 				        </div>
+				       </div>
 				        <div id="application1" class="hide">
-                            <div class="abapplication">Application</br>延伸应用</div>
-
+				        	<div class="back" onclick="back()"><img src="../static/img/back1.png"></div>
+				        	<div class="abapplication">Application</div><div class="aba">延伸应用</div>
 				        	<div id="box4">
-					    		<div id="appimg"><img src="../static/img/Group 6.png"><img src="../static/img/Group 7.png"> <img src="../static/img/Group 18.png"><img src="../static/img/Group 12.png"></div>
+					    		<div id="appimg"><img class="pic1" src="../static/img/Group 6.png"><img src="../static/img/Group 7.png"> <img class="pic1" src="../static/img/Group 18.png"><img src="../static/img/Group 12.png"></div>
 					    		<div id="article2">
 					    			Seeed IoT智慧生态方案，通过对大气压、大气温湿度、二氧化碳、氧气、PM、土壤温湿度进行数据监测，通过无线技术传输至云端处理，并在页面上直观显示。从而达到农林业种植、畜牧业养殖的智能化管理，减轻管理的工作量和成本。茶园之外，Seeed IoT智慧生态方案可延伸应用农业、林业、畜牧业。
 				        	    </div>
 				        	</div>
 				        </div>
-	   </div>
+		    </div>
 	</div>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/echarts/4.0.4/echarts.js"></script>
-	<script type="text/javascript" src="../static/js/1.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"type="text/javascript"></script>
+	<script src="https://cdn.bootcss.com/echarts/4.0.4/echarts.js"></script>
+	<script  type="text/javascript" src="../static/js/1.js"></script>
+	<!--<script type="text/javascript">  
+// 根据屏幕尺寸-->
+<!--if (screen && screen.width > 480) {  
+document.write('<script type="text/javascript" charset="utf-8" src="public/js/2.js"><\/script>');  
+}  -->
+  
+<!--// userAgent判断  
+if( /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)){  
+document.write('<script type="text/javascript" src="js/1.js"><\/script>');  
+}  
+</script>-->
 </body>
 </html>

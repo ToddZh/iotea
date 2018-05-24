@@ -5,5 +5,4 @@ CMakeCache.txt
 online_asr
 .vs/
 .idea/
-__pycache__/
 venv/
