@@ -35,8 +35,7 @@ var realdata = [document.getElementById("Temperature"),document.getElementById("
 var green=document.getElementsByClassName("green")[0];
     // 触摸
     lgbtn1.ontouchstart = function() {
-        this.style.backgroundColor = "#8FC421";
-        this.style.opacity="0.3";
+         this.style.background="rgba(143,196,33,0.3)";
     };
     // 停止触摸
     lgbtn1.ontouchend = function() {
@@ -51,8 +50,7 @@ var green=document.getElementsByClassName("green")[0];
         
     };
      lgbtn2.ontouchstart = function() {
-        this.style.backgroundColor = "#8FC421";
-        this.style.opacity="0.3";
+        this.style.background="rgba(143,196,33,0.3)";
     };
     lgbtn2.ontouchend = function() {
         this.style.backgroundColor = "white";	
@@ -66,8 +64,7 @@ var green=document.getElementsByClassName("green")[0];
         
     };
      lgbtn3.ontouchstart = function() {
-        this.style.backgroundColor = "#8FC421";
-        this.style.opacity="0.3";
+        this.style.background="rgba(143,196,33,0.3)";
     };
     lgbtn3.ontouchend = function() {
         this.style.backgroundColor = "white";	
@@ -81,8 +78,7 @@ var green=document.getElementsByClassName("green")[0];
         
     };
      lgbtn4.ontouchstart = function() {
-        this.style.backgroundColor = "#8FC421";
-        this.style.opacity="0.3";
+         this.style.background="rgba(143,196,33,0.3)";
     };
     lgbtn4.ontouchend = function() {
         this.style.backgroundColor = "white";	
@@ -96,8 +92,7 @@ var green=document.getElementsByClassName("green")[0];
         
     };
     lgbtn5.ontouchstart = function() {
-        this.style.backgroundColor = "#8FC421";
-        this.style.opacity="0.3";
+         this.style.background="rgba(143,196,33,0.3)";
     };
     lgbtn5.ontouchend = function() {
         this.style.backgroundColor = "white";	
@@ -185,23 +180,29 @@ green.style.left="0.32666666rem";
  * 
  */
 var tabContainer1 = document.getElementById('main1');
-var tabContainer2= document.getElementById('main2');
-var tabContainer3= document.getElementById('main3');
-var tabContainer4= document.getElementById('main4');
-var tabContainer5= document.getElementById('main5');
-var tabContainer6= document.getElementById('main6');
+var tabContainer2 = document.getElementById('main2');
+var tabContainer3 = document.getElementById('main3');
+var tabContainer4 = document.getElementById('main4');
+var tabContainer5 = document.getElementById('main5');
+var tabContainer6 = document.getElementById('main6');
+var tabContainer7 = document.getElementById('main7');
+var tabContainer8 = document.getElementById('main8');
 var tabContainer11 = document.getElementById('main11');
-var tabContainer22= document.getElementById('main22');
-var tabContainer33= document.getElementById('main33');
-var tabContainer44= document.getElementById('main44');
-var tabContainer55= document.getElementById('main55');
-var tabContainer66= document.getElementById('main66');
+var tabContainer22 = document.getElementById('main22');
+var tabContainer33 = document.getElementById('main33');
+var tabContainer44 = document.getElementById('main44');
+var tabContainer55 = document.getElementById('main55');
+var tabContainer66 = document.getElementById('main66');
+var tabContainer77 = document.getElementById('main77');
+var tabContainer88 = document.getElementById('main88');
 var tabContainer111 = document.getElementById('main111');
-var tabContainer222= document.getElementById('main222');
-var tabContainer333= document.getElementById('main333');
-var tabContainer444= document.getElementById('main444');
-var tabContainer555= document.getElementById('main555');
-var tabContainer666= document.getElementById('main666');
+var tabContainer222 = document.getElementById('main222');
+var tabContainer333 = document.getElementById('main333');
+var tabContainer444 = document.getElementById('main444');
+var tabContainer555 = document.getElementById('main555');
+var tabContainer666 = document.getElementById('main666');
+var tabContainer777 = document.getElementById('main777');
+var tabContainer888 = document.getElementById('main888');
 
 //用于使chart自适应高度和宽度,通过窗体高宽计算容器高宽
 var resizeContainer = function () {
@@ -218,6 +219,10 @@ var resizeContainer = function () {
     tabContainer5.style.height = window.innerHeight*0.28+'px';
     tabContainer6.style.width = window.innerWidth*0.83+'px';
     tabContainer6.style.height = window.innerHeight*0.28+'px';
+     tabContainer7.style.width = window.innerWidth*0.83+'px';
+    tabContainer7.style.height = window.innerHeight*0.28+'px';
+     tabContainer8.style.width = window.innerWidth*0.83+'px';
+    tabContainer8.style.height = window.innerHeight*0.28+'px';
     tabContainer11.style.width = window.innerWidth*0.83+'px';
     tabContainer11.style.height = window.innerHeight*0.28+'px';
     tabContainer22.style.width = window.innerWidth*0.83+'px';
@@ -230,6 +235,10 @@ var resizeContainer = function () {
     tabContainer55.style.height = window.innerHeight*0.28+'px';
     tabContainer66.style.width = window.innerWidth*0.83+'px';
     tabContainer66.style.height = window.innerHeight*0.28+'px';
+     tabContainer77.style.width = window.innerWidth*0.83+'px';
+    tabContainer77.style.height = window.innerHeight*0.28+'px';
+     tabContainer88.style.width = window.innerWidth*0.83+'px';
+    tabContainer88.style.height = window.innerHeight*0.28+'px';
      tabContainer111.style.width = window.innerWidth*0.83+'px';
     tabContainer111.style.height = window.innerHeight*0.28+'px';
     tabContainer222.style.width = window.innerWidth*0.83+'px';
@@ -242,6 +251,10 @@ var resizeContainer = function () {
     tabContainer555.style.height = window.innerHeight*0.28+'px';
     tabContainer666.style.width = window.innerWidth*0.83+'px';
     tabContainer666.style.height = window.innerHeight*0.28+'px';
+     tabContainer777.style.width = window.innerWidth*0.83+'px';
+    tabContainer777.style.height = window.innerHeight*0.28+'px';
+     tabContainer888.style.width = window.innerWidth*0.83+'px';
+    tabContainer888.style.height = window.innerHeight*0.28+'px';
 	}else{
 //	ulcontainer.removeClass("hide");	
    tabContainer1.style.width = window.innerWidth*0.2+'px';
@@ -290,18 +303,24 @@ var myChart3 = echarts.init(tabContainer3);
 var myChart4 = echarts.init(tabContainer4);
 var myChart5 = echarts.init(tabContainer5);
 var myChart6 = echarts.init(tabContainer6);
+var myChart7 = echarts.init(tabContainer7);
+var myChart8 = echarts.init(tabContainer8);
 var myChart11 = echarts.init(tabContainer11);
 var myChart22 = echarts.init(tabContainer22);
 var myChart33 = echarts.init(tabContainer33);
 var myChart44 = echarts.init(tabContainer44);
 var myChart55 = echarts.init(tabContainer55);
 var myChart66 = echarts.init(tabContainer66);
+var myChart77 = echarts.init(tabContainer77);
+var myChart88= echarts.init(tabContainer88);
 var myChart111 = echarts.init(tabContainer111);
 var myChart222= echarts.init(tabContainer222);
 var myChart333 = echarts.init(tabContainer333);
 var myChart444 = echarts.init(tabContainer444);
 var myChart555 = echarts.init(tabContainer555);
 var myChart666 = echarts.init(tabContainer666);
+var myChart777 = echarts.init(tabContainer777);
+var myChart888 = echarts.init(tabContainer888);
 
 //日数据
 var a={
@@ -490,6 +509,8 @@ var d= {
             },
     },
     series: [{
+                                                                    name:'粉尘',
+        stack: '总量',
         // data: [820, 932, 901, 934, 1290, 1330, 1320],
          itemStyle:{
                         normal:{
@@ -497,7 +518,7 @@ var d= {
                                     }
                                 },
         type: 'line',
-        areaStyle: {},
+        // areaStyle: {},
         data:[]
     }]
 };
@@ -537,6 +558,8 @@ var e= {
             },
     },
     series: [{
+                                                        name:'二氧化碳',
+        stack: '总量',
 	    data:[],
         // data: [820, 932, 901, 934, 1290, 1330, 1320],
          itemStyle:{
@@ -545,7 +568,7 @@ var e= {
                                     }
                                 },
         type: 'line',
-        areaStyle: {}
+        // areaStyle: {}
     }]
 };
 
@@ -584,6 +607,8 @@ var f= {
             },
     },
     series: [{
+                                                name:'氧气',
+        stack: '总量',
 	    data:[],
         // data: [820, 932, 901, 934, 1290, 1330, 1320],
          itemStyle:{
@@ -592,8 +617,109 @@ var f= {
                                     }
                                 },
         type: 'line',
-        areaStyle: {}
+        // areaStyle: {}
     }]
+};
+
+var g={
+    tooltip: {
+        trigger: 'axis'
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        top:'5%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        axisLine:{
+            	lineStyle:{
+            		color:'#36E39C',
+            		width:'1'
+            	}
+            },
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value',
+        splitLine: {     //网格线
+                   show: false
+                         },
+            	axisLine:{
+            	lineStyle:{
+            		color:'#36E39C',
+            		width:'1'
+            	}
+            },
+    },
+    series: [
+        {
+            name:'土壤温度',
+            type:'line',
+            stack: '总量',
+             itemStyle:{
+                        normal:{
+                            color:'#36E39C'
+                                    }
+                                },
+            // data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
+        },
+    ]
+};
+
+
+var h = {
+    tooltip: {
+        trigger: 'axis'
+    },
+    grid: {
+        left: '3%',
+        right: '4%',                                               
+        bottom: '3%',
+        top:'5%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        axisLine:{
+            	lineStyle:{
+            		color:'#3CA5CF',
+            		width:'1'
+            	}
+            },
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value',
+        splitLine: {     //网格线
+                   show: false
+                         },
+            	axisLine:{
+            	lineStyle:{
+            		color:'#3CA5CF',
+            		width:'1'
+            	}
+            },
+    },
+    series: [
+        {
+            name:'土壤湿度',
+            type:'line',
+            stack: '总量',
+            itemStyle:{
+                        normal:{
+                            color:'#3CA5CF'
+                                    }
+                                },
+            // data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
+        },
+    ]
 };
 
 //周数据
@@ -783,6 +909,8 @@ var dd= {
             },
     },
     series: [{
+                                    name:'粉尘',
+        stack: '总量',
 	    data:[],
         // data: [820, 932, 901, 934, 1290, 1330, 1320],
          itemStyle:{
@@ -791,7 +919,7 @@ var dd= {
                                     }
                                 },
         type: 'line',
-        areaStyle: {}
+        // areaStyle: {}
     }]
 };
 
@@ -830,6 +958,8 @@ var ee= {
             },
     },
     series: [{
+                        name:'二氧化碳',
+        stack: '总量',
 	    data:[],
         // data: [820, 932, 901, 934, 1290, 1330, 1320],
          itemStyle:{
@@ -838,7 +968,7 @@ var ee= {
                                     }
                                 },
         type: 'line',
-        areaStyle: {}
+        // areaStyle: {}
     }]
 };
 
@@ -877,6 +1007,8 @@ var ff= {
             },
     },
     series: [{
+                        name:'氧气',
+        stack: '总量',
 	    data:[],
         // data: [820, 932, 901, 934, 1290, 1330, 1320],
          itemStyle:{
@@ -885,8 +1017,108 @@ var ff= {
                                     }
                                 },
         type: 'line',
-        areaStyle: {}
+        // areaStyle: {}
     }]
+};
+var gg={
+    tooltip: {
+        trigger: 'axis'
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        top:'5%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        axisLine:{
+            	lineStyle:{
+            		color:'#36E39C',
+            		width:'1'
+            	}
+            },
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value',
+        splitLine: {     //网格线
+                   show: false
+                         },
+            	axisLine:{
+            	lineStyle:{
+            		color:'#36E39C',
+            		width:'1'
+            	}
+            },
+    },
+    series: [
+        {
+            name:'土壤温度',
+            type:'line',
+            stack: '总量',
+             itemStyle:{
+                        normal:{
+                            color:'#36E39C'
+                                    }
+                                },
+            // data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
+        },
+    ]
+};
+
+
+var hh = {
+    tooltip: {
+        trigger: 'axis'
+    },
+    grid: {
+        left: '3%',
+        right: '4%',                                               
+        bottom: '3%',
+        top:'5%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        axisLine:{
+            	lineStyle:{
+            		color:'#3CA5CF',
+            		width:'1'
+            	}
+            },
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value',
+        splitLine: {     //网格线
+                   show: false
+                         },
+            	axisLine:{
+            	lineStyle:{
+            		color:'#3CA5CF',
+            		width:'1'
+            	}
+            },
+    },
+    series: [
+        {
+            name:'土壤湿度',
+            type:'line',
+            stack: '总量',
+            itemStyle:{
+                        normal:{
+                            color:'#3CA5CF'
+                                    }
+                                },
+            // data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
+        },
+    ]
 };
 
 //月数据
@@ -1076,6 +1308,8 @@ var ddd= {
             },
     },
     series: [{
+            name:'粉尘',
+        stack: '总量',
 	    data:[],
         // data: [820, 932, 901, 934, 1290, 1330, 1320],
          itemStyle:{
@@ -1084,7 +1318,7 @@ var ddd= {
                                     }
                                 },
         type: 'line',
-        areaStyle: {}
+        // areaStyle: {}
     }]
 };
 
@@ -1123,6 +1357,8 @@ var eee= {
             },
     },
     series: [{
+                        name:'二氧化碳',
+        stack: '总量',
 	    data:[],
         // data: [820, 932, 901, 934, 1290, 1330, 1320],
          itemStyle:{
@@ -1131,7 +1367,7 @@ var eee= {
                                     }
                                 },
         type: 'line',
-        areaStyle: {}
+        // areaStyle: {}
     }]
 };
 
@@ -1170,6 +1406,8 @@ var fff= {
             },
     },
     series: [{
+            name:'氧气',
+        stack: '总量',
         data:[],
         // data: [820, 932, 901, 934, 1290, 1330, 1320],
          itemStyle:{
@@ -1178,8 +1416,108 @@ var fff= {
                                     }
                                 },
         type: 'line',
-        areaStyle: {}
+        // areaStyle: {}
     }]
+};
+var ggg={
+    tooltip: {
+        trigger: 'axis'
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        top:'5%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        axisLine:{
+            	lineStyle:{
+            		color:'#36E39C',
+            		width:'1'
+            	}
+            },
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value',
+        splitLine: {     //网格线
+                   show: false
+                         },
+            	axisLine:{
+            	lineStyle:{
+            		color:'#36E39C',
+            		width:'1'
+            	}
+            },
+    },
+    series: [
+        {
+            name:'土壤温度',
+            type:'line',
+            stack: '总量',
+             itemStyle:{
+                        normal:{
+                            color:'#36E39C'
+                                    }
+                                },
+            // data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
+        },
+    ]
+};
+
+
+var hhh = {
+    tooltip: {
+        trigger: 'axis'
+    },
+    grid: {
+        left: '3%',
+        right: '4%',                                               
+        bottom: '3%',
+        top:'5%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        axisLine:{
+            	lineStyle:{
+            		color:'#3CA5CF',
+            		width:'1'
+            	}
+            },
+        boundaryGap: false,
+        // data: ['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value',
+        splitLine: {     //网格线
+                   show: false
+                         },
+            	axisLine:{
+            	lineStyle:{
+            		color:'#3CA5CF',
+            		width:'1'
+            	}
+            },
+    },
+    series: [
+        {
+            name:'土壤湿度',
+            type:'line',
+            stack: '总量',
+            itemStyle:{
+                        normal:{
+                            color:'#3CA5CF'
+                                    }
+                                },
+            // data:[120, 132, 101, 134, 90, 230, 210]
+            data:[]
+        },
+    ]
 };
 
 getdata();
@@ -1194,18 +1532,24 @@ window.addEventListener('resize',function(){
     myChart4.resize();
     myChart5.resize();
     myChart6.resize();
+    myChart7.resize();
+    myChart8.resize();
     myChart11.resize();
     myChart22.resize();
     myChart33.resize();
     myChart44.resize();
     myChart55.resize();
     myChart66.resize();
+    myChart77.resize();
+    myChart88.resize();
     myChart111.resize();
     myChart222.resize();
     myChart333.resize();
     myChart444.resize();
     myChart555.resize();
     myChart666.resize();
+    myChart777.resize();
+    myChart888.resize();
 });
 
 //定时从后台读取数据
@@ -1244,6 +1588,8 @@ function initday(){
             d.series[0].data = data.DustDay;//灰尘
             e.series[0].data = data.CarbonDioxideDay;//二氧化碳
             f.series[0].data = data.OxygenDay;//氧气
+            g.series[0].data = data.SoilTempDay;//土壤温度
+            h.series[0].data = data.SoilHumDay;//土壤湿度
 
             // //空气成分
             // for(i=0;i<6;i++){
@@ -1256,6 +1602,8 @@ function initday(){
             myChart4.setOption(d);
             myChart5.setOption(e);
             myChart6.setOption(f);
+            myChart7.setOption(g);
+            myChart8.setOption(h);
             },
             error:function(){
             }
@@ -1277,6 +1625,8 @@ function initweek(){
             dd.series[0].data = data.DustWeek;//灰尘
             ee.series[0].data = data.CarbonDioxideWeek;//二氧化碳
             ff.series[0].data = data.OxygenWeek;//氧气
+            gg.series[0].data = data.SoilTempWeek;//土壤温度
+            hh.series[0].data = data.SoilHumWeek;//土壤湿度
 
             // aa.series[1].data = data.anchorWeek;//周数据
             // bb.series[1].data = data.anchorWeek;
@@ -1291,7 +1641,8 @@ function initweek(){
             myChart44.setOption(dd);
             myChart55.setOption(ee);
             myChart66.setOption(ff);
-
+            myChart77.setOption(gg);
+            myChart88.setOption(hh);
             },
             error:function(){
             }
@@ -1313,6 +1664,8 @@ function initmonth(){
             ddd.series[0].data = data.DustMonth;//灰尘
             eee.series[0].data = data.CarbonDioxideMonth;//二氧化碳
             fff.series[0].data = data.OxygenMonth;//氧气
+            ggg.series[0].data = data.SoilTempMonth;//土壤温度
+            hhh.series[0].data = data.SoilHumMonth;//土壤湿度
 
             // aaa.series[1].data = data.anchorMonth;//月数据
             // bbb.series[1].data = data.anchorMonth;
@@ -1327,6 +1680,8 @@ function initmonth(){
             myChart444.setOption(ddd);
             myChart555.setOption(eee);
             myChart666.setOption(fff);
+            myChart777.setOption(ggg);
+            myChart888.setOption(hhh);
             },
             error:function(){
             }

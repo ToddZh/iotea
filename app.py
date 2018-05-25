@@ -29,8 +29,9 @@ def initday():
 	CarbonDioxideDay = []
 	OxygenDay = []
 	DustDay = []
-
-	data = db.readMax()
+	SoilTempDay = []
+	SoilHumDay = []
+	# data = db.readMax()
 	days = beforeDays(1)
 	# today = str(datetime.date.today())
 	# 显示的坐标轴锚点
@@ -58,16 +59,19 @@ def initday():
 				IlluminationDay.append({'value': [moment, old[0][10]]})
 				CarbonDioxideDay.append({'value': [moment, old[0][8]]})
 				oxy = old[0][11]
-				if oxy.find('%'):
+				print(oxy.find('%'))
+				if int(oxy.find('%')) >= 0:
 					OxygenDay.append({'value': [moment, oxy[:-1]]})
 				else:
 					OxygenDay.append(oxy)
 				DustDay.append({'value': [moment, old[0][9]]})
+				SoilTempDay.append({'value': [moment, old[0][12]]})
+				SoilHumDay.append({'value': [moment, old[0][13]]})
 			except Exception:
 				pass  #应该传给前端数据缺少标志 前端显示缺少数据
 
 	t = {
-		'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9]],
+		# 'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9]],
 		# 'anchorDay': anchorDay,
 		'DateDay': DateDay,
 		'TemperatureDay': TemperatureDay,
@@ -75,7 +79,9 @@ def initday():
 		'IlluminationDay': IlluminationDay,
 		'CarbonDioxideDay': CarbonDioxideDay,
 		'OxygenDay': OxygenDay,
-		'DustDay': DustDay
+		'DustDay': DustDay,
+		'SoilTempDay': SoilTempDay,
+		'SoilHumDay': SoilHumDay
 	}
 	init = json.dumps(t)
 	return init
@@ -90,6 +96,8 @@ def initweek():
 	CarbonDioxideWeek = []
 	OxygenWeek = []
 	DustWeek = []
+	SoilTempWeek = []
+	SoilHumWeek = []
 
 	week = beforeDays(7)
 	# today = str(datetime.date.today())
@@ -112,11 +120,13 @@ def initweek():
 				IlluminationWeek.append({'value': [moment, old[0][10]]})
 				CarbonDioxideWeek.append({'value': [moment, old[0][8]]})
 				oxy = old[0][11]
-				if oxy.find('%'):
+				if int(oxy.find('%')) >= 0:
 					OxygenWeek.append({'value': [moment, oxy[:-1]]})
 				else:
 					OxygenWeek.append({'value': [moment, oxy]})
 				DustWeek.append({'value': [moment, old[0][9]]})
+				SoilTempWeek.append({'value': [moment, old[0][12]]})
+				SoilHumWeek.append({'value': [moment, old[0][13]]})
 			except Exception:
 				pass
 	t = {
@@ -127,7 +137,9 @@ def initweek():
 		'IlluminationWeek': IlluminationWeek,
 		'CarbonDioxideWeek': CarbonDioxideWeek,
 		'OxygenWeek': OxygenWeek,
-		'DustWeek': DustWeek
+		'DustWeek': DustWeek,
+		'SoilTempWeek': SoilTempWeek,
+		'SoilHumWeek': SoilHumWeek
 	}
 	init = json.dumps(t)
 	return init
@@ -142,6 +154,8 @@ def initmonth():
 	CarbonDioxideMonth = []
 	OxygenMonth = []
 	DustMonth = []
+	SoilTempMonth = []
+	SoilHumMonth = []
 
 	month = beforeDays(30)
 	# today = str(datetime.date.today())
@@ -158,11 +172,14 @@ def initmonth():
 			IlluminationMonth.append({'value': [moment, old[0][10]]})
 			CarbonDioxideMonth.append({'value': [moment, old[0][8]]})
 			oxy = old[0][11]
-			if oxy.find('%'):
+			if int(oxy.find('%')) >= 0:
 				OxygenMonth.append({'value': [moment, oxy[:-1]]})
 			else:
 				OxygenMonth.append({'value': [moment, oxy]})
 			DustMonth.append({'value': [moment, old[0][9]]})
+			SoilTempMonth.append({'value': [moment, old[0][12]]})
+			SoilHumMonth.append({'value': [moment, old[0][13]]})
+
 		except Exception:
 			pass
 	t = {
@@ -173,7 +190,9 @@ def initmonth():
 		'IlluminationMonth': IlluminationMonth,
 		'CarbonDioxideMonth': CarbonDioxideMonth,
 		'OxygenMonth': OxygenMonth,
-		'DustMonth': DustMonth
+		'DustMonth': DustMonth,
+		'SoilTempMonth': SoilTempMonth,
+		'SoilHumMonth': SoilHumMonth
 	}
 	init = json.dumps(t)
 	return init
