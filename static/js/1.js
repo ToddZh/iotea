@@ -1,4 +1,133 @@
+var vue;
+var chinese = {
+    word: '蒙顶山，物联网的茶',
+    w1: '故事',
+    w2: '茶园</br>实时数据',
+    w3: '茶园</br>历史数据',
+    w4: '生态茶园</br>解决方案',
+    w5: '延伸应用',
+    article1ww1: '北纬30°，东经103°。坐落在四川雅安东北部的蒙顶山，是青藏高原与四川盆地在极度海拔落差之间的产物。山脉由西向东，茶园堆青叠翠，绿浪翻涌。这对在蒙顶山茶区土生土长的老邓来说，是最稀松平常的风景。\n',
+    article1ww2: '老邓不老，82年生，是蒙顶山茶区众多茶园主人里比较少见的80后，最爱喝自己茶园里的明前手工甘露，管着分布在1100多米海拔高度的方圆50亩的茶园。',
+    article1ww3: '小时候，因为家里有个小规模的老川茶园，父辈们种茶制茶卖茶过活的耳濡目染，老邓对茶多少有些独特的情感。“虽然跟茶结缘早，但长大了还是选择离开，去了城市生活，高山种茶太苦了。” 但2013年，城市创业失利，老邓命运般地回到了茶园，开始正经学茶、种茶、制茶，延续着祖辈留下的生活方式。\n' +
+    '\n' +
+    '    “都说：扬子江心水，蒙山顶上茶。高山种茶海拔高，有机生态的生长环境，茶品质有保障。但同时因为茶园种植密度低，管理成本高，茶树发芽不齐，采茶难度大，导致高山茶产量小，在市场上的价值优势体现不出来。”\n' +
+    '\n' +
+    '    怎么让消费者深入了解高山茶的有机生长和制茶环境，提升高山茶的价值所在，是老邓这两年一直在思考的问题。机缘巧合，因为认识了上山探茶、为Seeed IoTea智慧生态茶园方案寻找试点茶园的樊老师（戳此樊老师上山找茶趣的故事），这个问题出现转机。\n' +
+    '\n' +
+    '    双方确定合作意向后，方案细节探讨、原型制作与测试，到方案安装和调试，2018年3月底，高山茶与新科技结合，方案最终成功落地。<br><br><br>',
+    aabs: '智慧生态茶园方案',
+    solutionarticle: ' Seeed IoTea智慧生态茶园方案致力于如何在不破坏原本山茶古旧的种茶－摘茶－制茶生态的基础上，让技术帮助茶农更科学、生理地管理广袤的茶园，同时对消费者开放实时监测茶园的渠道，让大众直观地了解高山茶种茶、制茶的生态。</br></br>\n' +
+    '\n' +
+    '    由一系列传感器、节点，网关等组成的智能环境监测系统，可以实时收集种茶过程中的大气温湿度、二氧化碳、氧气、PM、光照，土壤温湿度等影响茶树生长的关键数据。同时收集制茶过程中的房间温湿度、以及杀青温度。各个节点通过Lora协议把采集到的数据传输给网关，然后上传到云端数据库，最终通过可视化工具，把茶叶从茶园到制茶过程的数据以图表清晰呈现。\n' +
+    '',
+    article2: 'Seeed IoT智慧生态方案，通过对大气压、大气温湿度、二氧化碳、氧气、PM、土壤温湿度进行数据监测，通过无线技术传输至云端处理，并在页面上直观显示。从而达到农林业种植、畜牧业养殖的智能化管理，减轻管理的工作量和成本。茶园之外，Seeed IoT智慧生态方案可延伸应用农业、林业、畜牧业。',
+    realtitle: '茶园实时数据',
+    datacontain1: '空气温度',
+    datacontain2: '空气湿度',
+    datacontain3: '光照',
+    datacontain4: '二氧化碳',
+    datacontain5: '氧气',
+    datacontain6: '粉尘',
+    datacontain7: '土壤温度',
+    datacontain8: '土壤湿度',
+    sl1: '日',
+    sl2: '周',
+    sl3: '月',
+
+};
+var english = {
+    word: 'IoTea from Mengding Mountain, China',
+    w1: 'Story',
+    w2: 'Real-time data',
+    w3: 'Historical data',
+    w4: 'Solution',
+    w5: 'Application',
+    article1ww1: 'On Mengding Mountain northeast of Ya’an,\n' +
+    'Sichuan, the mountain ridge runs west to east in a\n' +
+    'sea of green. This is a most familiar sight for\n' +
+    '36-year-old Deng, one of the very few Mengding\n' +
+    'tea makers of his generation, with a plantation of\n' +
+    '50mu (=3.3 hectares) situated at 1100m above sea\n' +
+    'level. Deng comes from a family of tea makers, but\n' +
+    'carrying on the family legacy is not an easy task.\n',
+    article1ww2: '“Our teas are grown at high altitude in an organic\n' +
+    'environment to ensure its excellent quality. But at the\n' +
+    'same time, the growth density is low, cost is high and\n' +
+    'budding is uneven, making tea hard to harvest.\n' +
+    'That’s why high-mountain teas are normally small\n' +
+    'harvests and their values are not reflected on the\n' +
+    'market.”',
+    article1ww3: 'For the past two years, Deng has been trying to\n' +
+    'raise consumer awareness of high-mountain tea to\n' +
+    'promote their value. And when he met Fan, who was\n' +
+    'looking for a plantation to implement Seeed’s IoTea\n' +
+    'technology, a perfect match for a solution was made.<br><br><br>',
+    aabs: 'IoTea Solution',
+    solutionarticle: 'The Seeed IoTea Solution aims to assist tea\n' +
+    'farmers better manage plantations without altering\n' +
+    'the traditional practices of tea cultivation, and to\n' +
+    'present real-time environmental data from the\n' +
+    'plantations on an open platform.</br></br>\n' +
+    '\n' +
+    'Consisting of sensors, nodes, and gateways, IoTea\n' +
+    'collects real-time data of factors that may affect the\n' +
+    'quality of tea during cultivation and production\n' +
+    'processes, including temperature and humidity,\n' +
+    'CO2, O2, PM, and light exposure. The data is\n' +
+    'collected by the sensors, sent by the nodes to the\n' +
+    'gateway and eventually to the cloud, and is made\n' +
+    'accessible to end customers on a webpage.\n' +
+    '',
+    article2: 'The Seeed IoTea Solution collects environmental\n' +
+    'data from tea plantations, including temperature and\n' +
+    'humidity, CO2, O2, PM, and light exposure, and\n' +
+    'sends these data to the cloud through wireless\n' +
+    'technology to be shown on a webpage of software\n' +
+    'application. This solution helps to increase\n' +
+    'management efficiency and reduce cost, and can be\n' +
+    'applied in agriculture, forestry and livestock farming.',
+    realtitle: 'Real-time data',
+    datacontain1: 'Air Temperature',
+    datacontain2: 'Air Humidity',
+    datacontain3: 'Illumination',
+    datacontain4: 'CO2',
+    datacontain5: 'O2',
+    datacontain6: 'PM',
+    datacontain7: 'Soil Temperature',
+    datacontain8: 'Soil Humidity',
+    sl1: 'Day',
+    sl2: 'Week',
+    sl3: 'Month',
+};
+window.onload = function(){
+    setTimeout(function(){
+    var loader = document.getElementsByClassName("sk-spinner")[0];
+    var container=document.getElementById("container");
+    loader.className="sk-spinner fadeout" ;//使用渐隐的方法淡出loading page
+    setTimeout(function(){loader.style.display="none"},1000)
+    container.className="container";
+    },1000)//强制显示loading page 1s
+
+    vue = new Vue({
+        el: '.app',
+        data:{ msg: chinese },
+        methods: {
+        chooseChinese: function () {
+            this.msg = chinese;
+            },
+        chooseEnglish: function () {
+            this.msg = english;
+            }
+        }
+    });
+}
+
+
+
+
 var body=document.getElementsByTagName("body")[0];
+var eng=document.getElementById("eng");
+var chin=document.getElementById("chin");
 var lgbtn1=document.getElementById("lgbtn1");
 var lgbtn2=document.getElementById("lgbtn2");
 var lgbtn3=document.getElementById("lgbtn3");
@@ -28,83 +157,98 @@ var sl2=document.getElementById("sl2");
 var sl3=document.getElementById("sl3");
 var time11=document.getElementById("time11");
 
+
+
 var realdata = [document.getElementById("Temperature"),document.getElementById("Humidity"),document.getElementById("Illumination"),
     document.getElementById("CarbonDioxide"),document.getElementById("Oxygen"),document.getElementById("Dust"),
     document.getElementById("SoilTemperature"),document.getElementById("SoilMoisture")];
-
+    
+eng.onclick=function(){
+	this.style.color="rgba(1,58,76,0.9)";
+	chin.style.color="#8EC31F";
+}
+chin.onclick=function(){
+	this.style.color="rgba(1,58,76,0.9)";
+	eng.style.color="#8EC31F";
+}
 var green=document.getElementsByClassName("green")[0];
-    // 触摸
-    lgbtn1.ontouchstart = function() {
-         this.style.background="rgba(143,196,33,0.3)";
-    };
-    // 停止触摸
-    lgbtn1.ontouchend = function() {
-        this.style.backgroundColor = "white";	
-        this.style.opacity="1";
-        lw.className="hide";
-	    about1.className="";
-	    solution1.className="hide";
-	    dat1.className="hide";
-	    dat2.className="hide";
-	    application1.className="hide";
-        
-    };
-     lgbtn2.ontouchstart = function() {
-        this.style.background="rgba(143,196,33,0.3)";
-    };
-    lgbtn2.ontouchend = function() {
-        this.style.backgroundColor = "white";	
-        this.style.opacity="1";
-        lw.className="hide";
-	    about1.className="hide";
-	    solution1.className="hide";
-	    dat1.className="";
-	    dat2.className="hide";
-	    application1.className="hide";
-        
-    };
-     lgbtn3.ontouchstart = function() {
-        this.style.background="rgba(143,196,33,0.3)";
-    };
-    lgbtn3.ontouchend = function() {
-        this.style.backgroundColor = "white";	
-        this.style.opacity="1";
-        lw.className="hide";
-	    about1.className="hide";
-	    solution1.className="hide";
-	    dat1.className="hide";
-	    dat2.className="";
-	    application1.className="hide";
-        
-    };
-     lgbtn4.ontouchstart = function() {
-         this.style.background="rgba(143,196,33,0.3)";
-    };
-    lgbtn4.ontouchend = function() {
-        this.style.backgroundColor = "white";	
-        this.style.opacity="1";
-        lw.className="hide";
-	    about1.className="hide";
-	    solution1.className="";
-	    dat1.className="hide";
-	    dat2.className="hide";
-	    application1.className="hide";
-        
-    };
-    lgbtn5.ontouchstart = function() {
-         this.style.background="rgba(143,196,33,0.3)";
-    };
-    lgbtn5.ontouchend = function() {
-        this.style.backgroundColor = "white";	
-        this.style.opacity="1";
-        lw.className="hide";
-	    about1.className="hide";
-	    solution1.className="hide";
-	    dat1.className="hide";
-	    dat2.className="hide";
-	    application1.className="";
-        
-    };
+// 触摸
+lgbtn1.ontouchstart = function() {
+     this.style.background="rgba(143,196,33,0.3)";
+};
+// 停止触摸
+lgbtn1.ontouchend = function() {
+    this.style.backgroundColor = "white";
+    this.style.opacity="1";
+    lw.className="hide";
+    about1.className="";
+    solution1.className="hide";
+    dat1.className="hide";
+    dat2.className="hide";
+    application1.className="hide";
+
+};
+ lgbtn2.ontouchstart = function() {
+    this.style.background="rgba(143,196,33,0.3)";
+};
+lgbtn2.ontouchend = function() {
+    this.style.backgroundColor = "white";
+    this.style.opacity="1";
+    lw.className="hide";
+    about1.className="hide";
+    solution1.className="hide";
+    dat1.className="";
+    dat2.className="hide";
+    application1.className="hide";
+
+};
+ lgbtn3.ontouchstart = function() {
+    this.style.background="rgba(143,196,33,0.3)";
+};
+  lgbtn3.ontouchend = function() {
+    var loading= document.getElementsByClassName("loading hide")[0];
+    this.style.backgroundColor = "white";
+    this.style.opacity="1";
+    lw.className="hide";
+    about1.className="hide";
+    solution1.className="hide";
+    dat1.className="hide";
+    application1.className="hide";
+     loading.className="loading";
+    setTimeout(function(){
+    loading.className="loading fadeout" ;//使用渐隐的方法淡出loading page
+    loading.className="loading hide";
+    dat2.className="";
+    },2000)
+};
+ lgbtn4.ontouchstart = function() {
+     this.style.background="rgba(143,196,33,0.3)";
+};
+lgbtn4.ontouchend = function() {
+    this.style.backgroundColor = "white";
+    this.style.opacity="1";
+    lw.className="hide";
+    about1.className="hide";
+    solution1.className="";
+    dat1.className="hide";
+    dat2.className="hide";
+    application1.className="hide";
+
+};
+lgbtn5.ontouchstart = function() {
+     this.style.background="rgba(143,196,33,0.3)";
+};
+lgbtn5.ontouchend = function() {
+    this.style.backgroundColor = "white";
+    this.style.opacity="1";
+    lw.className="hide";
+    about1.className="hide";
+    solution1.className="hide";
+    dat1.className="hide";
+    dat2.className="hide";
+    application1.className="";
+
+};
 function back(){  
 	lw.className="";
 	about1.className="hide";

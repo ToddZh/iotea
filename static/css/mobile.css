@@ -34,13 +34,61 @@ body{background:#fff;}
 button,input,textarea{
 -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-body {
-	position: fixed;
-	-webkit-overflow-scrolling: touch;   /*这句是为了滑动更顺畅*/  
+.sk-spinner,.loading {
+	 position: fixed;
+     z-index: 9999;
+     width: 0.4rem;
+	  height: 0.4rem;
+	  margin: 2.64rem 1.4rem;
+	  background-color: #8EC31F;
+	  border-radius: 100%;
+	  -webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
+	  animation: sk-pulseScaleOut 1s infinite ease-in-out; 
+  }
+@-webkit-keyframes sk-pulseScaleOut {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0; } }
+@keyframes sk-pulseScaleOut {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0; } }
+    .fadeout {
+    opacity: 0;
+    filter: alpha(opacity=0);
 }
+@keyframes fade-in {  
+    0% {opacity: 0.05;}/*初始状态 透明度为0*/  
+    10% {opacity: 0.1;} 
+    20% {opacity: 0.2;}  
+    30% {opacity: 0.3;} 
+    40% {opacity: 0.4;}  
+    50% {opacity: 0.5;} 
+    60% {opacity: 0.6;} 
+    70% {opacity: 0.7;}
+    80% {opacity: 0.8;}  
+    90% {opacity: 0.9;}  
+    100% {opacity: 1;}/*结束状态 透明度为1*/  
+}  
+@-webkit-keyframes fade-in {/*针对webkit内核*/  
+    0% {opacity: 0;}  
+    40% {opacity: 0;}  
+    100% {opacity: 1;}  
+}  
 .container {
 width: 3.2rem;
 height: 5.68rem;
+animation: fade-in;  
+animation-duration: 2s;  
+-webkit-animation:fade-in 2s;  
 }
 .right {
 	width: 3.2rem;
@@ -54,10 +102,25 @@ height: 5.68rem;
 	position: relative;
 	overflow: hidden;
 }
+.trans {
+	width:0.65rem ;
+	height: 0.22rem;
+	font-family: PingFangHK-Light;
+	font-size: 0.1rem;
+	color: rgba(142,195,31,0.9);
+	letter-spacing: 0;
+	text-align: center;
+	position: absolute;
+	top:0.3rem;
+	left:1.96rem ;
+	background: #EAF4CF;
+	border-radius: 0.1rem;
+	line-height: 0.22rem;
+}
 .biglogo {
 	position: absolute;
 	top:0.3rem;
-	left: 1rem;
+	left: 0.6rem;
 	width: 1.2rem;
 	height: 0.271rem;
     margin: 0 auto;
@@ -301,25 +364,11 @@ height: 5.68rem;
 	position:relative;
 	transform: translate(0,0);
 }
-.abstory {
-	width: 0.36rem;
-	height: 0.14rem;
-	opacity: 0.9;
-	font-family: PingFangHK-Semibold;
-	font-size: 0.14rem;
-	font-weight: 600;
-	color: #406C77;
-	letter-spacing: 0;
-	text-align: right;
-	position: fixed;
-	top:0.13rem;
-	right: 0.24rem;
-}
 .gushi {
 	width: 0.35rem;
 	height: 0.22rem;
 	position: fixed;
-	top:0.38rem;
+	top:0.275rem;
 	right: 0.24rem;
 	opacity: 0.9;
 	font-family: PingFangHK-Semibold;
@@ -351,40 +400,19 @@ height: 5.68rem;
 	letter-spacing: 0;
 	text-align: justify;
 }
-#teaimg {
-	width:100% ;
-	height: 1.63rem;
-    position: fixed;  
-    top: 0.74rem;  
-    left: 0.24rem;  
-    bottom: 2.95rem; 
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;   /*这句是为了滑动更顺畅*/ 
+.articlecontain {
+	position: absolute;
+	top:0.66rem;
+	left:0.28rem ;
+	width: 2.68rem;	
 }
-#teaimg1 {
-	width:5rem;
-	height: 1.63rem;
+.p1 {
+	width: 2.68rem;
+	height:1.77rem ;
 }
-#teaimg img {
-	width:2.46rem;
-	height: 1.63rem;
-	margin-right: 0.04rem;
-}
-#article {            
-	height:2rem;                                  /* gai*/
-	position: fixed; 
-	left:0.24rem;
-	top: 2.51rem;
-	width:2.8rem;
-	bottom: 0%;
-	overflow-y: scroll; 
-	background:#fff;
-	-webkit-overflow-scrolling: touch;   /*这句是为了滑动更顺畅*/  
-}
-#aboutarticle {
-	width:2.72rem ;
-	height: 2.17rem;
-	padding-right: 0.1rem;
+.ww {
+	padding : 0.14rem 0;
+	width: 2.67rem;
 	font-family: PingFangHK-Light;
 	font-size: 0.12rem;
 	color: #4F6E62;
@@ -446,12 +474,21 @@ height: 5.68rem;
 	z-index: -100;
 	  -webkit-overflow-scrolling: touch;   /*这句是为了滑动更顺畅*/ 
 }
+.bgpic {
+	background:url(../img/background.png) no-repeat center center fixed ;  
+	background-size: cover;
+}
 #dat1,#dat2 {
 	width: 3.2rem;
 	height: 5.68rem;
 	position: relative;
 	transform:translate(0,0);
 	background: #25637C;
+}
+#dat2 {
+	animation: fade-in;  
+	animation-duration: 2s;  
+	-webkit-animation:fade-in 2s;  
 }
 #realtitle{
 	width: 1.1rem;
@@ -652,22 +689,9 @@ height: 5.68rem;
 	position: relative;
 	background: #fff;
 }
-.abapplication {
-	position: absolute;
-	top:0.14rem;
-	right: 0.3rem;
-	opacity: 0.9;
-	font-weight: 600;
-	font-family: PingFangHK-Semibold;
-	font-size: 0.14rem;
-	color: #406C77;
-	letter-spacing: 0;
-	text-align: right;
-	
-}
 .aba {
 	position: absolute;
-	top:0.38rem;
+	top:0.275rem;
 	right: 0.3rem;
 	opacity: 0.9;
 	font-weight: 600;
@@ -712,4 +736,17 @@ height: 5.68rem;
 }
 .hide1 {
 	display: none;
+}
+
+/*
+ * 新加的部分*/
+.bgcolor {
+	background: #427F98;
+	opacity: 0.9;
+}
+.bgblue {
+	background:#25637C;
+}
+.bgcolorf {
+	background: #fff;
 }
