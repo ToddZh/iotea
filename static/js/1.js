@@ -1699,7 +1699,7 @@ window.addEventListener('resize',function(){
 //定时从后台读取数据
 setInterval(function(){
 	getdata();
-	},5000);
+	},10000);
 
 //ajax技术实现前后台交互
 function getdata(){

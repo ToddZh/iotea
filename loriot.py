@@ -33,6 +33,9 @@ def getLoriotData():
 			voltage = str(round(int(data[26:28], 16) / int('ff', 16) * 5, 1))
 			error = str(int(data[28:], 16))
 
+			if int(air_temp) > 50 or int(air_hum) > 100 or int(illumination) > 2000 or int(o2) > 23 or int(o2) < 18 or int(soil_temp) > 50 or int(soil_hum) > 100:
+				continue
+
 			list = [date, hour, minute, second, air_temp, air_hum, pressure, co2, dust, illumination,
 					o2, soil_temp, soil_hum, voltage, error]
 			db.insert(list)

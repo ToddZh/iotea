@@ -10,6 +10,7 @@ def index():
 
 @app.route("/sendjson", methods=['GET','POST'])
 def sendjson():
+
 	data = db.readMax()
 	t = {
 		'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9], data[0][12], data[0][13]]
@@ -129,6 +130,7 @@ def initweek():
 				SoilHumWeek.append({'value': [moment, old[0][13]]})
 			except Exception:
 				pass
+
 	t = {
 		# 'anchorWeek': anchorWeek,
 		'DateWeek': DateWeek,
@@ -161,6 +163,7 @@ def initmonth():
 	# today = str(datetime.date.today())
 	# anchorMonth.append({'value': [str(month[0])[5:] + " 00:00:00", 0]})
 	# anchorMonth.append(	{'value': [today[5:] + " 00:00:00", 0]})
+
 	for day in month:
 		old = db.readByDate(str(day))
 		try:
@@ -182,6 +185,7 @@ def initmonth():
 
 		except Exception:
 			pass
+
 	t = {
 		# 'anchorMonth': anchorMonth,
 		'DateMonth': DateMonth,
