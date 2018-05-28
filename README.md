@@ -72,12 +72,12 @@
     开启iotea flask应用:<code>superviosrctl start iotea</code><br>
     
 6. 其他常用操作<br>
-    <code>superviosrctl reload      # 重新加载配置文件</code><br>
-    <code>superviosrctl update</code><br>
-    <code>superviosrctl start xxx</code><br>
-    <code>superviosrctl stop xxx</code><br>
-    <code>superviosrctl status xxx</code><br>
-    <code>superviosrctl help        # 查看更多命令</code><br>
+    <code>supervisorctl reload      # 重新加载配置文件</code><br>
+    <code>supervisorctl update</code><br>
+    <code>supervisorctl start xxx</code><br>
+    <code>supervisorctl stop xxx</code><br>
+    <code>supervisorctl status xxx</code><br>
+    <code>supervisorctl help        # 查看更多命令</code><br>
 
 ## Nginx
 1. 安装<br>

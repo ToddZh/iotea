@@ -8,9 +8,6 @@
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection">
     <meta content="email=no" name="format-detection">
-    <!--<script type="text/javascript">
-    !function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(320,780);
-    </script>-->
     <script type="text/javascript">
     // 根据屏幕尺寸
     if (window.innerWidth <800) {
@@ -22,7 +19,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"type="text/javascript"></script>
 	<script src="https://cdn.bootcss.com/echarts/4.0.4/echarts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.4/vue.js"></script>
-    <!--!function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(1024,2000);-->
 
     <title>lotea</title>
 </head>
@@ -37,31 +33,31 @@
                                 <div class="word">蒙顶山，物联网的茶</div>
                                 <div class="trans"><span id="eng" @click="chooseEnglish" :class="{'engclick': eng}">EN</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span id="chin" @click="chooseChinese" :class="{'engclick': chin}">中</span></div>
                                 <div class="lg0"><img src="../static/img/INTERNET OF TEA Copy.png"></div>
-                                <div id="lg1"><div class="line1"></div><div class="w1" v-html="msg.w1"></div><div id="lgbtn1" :class="{'lgbtns': touchstart1,'lgbtnss': touched1}" @touchstart="t1()" @touchend="t11()"><img src="../static/img/3.png"></div></div>
-                                <div id="lg2"><div class="line2"></div><div class="w2" v-html="msg.w2"></div><div id="lgbtn2" :class="{'lgbtns': touchstart2,'lgbtnss': touched2}" @touchstart="t2()" @touchend="t22()"><img src="../static/img/1.png"></div></div>
-                                <div id="lg3"><div class="line3"></div><div class="w3" v-html="msg.w3"></div><div id="lgbtn3" :class="{'lgbtns': touchstart3,'lgbtnss': touched3}" @touchstart="t3()" @touchend="t33()"><img src="../static/img/2.png"></div></div>
-                                <div id="lg4"><div class="line4"></div><div :class="{'w4': chin,'w444': eng}" v-html="msg.w4"></div><div id="lgbtn4" :class="{'lgbtns': touchstart4,'lgbtnss': touched4}" @touchstart="t4()" @touchend="t44()"><img src="../static/img/4.png"></div></div>
-                                <div id="lg5"><div class="line5"></div><div class="w5" v-html="msg.w5"></div><div id="lgbtn5" :class="{'lgbtns': touchstart5,'lgbtnss': touched5}" @touchstart="t5()" @touchend="t55()"><img src="../static/img/5.png"></div></div>
+                                <div id="lg1"><div class="line1"></div><div class="w1" v-html="msg.w1"></div><div id="lgbtn1" class="lgbtn1" :class="{'lgbtns': touchstart1,'lgbtnss': touched1}" @touchstart="t1()" @touchend="t11()"><img src="../static/img/3.png"></div></div>
+                                <div id="lg2"><div class="line2"></div><div class="w2" v-html="msg.w2"></div><div id="lgbtn2" class="lgbtn2" :class="{'lgbtns': touchstart2,'lgbtnss': touched2}" @touchstart="t2()" @touchend="t22()"><img src="../static/img/1.png"></div></div>
+                                <div id="lg3"><div class="line3"></div><div class="w3" v-html="msg.w3"></div><div id="lgbtn3" class="lgbtn3" :class="{'lgbtns': touchstart3,'lgbtnss': touched3}" @touchstart="t3()" @touchend="t33()"><img src="../static/img/2.png"></div></div>
+                                <div id="lg4"><div class="line4"></div><div :class="{'w4': chin,'w444': eng}" v-html="msg.w4"></div><div id="lgbtn4" class="lgbtn4" :class="{'lgbtns': touchstart4,'lgbtnss': touched4}" @touchstart="t4()" @touchend="t44()"><img src="../static/img/4.png"></div></div>
+                                <div id="lg5"><div class="line5"></div><div class="w5" v-html="msg.w5"></div><div id="lgbtn5" class="lgbtn5" :class="{'lgbtns': touchstart5,'lgbtnss': touched5}" @touchstart="t5()" @touchend="t55()"><img src="../static/img/5.png"></div></div>
                             </div>
                             <div id="about1" v-show="lgbtn1a">
                                 <div :class="{'gushi': chin,'gushi1':eng}" v-html="msg.w11"></div>
                                 <div class="back" @click="back"><img src="../static/img/back1.png"></div>
                                     <div class="articlecontain">
-                                        <img class="p1" src="../static/img/Group Copy 6.png">
+                                        <img class="p1" src="../static/img/WechatIMG686.png">
                                         <div class="ww" v-html="msg.article1ww1">
                                         </div>
-                                        <img class="p1" src="../static/img/people.png">
+                                        <img class="p1" src="../static/img/WechatIMG669.png">
                                         <div class="ww" v-html="msg.article1ww2">
                                         </div>
-                                        <img class="p1" src="../static/img/Group Copy 6.png">
-                                        <div class="ww" v-html="msg.article1ww3">
-                                        </div>
+                                        <img class="p1" src="../static/img/WechatIMG672.png">
+                                        <div class="ww" v-html="msg.article1ww3"></div>
+                                        <img class="p1 p11" src="../static/img/WechatIMG667.png">
                                     </div>
                             </div>
                             <div id="solution1" v-show="lgbtn2a">
                                 <div class="back" @click="back"><img src="../static/img/back1.png"></div>
                                 <div :class="{'aabs': chin,'aabs1':eng}" v-html="msg.w44"></div>
-                                    <div id="solutionimg"><div class="soll"><img id="solimg" src="../static/img/solution3x.png"></div></div>
+                                    <div id="solutionimg"><div class="soll" v-html="msg.src"></div></div>
                                     <div id="solutionbg"><img src="../static/img/rebg.png"></div>
                                     <div id="article1">
                                         <div id="solutionarticle" v-html="msg.solutionarticle">

@@ -37,7 +37,7 @@ var month=date.getMonth()+1;
 var day=date.getDate();
 time1.innerHTML=year+'/'+month+'/'+day;
 var curMonthDays=new Date(year,month,0).getDate();
-var timeee=year+'/'+month+'/'+day; 
+var timeee=year+'/'+month+'/'+(day-1); 
 
 var chinese = {
     w1: '故事',
@@ -55,8 +55,8 @@ var chinese = {
      article1ww3: '小时候，因为家里有个小规模的老川茶园，父辈们种茶制茶卖茶过活的耳濡目染，老邓对茶多少有些独特的情感。"虽然跟茶结缘早，但长大了还是选择离开，去了城市生活，高山种茶太苦了。"'+
     '但2013年，城市创业失利，老邓命运般地回到了茶园，开始正经学茶、种茶、制茶，延续着祖辈留下的生活方式。<br/><br/>'+
     '"都说：扬子江心水，蒙山顶上茶。高山种茶海拔高，有机生态的生长环境，茶品质有保障。但同时因为茶园种植密度低，管理成本高，茶树发芽不齐，采茶难度大，导致高山茶产量小，在市场上的价值优势体现不出来。"<br/><br/>'+
-    '怎么让消费者深入了解高山茶的有机生长和制茶环境，提升高山茶的价值所在，是老邓这两年一直在思考的问题。机缘巧合，因为认识了上山探茶、为Seeed IoTea智慧生态茶园方案寻找试点茶园的樊老师（戳此樊老师上山找茶趣的故事），这个问题出现转机。<br/><br/>'+
-    '双方确定合作意向后，方案细节探讨、原型制作与测试，到方案安装和调试，2018年3月底，高山茶与新科技结合，方案最终成功落地。<br/><br/><br/>',
+    '怎么让消费者深入了解高山茶的有机生长和制茶环境，提升高山茶的价值所在，是老邓这两年一直在思考的问题。机缘巧合，因为认识了上山探茶、为Seeed IoTea智慧生态茶园方案寻找试点茶园的樊老师 <a class="link" href="https://www.seeed.cc/single-post/iotea ">（戳此樊老师上山找茶趣的故事）</a>，这个问题出现转机。<br/><br/>'+
+    '双方确定合作意向后，方案细节探讨、原型制作与测试，到方案安装和调试，2018年3月底，高山茶与新科技结合，方案最终成功落地。',
     aabs: '智慧生态茶园方案',
     solutionarticle: ' Seeed IoTea智慧生态茶园方案致力于如何在不破坏原本山茶古旧的种茶－摘茶－制茶生态的基础上，让技术帮助茶农更科学、生理地管理广袤的茶园，同时对消费者开放实时监测茶园的渠道，让大众直观地了解高山茶种茶、制茶的生态。<br/><br/>'+
     '由一系列传感器、节点，网关等组成的智能环境监测系统，可以实时收集种茶过程中的大气温湿度、二氧化碳、氧气、PM、光照，土壤温湿度等影响茶树生长的关键数据。同时收集制茶过程中的房间温湿度、以及杀青温度。各个节点通过Lora协议把采集到的数据传输给网关，然后上传到云端数据库，最终通过可视化工具，把茶叶从茶园到制茶过程的数据以图表清晰呈现。',
@@ -73,6 +73,7 @@ var chinese = {
     sl1: '&nbsp;&nbsp;日',
     sl2: '&nbsp;&nbsp;周',
     sl3: '&nbsp;&nbsp;月',
+    src:'<img id="solimg" src="../../static/img/solution3X.png">',
 };
 var english = {
     w1: 'Story',
@@ -104,7 +105,7 @@ var english = {
     'raise consumer awareness of high-mountain tea to\n' +
     'promote their value. And when he met Fan, who was\n' +
     'looking for a plantation to implement Seeed’s IoTea\n' +
-    'technology, a perfect match for a solution was made.<br><br><br>',
+    'technology, a perfect match for a solution was made.',
     aabs: 'IoTea Solution',
     solutionarticle: 'The Seeed IoTea Solution aims to assist tea\n' +
     'farmers better manage plantations without altering\n' +
@@ -138,9 +139,10 @@ var english = {
     datacontain6: 'PM',
     datacontain7: 'Soil Temperature',
     datacontain8: 'Soil Humidity',
-    sl1: '&nbsp;&nbsp;Day',
-    sl2: '&nbsp;&nbsp;Week',
-    sl3: '&nbsp;&nbsp;Month',
+    sl1: '&nbsp;&nbsp;&nbsp;Day',
+    sl2: '&nbsp;&nbsp;&nbsp;Week',
+    sl3: '&nbsp;&nbsp;&nbsp;Month',
+    src:'<img id="solimg" src="../../static/img/solution en 3X.png">',
 };
 window.onload = function(){
     setTimeout(function(){
@@ -221,14 +223,6 @@ window.onload = function(){
             SoilTemperature:'',
             SoilMoisture:''
         },
-        // watch: {
-        //     b: function (val) {
-        //         myChart2.setOption(val);
-        //     },
-        //     aa: function (val) {
-        //         myChart11.setOption(val);
-        //     },
-        // },
         methods: {
             chooseChinese: function () {
                 this.msg = chinese;
@@ -285,11 +279,20 @@ window.onload = function(){
 
                 this.draw();
 
-                setTimeout(function(){
-                self.loadingfade=true ;//使用渐隐的方法淡出loading page
-                self.lgbtn4a=true;
-                self.lgbtn4aa=false;
-            },4000)
+                if(this.a.series[0].data==''){
+                    setTimeout(function(){
+                        self.loadingfade=true ;//使用渐隐的方法淡出loading page
+                        self.lgbtn4a=true;
+                        self.lgbtn4aa=false;},4000);//测试几秒加载完成
+                }else{
+                    self.loadingfade=true ;//使用渐隐的方法淡出loading page
+                    self.lgbtn4a=true;
+                    self.lgbtn4aa=false;
+                }
+
+
+
+
             },
             t4: function () {
                this.touchstart4=true;
@@ -337,8 +340,15 @@ window.onload = function(){
                 this.green2=false;
                 this.green3=false;
                 this.timee=year+'/'+month+'/'+day;
-                // this.draw();
-            },
+               if(day==1){
+			var monthh1=month-1;
+			var dayy1=curMonthDays;
+			}else{
+			monthh1=month;
+			dayy1=day-1;
+			}
+			this.timee=year+'/'+monthh1+'/'+dayy1; 
+        },
             sl2clik:function(){
                 this.box3a=false;
                 this.box33a=true;
@@ -488,10 +498,8 @@ window.onload = function(){
                 myChart777.resize();
                 myChart888.resize();
             },
-
         },
-
-    });
+    })
 }
     
 
