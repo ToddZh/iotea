@@ -58,7 +58,7 @@
     <pre>注意, 这里需要去掉这两行前面的';'，它是注释符</pre>
     <pre>[include]
     files = /etc/supervisor/conf.d/*.conf
-意思是引入/etc/supervisor/conf.d/</pre>
+    意思是引入/etc/supervisor/conf.d/</pre>
     下面的配置文件作为进程配置文件(受到supervisor监控).<br>
     
 4. 传入配置<br>

@@ -73,7 +73,7 @@ var chinese = {
     sl1: '&nbsp;&nbsp;日',
     sl2: '&nbsp;&nbsp;周',
     sl3: '&nbsp;&nbsp;月',
-    src:'<img id="solimg" src="../../static/img/solution3X.png">',
+    src:'<img id="solimg" src="../../static/img/solution3x.png">',
 };
 var english = {
     w1: 'Story',
@@ -149,7 +149,7 @@ window.onload = function(){
         var loader = document.getElementsByClassName("sk-spinner")[0];
         var container=document.getElementById("container");
         loader.className="sk-spinner fadeout" ;//使用渐隐的方法淡出loading page
-        setTimeout(function(){loader.style.display="none"},1000)
+        setTimeout(function(){loader.style.display="none"},1000);
         container.className="container";
     },1000);//强制显示loading page 1s
 
