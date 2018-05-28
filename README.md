@@ -57,14 +57,21 @@
     编辑/etc/supervisord.conf, 修改文件末尾的[include]下的files字段.<br>
     <pre>注意, 这里需要去掉这两行前面的';'，它是注释符</pre>
     <pre>[include]
-files = /etc/supervisor/conf.d/*.conf
+    files = /etc/supervisor/conf.d/*.conf
 意思是引入/etc/supervisor/conf.d/</pre>
-    下面的配置文件作为进程配置文件(受到supervisor监控).
+    下面的配置文件作为进程配置文件(受到supervisor监控).<br>
+    
 4. 传入配置<br>
     在iotea目录下<br>
     <code>cp iotea.conf /etc/supervisor/conf.d/</code><br>
-    <code>cp loriot.conf /etc/supervisor/conf.d/</code>
-5. 常用操作<br>
+    <code>cp loriot.conf /etc/supervisor/conf.d/</code><br>
+    
+5. 开启iotea服务<br>
+    重新加载配置文件:<code>superviosrctl reload</code><br>
+    开启loriot数据接收:<code>superviosrctl start loriot</code><br>
+    开启iotea flask应用:<code>superviosrctl start iotea</code><br>
+    
+6. 其他常用操作<br>
     <code>superviosrctl reload      # 重新加载配置文件</code><br>
     <code>superviosrctl update</code><br>
     <code>superviosrctl start xxx</code><br>

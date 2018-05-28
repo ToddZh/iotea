@@ -60,7 +60,7 @@ def initday():
 				IlluminationDay.append({'value': [moment, old[0][10]]})
 				CarbonDioxideDay.append({'value': [moment, old[0][8]]})
 				oxy = old[0][11]
-				print(oxy.find('%'))
+				# print(oxy.find('%'))
 				if int(oxy.find('%')) >= 0:
 					OxygenDay.append({'value': [moment, oxy[:-1]]})
 				else:
