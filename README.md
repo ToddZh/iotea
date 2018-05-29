@@ -28,11 +28,12 @@
 1. 安装<br>
     <code>yum install epel-release</code>
     <code>yum install python36</code>
-2. 安装依赖库<code>PyMySQL,DBUtils,Flask,websocket-client</code><br>
+2. 安装依赖库<code>PyMySQL,DBUtils,Flask,websocket-client,configparser</code><br>
     <code>pip install pymysql</code><br>
     <code>pip install dbutils</code><br>
     <code>pip install flask</code><br>
-    <code>pip install websocket-client</code>
+    <code>pip install websocket-client</code><br>
+    <code>pip install configparser</code>
 
 ## Gunicorn
 1. 安装<br>
@@ -91,5 +92,9 @@
 1. 相关参数
     <pre>user='root'<br>passwd='1234'<br>db='iotea'<br>port=3306</pre>
 2. 建表文件<br>
-    <code>iotea_iotea.sql</code>
+    <code>iotea_iotea.sql</code><br>
+3. 配置文件<br>
+    配置文件为<code>db.ini</code><br>
+    需要在db.py文件中<code>cf.read("/root/iotea/db.ini")</code>db.ini的位置为绝对路径
+    
     

@@ -1,11 +1,21 @@
 import pymysql.cursors
 from DBUtils.PooledDB import PooledDB
+import configparser
+
+cf = configparser.ConfigParser()
+cf.read("/root/iotea/db.ini")
 # 打开数据库连接
 # conn = pymysql.connect("localhost", "root", "1234", "iotea")
 # conn = pymysql.connect(host="47.89.243.140", user="root", password="root", db="iotea")
 
 # pool = PooledDB(pymysql, 5, host='47.89.243.140', user='root', passwd='root', db='iotea', port=3306)
-pool = PooledDB(pymysql, 5, host='localhost', user='root', passwd='1234', db='iotea', port=3306)
+# pool = PooledDB(pymysql, 5, host='localhost', user='root', passwd='1234', db='iotea', port=3306)
+host = cf.get("db", "db_host")
+user = cf.get("db", "db_user")
+passwd = cf.get("db", "db_pass")
+db = cf.get("db", "db_name")
+port = cf.get("db", "db_port")
+pool = PooledDB(pymysql, 5, host=str(host), user=str(user), passwd=str(passwd), db=str(db), port=int(port))
 
 # def getconn():
 # 	return pool.connection()
