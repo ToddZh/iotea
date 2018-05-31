@@ -2,6 +2,7 @@ from websocket import create_connection
 import time
 import db
 import json
+from datetime import datetime, timedelta, timezone
 
 def getLoriotData():
 	ws = create_connection("wss://cn1.loriot.io/app?token=vnwD2wAAAA1jbjEubG9yaW90LmlvPeOCpVPCT9Ao2W5C5Fbtyw==")
@@ -13,12 +14,21 @@ def getLoriotData():
 			ts = result['ts']
 			data = result['data']
 
-			tl = time.localtime(int(ts) / 1000)
+			# tl = time.localtime(int(ts) / 1000)
+			utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)
+			# print(utc_dt)
+			bj_dt = utc_dt.astimezone(timezone(timedelta(hours=8)))
+			print(bj_dt)
 			# 格式化时间
-			date = time.strftime('%Y-%m-%d', tl)
-			hour = time.strftime('%H', tl)
-			minute = time.strftime('%M', tl)
-			second = time.strftime('%S', tl)
+			date = "%s-%s-%s" % (bj_dt.year, bj_dt.month, bj_dt.day)
+			hour = str(bj_dt.hour)
+			minute = str(bj_dt.minute)
+			second = str(bj_dt.second)
+
+			# date = time.strftime('%Y-%m-%d', tl)
+			# hour = time.strftime('%H', tl)
+			# minute = time.strftime('%M', tl)
+			# second = time.strftime('%S', tl)
 			# print(now)
 
 			air_temp = str(int(data[0:2], 16))
@@ -38,6 +48,7 @@ def getLoriotData():
 
 			list = [date, hour, minute, second, air_temp, air_hum, pressure, co2, dust, illumination,
 					o2, soil_temp, soil_hum, voltage, error]
+			print(list)
 			db.insert(list)
 	ws.close()
 
