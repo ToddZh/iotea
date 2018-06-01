@@ -6,5 +6,5 @@ online_asr
 .vs/
 .idea/
 venv/
-__pycache__
-conf
+__pycache__/
+conf/
