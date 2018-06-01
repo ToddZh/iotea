@@ -20,7 +20,20 @@ def getLoriotData():
 			bj_dt = utc_dt.astimezone(timezone(timedelta(hours=8)))
 			print(bj_dt)
 			# 格式化时间
-			date = "%s-%s-%s" % (bj_dt.year, bj_dt.month, bj_dt.day)
+			year = str(bj_dt.year)
+			month = ""
+			day = ""
+			if int(bj_dt.month) < 10:
+				month = '0' + str(bj_dt.month)
+			else:
+				month = str(bj_dt.month)
+
+			if int(bj_dt.day) < 10:
+				day = '0' + str(bj_dt.day)
+			else:
+				day = str(bj_dt.day)
+
+			date = "%s-%s-%s" % (year, month, day)
 			hour = str(bj_dt.hour)
 			minute = str(bj_dt.minute)
 			second = str(bj_dt.second)
