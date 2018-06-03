@@ -41,7 +41,7 @@ def initday():
 
 
 	for day in days:
-		for hour in range(0, 23):
+		for hour in range(1, 23):
 			QueryTime = []
 			if hour < 10:
 				QueryTime = [str(day), '0' + str(hour)]
@@ -51,7 +51,9 @@ def initday():
 			try:
 				date = old[0][1]
 				# date[5:] + ' ' +
-				moment = old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+				# moment = old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+				moment = str(hour)
+
 				# {value: ['2016/12/18 6:38:08', 80]}
 				# dict1 = {'abc': 456};
 				DateDay.append(str(hour))
@@ -105,7 +107,7 @@ def initweek():
 	# anchorWeek.append({'value': [str(week[0])[5:] + " 00:00:00", 0]})
 	# anchorWeek.append({'value': [today[5:] + " 00:00:00", 0]})
 	for day in week:
-		for hour in range(0, 23, 6):
+		for hour in range(1, 23, 6):
 			QueryTime = []
 			if hour < 10:
 				QueryTime = [str(day), '0' + str(hour)]
@@ -115,7 +117,8 @@ def initweek():
 			try:
 				date = old[0][1]
 				DateWeek.append(date[5:])
-				moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+				# moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+				moment = date[5:]
 				TemperatureWeek.append({'value': [moment, old[0][5]]})
 				HumidityWeek.append({'value': [moment, old[0][6]]})
 				IlluminationWeek.append({'value': [moment, old[0][10]]})
@@ -169,7 +172,8 @@ def initmonth():
 		try:
 			date = old[0][1]
 			DateMonth.append(date[5:])
-			moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+			# moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+			moment = date[5:]
 			TemperatureMonth.append({'value': [moment, old[0][5]]})
 			HumidityMonth.append({'value': [moment, old[0][6]]})
 			IlluminationMonth.append({'value': [moment, old[0][10]]})

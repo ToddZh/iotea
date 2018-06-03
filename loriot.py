@@ -32,12 +32,19 @@ def getLoriotData():
 				day = '0' + str(bj_dt.day)
 			else:
 				day = str(bj_dt.day)
-
 			date = "%s-%s-%s" % (year, month, day)
-			hour = str(bj_dt.hour)
-			minute = str(bj_dt.minute)
-			second = str(bj_dt.second)
 
+			hour = str(bj_dt.hour)
+			if int(hour) < 10:
+				hour = '0' + hour
+
+			minute = str(bj_dt.minute)
+			if int(minute) < 10:
+				minute = '0' + minute
+
+			second = str(bj_dt.second)
+			if int(second) < 10:
+				second = '0' + second
 			# date = time.strftime('%Y-%m-%d', tl)
 			# hour = time.strftime('%H', tl)
 			# minute = time.strftime('%M', tl)

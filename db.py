@@ -3,7 +3,7 @@ from DBUtils.PooledDB import PooledDB
 import configparser
 
 cf = configparser.ConfigParser()
-cf.read("D:/Code/python/iotea/db.ini")
+cf.read("D:/Code/iotea/conf/db.ini")
 # 打开数据库连接
 # conn = pymysql.connect("localhost", "root", "1234", "iotea")
 # conn = pymysql.connect(host="47.89.243.140", user="root", password="root", db="iotea")

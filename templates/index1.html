@@ -12,7 +12,9 @@
     // 根据屏幕尺寸
     if (window.innerWidth <800) {
     document.write('<script type="text/javascript" >!function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(320,780);<\/script>');
-    }
+    }else{
+document.write('<script type="text/javascript" >!function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(1366,5000);<\/script>');  
+}
     </script>
     <link media="(min-width:800px)" style="text:css" rel="stylesheet" href="../static/css/desktop.css">
     <link media="(max-width:800px)" style="text:css" rel="stylesheet" href="../static/css/mobile.css">
@@ -23,11 +25,11 @@
     <title>lotea</title>
 </head>
 <body>
-	<div class="sk-spinner"></div>
+	<div class="sk-spinner" v-if="mobile"></div>
 	<div id="app">
-	<div class="loading" v-show="lgbtn4aa"  :class="{'fadeout': loadingfade,'hide':!lgbtn4aa}"></div>
+	<div class="loading" v-show="lgbtn4aa&&mobile"  :class="{'fadeout': loadingfade,'hide':!lgbtn4aa}"></div>
         <div class="container hide" id="container">
-                <div id="right">
+                <div id="right" v-if="mobile">
                             <div id="lw" v-show="lwa">
                                 <div class="biglogo"><img src="../static/img/Artboard 1 Copy.png"></div>
                                 <div class="word">蒙顶山，物联网的茶</div>
@@ -57,7 +59,7 @@
                             <div id="solution1" v-show="lgbtn2a">
                                 <div class="back" @click="back"><img src="../static/img/back1.png"></div>
                                 <div :class="{'aabs': chin,'aabs1':eng}" v-html="msg.w44"></div>
-                                    <div id="solutionimg"><div class="soll" v-html="msg.src"></div></div>
+                                    <div id="solutionimg"><div class="soll"><img id="solimg" :src="msg.src"></div></div>
                                     <div id="solutionbg"><img src="../static/img/rebg.png"></div>
                                     <div id="article1">
                                         <div id="solutionarticle" v-html="msg.solutionarticle">
@@ -233,10 +235,229 @@
                                 </div>
                             </div>
                 </div>
-                </div>
+            <div id="right" v-else="!mobile">
+        	<div id="bar1" v-show="!bar" @click="bar1click"><img src="../static/img/Group 16.png"></div>
+        	<ul class="ull" v-show="bar&&data">       					       
+        					<li @click="data1click" class="dat1li" :class={'whitecolor':data1,'greycolor':!data1}><a href="#dat1" v-html="msg.w221"></a></li>
+        					<li class="bottomline21" v-show="data1"></li>
+        					<li @click="data2click" class="dat2li" :class={'whitecolor':data2,'greycolor':!data2}><a href="#dat2" v-html="msg.w222"></a></li>
+        					<li class="bottomline22" v-show="data2"></li>
+        		</ul>
+        	<div class="menu" v-show="bar" :class="{'bggrey':lw,'bgblue':!lw}">        		
+        		<div id="bar" @click="barclick"><img src="../static/img/Group Copy 10.png"></div>
+        		<div class="trans"><span id="eng" @click="chooseEnglish" :class="{'engclick': eng}">EN</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span id="chin" @click="chooseChinese" :class="{'engclick': chin}">中</span></div>
+        		<ul class="ul">
+        			<li id="story"  @click="storyclick" :class={'whitecolor':story,'greycolor':!story}><a href="#about1" v-html="msg.w11"></a></li>
+        			<li class="bottomline1" v-show="story"></li>
+        			<li id="data" v-html="msg.w22" @click="dataclick" :class={'whitecolor':data,'greycolor':!data}>         			 	 
+        			</li>
+        			<li class="bottomline2" v-show="data" v-show="data"></li>
+        			<li id="solution" @click="solutionclick" :class={'whitecolor':solution,'greycolor':!solution}><a href="#solution1" v-html="msg.w44"></a></li>
+        			<li class="bottomline3" v-show="solution"></li>
+        			<li id="application" @click="appclick" :class={'whitecolor':app,'greycolor':!app}><a href="#application1" v-html="msg.w55"></a></li> 
+        			<li class="bottomline4" v-show="app"></li>
+        		</ul>
+        	</div>
+                            <div id="lw">
+                                <div class="biglogo"><img src="../static/img/biglogo.png"></div>
+                                <div class="word">蒙顶山，物联网的茶</div>                        
+                            </div>
+                            <div id="about1">
+                                <div :class="{'gushi': chin,'gushi1':eng}" v-html="msg.w11"></div>
+                                <div class="aboutimg">
+                                	<div class="aboutimg1">
+                                		 <img class="p1" src="../static/img/WechatIMG686.png">
+                                		 <img class="p1" src="../static/img/WechatIMG669.png">
+                                		 <img class="p1" src="../static/img/WechatIMG672.png">
+                                	</div>
+                                </div>
+                                <div class="articlecontain">
+                                    <div class="articlecontain1" v-html="msg.article1ww">                                                 
+                                </div>
+                                </div>
+                            </div>                          
+                            <div id="dat1">
+                                    <div id="realtitle" v-html="msg.w22"></div>
+                                    <div class="rea"><span id="time1"></span></div>
+                                    <div class="dat1contain">
+                                            <div class="td td1">
+                                                <img src="../static/img/Temperature.png"></br>
+                                                <span class="dif" v-html="msg.datacontain1"></span></br>
+                                                <span id="Temperature" v-html="Temperature"></span>℃
+                                            </div>
+                                            <div class="td td1">
+                                                <img src="../static/img/Humidity.png"></br>
+                                                <span class="dif" v-html="msg.datacontain2"></span></br>
+                                                <span id="Humidity" v-html="Humidity"></span>%
+                                            </div>
+                                            <div class="td td1">
+                                                <img src="../static/img/Illumination.png"></br>
+                                                <span class="dif" v-html="msg.datacontain3"></span></br>
+                                                <span id="Illumination" v-html="Illumination"></span>
+                                            </div>
+                                            <div class="td1">
+                                                <img src="../static/img/Carbon Dioxide.png"></br>
+                                                <span class="dif" v-html="msg.datacontain4"></span></br>
+                                                <span id="CarbonDioxide" v-html="CarbonDioxide"></span>PPM
+                                            </div>
+                                            <div class="td">
+                                                <img src="../static/img/Group 8 Copy.png"></br>
+                                                 <span class="dif" v-html="msg.datacontain5"></span></br>
+                                                <span id="Oxygen" v-html="Oxygen"></span>%
+                                            </div>
+                                            <div class="td td3">
+                                                <img src="../static/img/Dust.png"></br>
+                                                <span class="dif" v-html="msg.datacontain6"></span></br>
+                                                <span id="Dust" v-html="Dust"></span>pcs/0.01cf
+                                            </div>
+                                            <div class="td">
+                                                <img src="../static/img/Temperature.png"></br>
+                                                <span class="dif" v-html="msg.datacontain7"></span></br>
+                                                <span id="SoilTemperature" v-html="SoilTemperature"></span>℃
+                                            </div>
+                                            <div class="tt">
+                                                <img src="../static/img/Humidity.png"></br>
+                                                <span class="dif" v-html="msg.datacontain8"></span></br>
+                                                <span id="SoilMoisture" v-html="SoilMoisture"></span>%
+                                            </div>
+                                    </div>
+                            </div>
+                            <div id="dat2">
+                            	     <div class="dat2title" v-html="msg.w33"></div>
+                                     <div id="slider" :class="{'slider': chin,'slider1':eng}">
+                                     	<div class="green" :class="{'green1': green1,'green2': green2,'green3': green3}"></div>
+	                                     <div id="sl1" @click="sl1clik" class="sl1" v-html="msg.sl1"></div>
+	                                     <div id="sl2" @click="sl2clik" class="sl2" v-html="msg.sl2"></div>
+	                                     <div id="sl3" @click="sl3clik" class="sl3" v-html="msg.sl3"></div>
+                                     </div>
+                                     <div id="time11" :class="{'time11': chin,'time111': eng}" v-html="timee"></div>
+                                     <div id="box3" v-show="box3a">
+                                         <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Temperature.png"><span v-html="msg.datacontain1"></span><span style="font-size: 0.1rem;">/°C</span></div>
+                                         <div id="main1" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Humidity.png"><span v-html="msg.datacontain2"></span><span style="font-size: 0.1rem;">/%</span></div>
+                                         <div id="main2" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub tt"><img src="../static/img/Illumination.png"><span  v-html="msg.datacontain3"></span></div>
+                                         <div id="main3" ></div>
+                                         </div>
+                                         <div class="tabcontain" style="margin-right: 0;">
+                                         <div class="sub"><img src="../static/img/Carbon Dioxide.png"><span v-html="msg.datacontain4"></span><span style="font-size: 0.1rem;">/PPM</span></div>
+                                         <div id="main5" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Group 8 Copy.png"><span v-html="msg.datacontain5"></span><span style="font-size: 0.1rem;">/%</span></div>
+                                         <div id="main6" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Dust.png"><span v-html="msg.datacontain6"></span><span style="font-size: 0.1rem;">/pcs 0.01cf</span></div>
+                                         <div id="main4" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Temperature.png"><span v-html="msg.datacontain7"></span><span style="font-size: 0.1rem;">/°C</span></div>
+                                         <div id="main7" ></div>
+                                         </div>
+                                         <div class="tabcontain" style="margin-right: 0;">
+                                         <div class="sub"><img src="../static/img/Humidity.png"><span v-html="msg.datacontain8"></span><span style="font-size: 0.1rem;">/%</span></div>
+                                         <div id="main8" ></div>
+                                         </div>
+                                   </div>
+                                    <div id="box33" v-show="box33a">
+                                        <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Temperature.png"><span v-html="msg.datacontain1"></span><span style="font-size: 0.1rem;">/°C</span></div>
+                                         <div id="main11" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Humidity.png"><span v-html="msg.datacontain2"></span><span style="font-size: 0.1rem;">/%</span></div>
+                                         <div id="main22" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub tt"><img src="../static/img/Illumination.png"><span  v-html="msg.datacontain3"></span></div>
+                                         <div id="main33" ></div>
+                                         </div>
+                                         <div class="tabcontain" style="margin-right: 0;">
+                                         <div class="sub"><img src="../static/img/Carbon Dioxide.png"><span v-html="msg.datacontain4"></span><span style="font-size: 0.1rem;">/PPM</span></div>
+                                         <div id="main55" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Group 8 Copy.png"><span v-html="msg.datacontain5"></span><span style="font-size: 0.1rem;">/%</span></div>
+                                         <div id="main66" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Dust.png"><span v-html="msg.datacontain6"></span><span style="font-size: 0.1rem;">/pcs 0.01cf</span></div>
+                                         <div id="main44" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Temperature.png"><span v-html="msg.datacontain7"></span><span style="font-size: 0.1rem;">/°C</span></div>
+                                         <div id="main77" ></div>
+                                         </div>
+                                         <div class="tabcontain" style="margin-right: 0;">
+                                         <div class="sub"><img src="../static/img/Humidity.png"><span v-html="msg.datacontain8"></span><span style="font-size: 0.1rem;">/%</span></div>
+                                         <div id="main88" ></div>
+                                         </div>
+                                    </div>
+                                    <div id="box333" v-show="box333a">
+                                        <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Temperature.png"><span v-html="msg.datacontain1"></span><span style="font-size: 0.1rem;">/°C</span></div>
+                                         <div id="main111" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Humidity.png"><span v-html="msg.datacontain2"></span><span style="font-size: 0.1rem;">/%</span></div>
+                                         <div id="main222" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub tt"><img src="../static/img/Illumination.png"><span  v-html="msg.datacontain3"></span></div>
+                                         <div id="main333" ></div>
+                                         </div>
+                                         <div class="tabcontain" style="margin-right: 0;">
+                                         <div class="sub"><img src="../static/img/Carbon Dioxide.png"><span v-html="msg.datacontain4"></span><span style="font-size: 0.1rem;">/PPM</span></div>
+                                         <div id="main555" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Group 8 Copy.png"><span v-html="msg.datacontain5"></span><span style="font-size: 0.1rem;">/%</span></div>
+                                         <div id="main666" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Dust.png"><span v-html="msg.datacontain6"></span><span style="font-size: 0.1rem;">/pcs 0.01cf</span></div>
+                                         <div id="main444" ></div>
+                                         </div>
+                                         <div class="tabcontain">
+                                         <div class="sub"><img src="../static/img/Temperature.png"><span v-html="msg.datacontain7"></span><span style="font-size: 0.1rem;">/°C</span></div>
+                                         <div id="main777" ></div>
+                                         </div>
+                                         <div class="tabcontain" style="margin-right: 0;">
+                                         <div class="sub"><img src="../static/img/Humidity.png"><span v-html="msg.datacontain8"></span><span style="font-size: 0.1rem;">/%</span></div>
+                                         <div id="main888" ></div>
+                                         </div>
+                                    </div>
+                           </div>
+                           <div id="solution1">
+                                <div class="aabs" v-html="msg.w44"></div>                                    
+                                <div id="article1">
+                                    <div id="solutionarticle" v-html="msg.solutionarticle"></div>                                        
+                                </div>
+                               <div id="solutionimg"><img id="solimg" :src="msg.src"></div>
+                            </div>
+                            <div id="application1" >
+                                <div class="aba" v-html="msg.w55"></div>     
+                                <div id="article2" v-html="msg.article2"></div>                                    
+                                    <div id="appimg"><img class="pic1" src="../static/img/Group 6.png"><img class="pic1" src="../static/img/Group 7.png"> <img class="pic1" src="../static/img/Group 18.png"><img src="../static/img/Group 12.png"></div>                             
+                            </div>    
         </div>
+        </div>
+        </div>
+        	
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js" type="text/javascript"></script>
      <script src="https://cdn.bootcss.com/echarts/4.0.4/echarts.js"></script>
-     <script  type="text/javascript" src="../static/js/1.js"></script>
+     <script type="text/javascript">
+         if (window.innerWidth <800) {
+            document.write('<script type="text/javascript" src="../static/js/1.js"><\/script>');
+         }else{
+             document.write('<script type="text/javascript" src="../static/js/2.js"><\/script>');
+         }
+     </script>
 </body>
 </html>

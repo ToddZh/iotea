@@ -36,7 +36,7 @@ var year=date.getFullYear();
 var month=date.getMonth()+1;
 var day=date.getDate();
 time1.innerHTML=year+'/'+month+'/'+day;
-var curMonthDays=new Date(year,month,0).getDate();
+var curMonthDays=new Date(year,month-1,0).getDate();
 var timeee=year+'/'+month+'/'+(day-1); 
 
 var chinese = {
@@ -73,7 +73,7 @@ var chinese = {
     sl1: '&nbsp;&nbsp;日',
     sl2: '&nbsp;&nbsp;周',
     sl3: '&nbsp;&nbsp;月',
-    src:'<img id="solimg" src="../../static/img/solution3x.png">',
+    src:'../static/img/solution3X.png',
 };
 var english = {
     w1: 'Story',
@@ -142,7 +142,7 @@ var english = {
     sl1: '&nbsp;&nbsp;&nbsp;Day',
     sl2: '&nbsp;&nbsp;&nbsp;Week',
     sl3: '&nbsp;&nbsp;&nbsp;Month',
-    src:'<img id="solimg" src="../../static/img/solution en 3X.png">',
+    src:'../static/img/solution en 3X.png',
 };
 window.onload = function(){
     setTimeout(function(){
@@ -158,11 +158,12 @@ window.onload = function(){
         updated: function () {
             this.draw();
         },
-        mounted(){
+        mounted:function(){
             this.draw();
         },
         data:{ 
         	msg: chinese ,
+        	mobile:true,
         	touchstart1:false,
         	touchstart2:false,
         	touchstart3:false,
@@ -276,23 +277,27 @@ window.onload = function(){
                 this.lgbtn4aa=true;
                 var self=this;
                 this.lgbtn5a=false;
-
                 this.draw();
-
-                if(this.a.series[0].data==''){
-                    setTimeout(function(){
-                        self.loadingfade=true ;//使用渐隐的方法淡出loading page
-                        self.lgbtn4a=true;
-                        self.lgbtn4aa=false;},4000);//测试几秒加载完成
-                }else{
-                    self.loadingfade=true ;//使用渐隐的方法淡出loading page
-                    self.lgbtn4a=true;
-                    self.lgbtn4aa=false;
-                }
-
-
-
-
+		         if(day==1){
+		        	if(month==1){		        				        	
+					var monthh1=12;
+					var dayy1=curMonthDays;
+					year=year-1;
+		        	}else{
+		        	var monthh1=month-1;
+					var dayy1=curMonthDays;
+					}
+		        	}else{
+					monthh1=month;
+					dayy1=day-1;
+					}
+					this.timee=year+'/'+monthh1+'/'+dayy1; 
+		 
+                setTimeout(function(){
+                self.loadingfade=true ;//使用渐隐的方法淡出loading page
+                self.lgbtn4a=true;
+                self.lgbtn4aa=false;
+            },4000)
             },
             t4: function () {
                this.touchstart4=true;
@@ -339,15 +344,20 @@ window.onload = function(){
                 this.green1=true;
                 this.green2=false;
                 this.green3=false;
-                this.timee=year+'/'+month+'/'+day;
                if(day==1){
-			var monthh1=month-1;
-			var dayy1=curMonthDays;
-			}else{
-			monthh1=month;
-			dayy1=day-1;
-			}
-			this.timee=year+'/'+monthh1+'/'+dayy1; 
+		        	if(month==1){		        				        	
+					var monthh1=12;
+					var dayy1=curMonthDays;
+					year=year-1;
+		        	}else{
+		        	var monthh1=month-1;
+					var dayy1=curMonthDays;
+					}
+		        	}else{
+					monthh1=month;
+					dayy1=day-1;
+					}
+					this.timee=year+'/'+monthh1+'/'+dayy1; 
         },
             sl2clik:function(){
                 this.box3a=false;
@@ -381,17 +391,24 @@ window.onload = function(){
 
                 this.box3a=false;
                 this.box33a=false;
-                this.box333a=true;
+                this.box333a=true;         
                 if(day == 1){
+                	if(month==3){
+                    var dayy1=curMonthDays;
+                    var monthh1=month-1;
+                    var monthh=month-2;
+                    var dayy=curMonthDays+2;
+                	}else{
                     var dayy1=curMonthDays;
                     var monthh1=month-1;
                     var monthh=month-1;
-                    var dayy=curMonthDays-(31-day);
+                    var dayy=curMonthDays-29;
+                	}
                 }else{
                     dayy1=day-1;
                     monthh1=month;
                     monthh=month-1;
-                    dayy=curMonthDays-(31-day);
+                    dayy=curMonthDays-(30-day);
                 }
                 this.green1=false;
                 this.green2=false;
@@ -564,7 +581,6 @@ var tabContainer888 = document.getElementById('main888');
 // var myChart888 = echarts.init(tabContainer888);
 //用于使chart自适应高度和宽度,通过窗体高宽计算容器高宽
 var resizeContainer = function () {
-	if(window.innerWidth<800){
     tabContainer1.style.width = window.innerWidth*0.83+'px';
     tabContainer1.style.height = window.innerHeight*0.28+'px';
     tabContainer2.style.width = window.innerWidth*0.83+'px';
@@ -613,45 +629,6 @@ var resizeContainer = function () {
     tabContainer777.style.height = window.innerHeight*0.28+'px';
     tabContainer888.style.width = window.innerWidth*0.83+'px';
     tabContainer888.style.height = window.innerHeight*0.28+'px';
-	}else{
-//	ulcontainer.removeClass("hide");
-    tabContainer1.style.width = window.innerWidth*0.2+'px';
-    tabContainer1.style.height = window.innerHeight*0.28+'px';
-    tabContainer2.style.width = window.innerWidth*0.2+'px';
-    tabContainer2.style.height = window.innerHeight*0.28+'px';
-    tabContainer3.style.width = window.innerWidth*0.2+'px';
-    tabContainer3.style.height = window.innerHeight*0.28+'px';
-    tabContainer4.style.width = window.innerWidth*0.2+'px';
-    tabContainer4.style.height = window.innerHeight*0.28+'px';
-    tabContainer5.style.width = window.innerWidth*0.2+'px';
-    tabContainer5.style.height = window.innerHeight*0.28+'px';
-    tabContainer6.style.width = window.innerWidth*0.2+'px';
-    tabContainer6.style.height = window.innerHeight*0.28+'px';
-    tabContainer11.style.width = window.innerWidth*0.2+'px';
-    tabContainer11.style.height = window.innerHeight*0.28+'px';
-    tabContainer22.style.width = window.innerWidth*0.2+'px';
-    tabContainer22.style.height = window.innerHeight*0.28+'px';
-    tabContainer33.style.width = window.innerWidth*0.2+'px';
-    tabContainer33.style.height = window.innerHeight*0.28+'px';
-    tabContainer44.style.width = window.innerWidth*0.2+'px';
-    tabContainer44.style.height = window.innerHeight*0.28+'px';
-    tabContainer55.style.width = window.innerWidth*0.2+'px';
-    tabContainer55.style.height = window.innerHeight*0.28+'px';
-    tabContainer66.style.width = window.innerWidth*0.2+'px';
-    tabContainer66.style.height = window.innerHeight*0.28+'px';
-    tabContainer111.style.width = window.innerWidth*0.2+'px';
-    tabContainer111.style.height = window.innerHeight*0.28+'px';
-    tabContainer222.style.width = window.innerWidth*0.2+'px';
-    tabContainer222.style.height = window.innerHeight*0.28+'px';
-    tabContainer333.style.width = window.innerWidth*0.2+'px';
-    tabContainer333.style.height = window.innerHeight*0.28+'px';
-    tabContainer444.style.width = window.innerWidth*0.2+'px';
-    tabContainer444.style.height = window.innerHeight*0.28+'px';
-    tabContainer555.style.width = window.innerWidth*0.2+'px';
-    tabContainer555.style.height = window.innerHeight*0.28+'px';
-    tabContainer666.style.width = window.innerWidth*0.2+'px';
-    tabContainer666.style.height = window.innerHeight*0.28+'px';
-	}
 };
 //设置容器高宽
 resizeContainer();
