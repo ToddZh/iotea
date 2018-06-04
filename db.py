@@ -3,7 +3,7 @@ from DBUtils.PooledDB import PooledDB
 import configparser
 
 cf = configparser.ConfigParser()
-cf.read("D:/Code/iotea/conf/db.ini")
+cf.read("D:/Code/python/iotea/conf/db.ini")
 # 打开数据库连接
 # conn = pymysql.connect("localhost", "root", "1234", "iotea")
 # conn = pymysql.connect(host="47.89.243.140", user="root", password="root", db="iotea")
@@ -68,7 +68,7 @@ def readMinMinute(time): # time[date,hour]
 def readByDate(date):
 	conn = pool.connection()
 	cur = conn.cursor()
-	sql = "SELECT  * FROM iotea.iotea where date = '%s' LIMIT 1" % (date)
+	sql = "SELECT  * FROM iotea.iotea where date = '%s' and hour = '12' LIMIT 1" % ( date )
 	r = cur.execute(sql)
 	r = cur.fetchall()
 	cur.close()

@@ -154,11 +154,11 @@ window.onload = function(){
         },
         mounted:function(){
             this.draw();
-           document.addEventListener('scroll', this.handleScroll);
+            document.addEventListener('scroll', this.handleScroll);
         },
         destroyed :function() {
-       document.removeEventListener('scroll', this.handleScroll);
-},
+            document.removeEventListener('scroll', this.handleScroll);
+        },
         data:{ 
         	msg: chinese ,
         	logo:"../static/img/biglogo.png",
@@ -583,7 +583,16 @@ var tabContainer888 = document.getElementById('main888');
 //日数据
 var a={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -594,6 +603,9 @@ var a={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -633,17 +645,29 @@ var a={
 
 var b = {
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
-        right: '4%',                                               
+        right: '4%',
         bottom: '3%',
         top:'5%',
         containLabel: true
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -683,7 +707,16 @@ var b = {
 
 var c={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -694,6 +727,9 @@ var c={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#ADEC25 ',
@@ -732,8 +768,17 @@ var c={
 };
 
 var d= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -744,6 +789,9 @@ var d= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -782,7 +830,16 @@ var d= {
 
 var e= {
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -793,6 +850,9 @@ var e= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -830,8 +890,17 @@ var e= {
 };
 
 var f= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -842,6 +911,9 @@ var f= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#ADEC25 ',
@@ -880,7 +952,16 @@ var f= {
 
 var g={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -891,6 +972,9 @@ var g={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -930,17 +1014,29 @@ var g={
 
 var h = {
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
-        right: '4%',                                               
+        right: '4%',
         bottom: '3%',
         top:'5%',
         containLabel: true
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -981,7 +1077,16 @@ var h = {
 //周数据
 var aa={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -992,6 +1097,9 @@ var aa={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -1031,7 +1139,16 @@ var aa={
 
 var bb = {
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1042,6 +1159,9 @@ var bb = {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -1081,7 +1201,16 @@ var bb = {
 
 var cc={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1092,6 +1221,9 @@ var cc={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#ADEC25 ',
@@ -1130,8 +1262,17 @@ var cc={
 };
 
 var dd= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -1142,6 +1283,9 @@ var dd= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -1179,8 +1323,17 @@ var dd= {
 };
 
 var ee= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -1191,6 +1344,9 @@ var ee= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -1228,8 +1384,17 @@ var ee= {
 };
 
 var ff= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -1240,6 +1405,9 @@ var ff= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#ADEC25 ',
@@ -1278,7 +1446,16 @@ var ff= {
 
 var gg={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1289,6 +1466,9 @@ var gg={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -1328,17 +1508,29 @@ var gg={
 
 var hh = {
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
-        right: '4%',                                               
+        right: '4%',
         bottom: '3%',
         top:'5%',
         containLabel: true
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -1379,7 +1571,16 @@ var hh = {
 //月数据
 var aaa={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1390,6 +1591,9 @@ var aaa={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -1429,7 +1633,16 @@ var aaa={
 
 var bbb = {
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1440,6 +1653,9 @@ var bbb = {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -1479,7 +1695,16 @@ var bbb = {
 
 var ccc={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1490,6 +1715,9 @@ var ccc={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#ADEC25  ',
@@ -1528,8 +1756,17 @@ var ccc={
 };
 
 var ddd= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -1540,6 +1777,9 @@ var ddd= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -1577,8 +1817,17 @@ var ddd= {
 };
 
 var eee= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -1589,6 +1838,9 @@ var eee= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -1626,8 +1878,17 @@ var eee= {
 };
 
 var fff= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -1638,6 +1899,9 @@ var fff= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#ADEC25 ',
@@ -1676,7 +1940,16 @@ var fff= {
 
 var ggg={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1687,6 +1960,9 @@ var ggg={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -1726,17 +2002,29 @@ var ggg={
 
 var hhh = {
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
-        right: '4%',                                               
+        right: '4%',
         bottom: '3%',
         top:'5%',
         containLabel: true
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -1776,7 +2064,6 @@ var hhh = {
 
 
 
-
 //window.addEventListener('resize',function(){
 //  // myChart1.resize();
 //  // myChart2.resize();
@@ -1804,115 +2091,115 @@ var hhh = {
 //  // myChart888.resize();
 //});
 
-////初始化数据
-//setTimeout(function () {
-//  getdata();
-//  initday();
-//  initweek();
-//  initmonth();
-//}, 2000);
-//
-////定时从后台读取数据
-//setInterval(function(){
-//	getdata();
-//	},8000);
-//
-////ajax技术实现前后台交互
-//function getdata(){
-//	$.ajax({
-//		type:"GET",
-//		url:"/sendjson",  //这里填入请求地址
-//		dataType:"json",
-//		success:function(data){
-//          vue.Temperature = data.Data[0];
-//          vue.Humidity = data.Data[1];
-//          vue.Illumination = data.Data[2];
-//          vue.CarbonDioxide = data.Data[3];
-//          vue.Oxygen = data.Data[4];
-//          vue.Dust = data.Data[5];
-//          vue.SoilTemperature = data.Data[6];
-//          vue.SoilMoisture = data.Data[7];
-//          //空气成分
-//          // for(i=0;i<8;i++){
-//          //     realdata[i].innerHTML=data.Data.shift();
-//          // }
-//          },
-//			error:function(){
-//			}
-//	})
-//}
-//
-//function initday(){
-//	$.ajax({
-//		type:"GET",
-//		url:"/initday",  //这里填入请求地址
-//		dataType:"json",
-//		success:function(data){
-//		    console.log(data);
-//		    // vue.a.xAxis.data = data
-//          vue.a.series[0].data = data.TemperatureDay;
-//          vue.b.series[0].data = data.HumidityDay;
-//          vue.c.series[0].data = data.IlluminationDay;
-//          vue.d.series[0].data = data.DustDay;//灰尘
-//          vue.e.series[0].data = data.CarbonDioxideDay;//二氧化碳
-//          vue.f.series[0].data = data.OxygenDay;//氧气
-//          vue.g.series[0].data = data.SoilTempDay;//土壤温度
-//          vue.h.series[0].data = data.SoilHumDay;//土壤湿度
-//          // //空气成分
-//          // for(i=0;i<6;i++){
-//          //     realdata[i].innerHTML=data.Data.shift();
-//          // }
-//
-//
-//          },
-//          error:function(){
-//          }
-//
-//	})
-//}
-//
-//function initweek(){
-//	$.ajax({
-//		type:"GET",
-//		url:"/initweek",  //这里填入请求地址
-//		dataType:"json",
-//		success:function(data){
-//		    console.log(data);
-//
-//          vue.aa.series[0].data = data.TemperatureWeek;
-//          vue.bb.series[0].data = data.HumidityWeek;
-//          vue.cc.series[0].data = data.IlluminationWeek;
-//          vue.dd.series[0].data = data.DustWeek;//灰尘
-//          vue.ee.series[0].data = data.CarbonDioxideWeek;//二氧化碳
-//          vue.ff.series[0].data = data.OxygenWeek;//氧气
-//          vue.gg.series[0].data = data.SoilTempWeek;//土壤温度
-//          vue.hh.series[0].data = data.SoilHumWeek;//土壤湿度
-//          },
-//          error:function(){
-//          }
-//
-//	})
-//}
-//
-//function initmonth(){
-//	$.ajax({
-//		type:"GET",
-//		url:"/initmonth",  //这里填入请求地址
-//		dataType:"json",
-//		success:function(data){
-//		    console.log(data);
-//
-//          vue.aaa.series[0].data = data.TemperatureMonth;
-//          vue.bbb.series[0].data = data.HumidityMonth;
-//          vue.ccc.series[0].data = data.IlluminationMonth;
-//          vue.ddd.series[0].data = data.DustMonth;//灰尘
-//          vue.eee.series[0].data = data.CarbonDioxideMonth;//二氧化碳
-//          vue.fff.series[0].data = data.OxygenMonth;//氧气
-//          vue.ggg.series[0].data = data.SoilTempMonth;//土壤温度
-//          vue.hhh.series[0].data = data.SoilHumMonth;//土壤湿度
-//          },
-//          error:function(){
-//          }
-//
-//	})
-//}
+//初始化数据
+setTimeout(function () {
+ getdata();
+ initday();
+ initweek();
+ initmonth();
+}, 2000);
+
+//定时从后台读取数据
+setInterval(function(){
+	getdata();
+	},8000);
+
+//ajax技术实现前后台交互
+function getdata(){
+	$.ajax({
+		type:"GET",
+		url:"/sendjson",  //这里填入请求地址
+		dataType:"json",
+		success:function(data){
+         vue.Temperature = data.Data[0];
+         vue.Humidity = data.Data[1];
+         vue.Illumination = data.Data[2];
+         vue.CarbonDioxide = data.Data[3];
+         vue.Oxygen = data.Data[4];
+         vue.Dust = data.Data[5];
+         vue.SoilTemperature = data.Data[6];
+         vue.SoilMoisture = data.Data[7];
+         //空气成分
+         // for(i=0;i<8;i++){
+         //     realdata[i].innerHTML=data.Data.shift();
+         // }
+         },
+			error:function(){
+			}
+	})
+}
+
+function initday(){
+	$.ajax({
+		type:"GET",
+		url:"/initday",  //这里填入请求地址
+		dataType:"json",
+		success:function(data){
+		    console.log(data);
+		    // vue.a.xAxis.data = data
+         vue.a.series[0].data = data.TemperatureDay;
+         vue.b.series[0].data = data.HumidityDay;
+         vue.c.series[0].data = data.IlluminationDay;
+         vue.d.series[0].data = data.DustDay;//灰尘
+         vue.e.series[0].data = data.CarbonDioxideDay;//二氧化碳
+         vue.f.series[0].data = data.OxygenDay;//氧气
+         vue.g.series[0].data = data.SoilTempDay;//土壤温度
+         vue.h.series[0].data = data.SoilHumDay;//土壤湿度
+         // //空气成分
+         // for(i=0;i<6;i++){
+         //     realdata[i].innerHTML=data.Data.shift();
+         // }
+
+
+         },
+         error:function(){
+         }
+
+	})
+}
+
+function initweek(){
+	$.ajax({
+		type:"GET",
+		url:"/initweek",  //这里填入请求地址
+		dataType:"json",
+		success:function(data){
+		    console.log(data);
+
+         vue.aa.series[0].data = data.TemperatureWeek;
+         vue.bb.series[0].data = data.HumidityWeek;
+         vue.cc.series[0].data = data.IlluminationWeek;
+         vue.dd.series[0].data = data.DustWeek;//灰尘
+         vue.ee.series[0].data = data.CarbonDioxideWeek;//二氧化碳
+         vue.ff.series[0].data = data.OxygenWeek;//氧气
+         vue.gg.series[0].data = data.SoilTempWeek;//土壤温度
+         vue.hh.series[0].data = data.SoilHumWeek;//土壤湿度
+         },
+         error:function(){
+         }
+
+	})
+}
+
+function initmonth(){
+	$.ajax({
+		type:"GET",
+		url:"/initmonth",  //这里填入请求地址
+		dataType:"json",
+		success:function(data){
+		    console.log(data);
+
+         vue.aaa.series[0].data = data.TemperatureMonth;
+         vue.bbb.series[0].data = data.HumidityMonth;
+         vue.ccc.series[0].data = data.IlluminationMonth;
+         vue.ddd.series[0].data = data.DustMonth;//灰尘
+         vue.eee.series[0].data = data.CarbonDioxideMonth;//二氧化碳
+         vue.fff.series[0].data = data.OxygenMonth;//氧气
+         vue.ggg.series[0].data = data.SoilTempMonth;//土壤温度
+         vue.hhh.series[0].data = data.SoilHumMonth;//土壤湿度
+         },
+         error:function(){
+         }
+
+	})
+}

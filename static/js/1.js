@@ -635,7 +635,16 @@ resizeContainer();
 //日数据
 var a={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -646,6 +655,9 @@ var a={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -685,7 +697,16 @@ var a={
 
 var b = {
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -696,6 +717,9 @@ var b = {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -735,7 +759,16 @@ var b = {
 
 var c={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -746,6 +779,9 @@ var c={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#ADEC25 ',
@@ -784,8 +820,17 @@ var c={
 };
 
 var d= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -796,6 +841,9 @@ var d= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -834,7 +882,16 @@ var d= {
 
 var e= {
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -845,6 +902,9 @@ var e= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -882,8 +942,17 @@ var e= {
 };
 
 var f= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -894,6 +963,9 @@ var f= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#ADEC25 ',
@@ -932,7 +1004,16 @@ var f= {
 
 var g={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -943,6 +1024,9 @@ var g={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -982,7 +1066,16 @@ var g={
 
 var h = {
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -993,6 +1086,9 @@ var h = {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 6,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -1033,7 +1129,16 @@ var h = {
 //周数据
 var aa={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1044,6 +1149,9 @@ var aa={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -1083,7 +1191,16 @@ var aa={
 
 var bb = {
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1094,6 +1211,9 @@ var bb = {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -1133,7 +1253,16 @@ var bb = {
 
 var cc={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1144,6 +1273,9 @@ var cc={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#ADEC25 ',
@@ -1182,8 +1314,17 @@ var cc={
 };
 
 var dd= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -1194,6 +1335,9 @@ var dd= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -1231,8 +1375,17 @@ var dd= {
 };
 
 var ee= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -1243,6 +1396,9 @@ var ee= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -1280,8 +1436,17 @@ var ee= {
 };
 
 var ff= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -1292,6 +1457,9 @@ var ff= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#ADEC25 ',
@@ -1330,7 +1498,16 @@ var ff= {
 
 var gg={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1341,6 +1518,9 @@ var gg={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -1380,7 +1560,16 @@ var gg={
 
 var hh = {
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1391,6 +1580,9 @@ var hh = {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 3,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -1431,7 +1623,16 @@ var hh = {
 //月数据
 var aaa={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1442,6 +1643,9 @@ var aaa={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -1481,7 +1685,16 @@ var aaa={
 
 var bbb = {
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1492,6 +1705,9 @@ var bbb = {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -1531,7 +1747,16 @@ var bbb = {
 
 var ccc={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1542,6 +1767,9 @@ var ccc={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#ADEC25  ',
@@ -1580,8 +1808,17 @@ var ccc={
 };
 
 var ddd= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -1592,6 +1829,9 @@ var ddd= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -1629,8 +1869,17 @@ var ddd= {
 };
 
 var eee= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -1641,6 +1890,9 @@ var eee= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',
@@ -1678,8 +1930,17 @@ var eee= {
 };
 
 var fff= {
-        tooltip: {
-        trigger: 'axis'
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
 	grid: {
         left: '3%',
@@ -1690,6 +1951,9 @@ var fff= {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#ADEC25 ',
@@ -1728,7 +1992,16 @@ var fff= {
 
 var ggg={
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1739,6 +2012,9 @@ var ggg={
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#36E39C',
@@ -1778,7 +2054,16 @@ var ggg={
 
 var hhh = {
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
     },
     grid: {
         left: '3%',
@@ -1789,6 +2074,9 @@ var hhh = {
     },
     xAxis: {
         type: 'category',
+        axisLabel :{
+            interval: 5,
+        },
         axisLine:{
             	lineStyle:{
             		color:'#3CA5CF',

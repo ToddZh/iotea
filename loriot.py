@@ -4,6 +4,7 @@ import db
 import json
 from datetime import datetime, timedelta, timezone
 
+
 def getLoriotData():
 	ws = create_connection("wss://cn1.loriot.io/app?token=vnwD2wAAAA1jbjEubG9yaW90LmlvPeOCpVPCT9Ao2W5C5Fbtyw==")
 	flag = 1
@@ -69,6 +70,7 @@ def getLoriotData():
 			list = [date, hour, minute, second, air_temp, air_hum, pressure, co2, dust, illumination,
 					o2, soil_temp, soil_hum, voltage, error]
 			print(list)
+
 			db.insert(list)
 	ws.close()
 

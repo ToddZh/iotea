@@ -39,39 +39,69 @@ def initday():
 	# anchorDay.append({'value': [str(days[0])[5:] + " 00:00:00", 0]})
 	# anchorDay.append({'value': [today[5:] + " 00:00:00", 0]})
 
-
+	QueryTime = []
 	for day in days:
-		for hour in range(1, 23):
-			QueryTime = []
+		for hour in range(0, 23):
 			if hour < 10:
 				QueryTime = [str(day), '0' + str(hour)]
 			else:
 				QueryTime = [str(day), str(hour)]
 			old = db.readMinMinute(QueryTime)
+
+			if old is None:
+				QueryTime = [str(day), str(hour)]
+				old = db.readMinMinute(QueryTime)
+
 			try:
 				date = old[0][1]
-				# date[5:] + ' ' +
-				# moment = old[0][2] + ':' + old[0][3] + ':' + old[0][4]
-				moment = str(hour)
+				moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+				# moment = str(hour)
 
 				# {value: ['2016/12/18 6:38:08', 80]}
-				# dict1 = {'abc': 456};
+
 				DateDay.append(str(hour))
-				TemperatureDay.append({'value': [moment, old[0][5]]})
-				HumidityDay.append({'value': [moment, old[0][6]]})
-				IlluminationDay.append({'value': [moment, old[0][10]]})
-				CarbonDioxideDay.append({'value': [moment, old[0][8]]})
+				TemperatureDay.append({'name': moment, 'value': [str(hour), old[0][5]]})
+				HumidityDay.append({'name': moment, 'value': [str(hour), old[0][6]]})
+				IlluminationDay.append({'name': moment, 'value': [str(hour), old[0][10]]})
+				CarbonDioxideDay.append({'name': moment, 'value': [str(hour), old[0][8]]})
 				oxy = old[0][11]
 				# print(oxy.find('%'))
 				if int(oxy.find('%')) >= 0:
-					OxygenDay.append({'value': [moment, oxy[:-1]]})
+					OxygenDay.append({'name': moment, 'value': [str(hour), oxy[:-1]]})
 				else:
-					OxygenDay.append(oxy)
-				DustDay.append({'value': [moment, old[0][9]]})
-				SoilTempDay.append({'value': [moment, old[0][12]]})
-				SoilHumDay.append({'value': [moment, old[0][13]]})
+					OxygenDay.append({'name': moment, 'value': [str(hour), oxy]})
+				DustDay.append({'name': moment, 'value': [str(hour), old[0][9]]})
+				SoilTempDay.append({'name': moment, 'value': [str(hour), old[0][12]]})
+				SoilHumDay.append({'name': moment, 'value': [str(hour), old[0][13]]})
 			except Exception:
 				pass  #应该传给前端数据缺少标志 前端显示缺少数据
+
+	# 取得今天零点数据
+	today = beforeDays(0)
+	QueryTime = [today, '00']
+	old = db.readMinMinute(QueryTime)
+	if old is None:
+		QueryTime = [str(day), '0']
+		old = db.readMinMinute(QueryTime)
+	try:
+		date = old[0][1]
+		moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+
+		DateDay.append('24')
+		TemperatureDay.append({'name': moment, 'value': ['24', old[0][5]]})
+		HumidityDay.append({'name': moment, 'value': ['24', old[0][6]]})
+		IlluminationDay.append({'name': moment, 'value': ['24', old[0][10]]})
+		CarbonDioxideDay.append({'name': moment, 'value': ['24', old[0][8]]})
+		oxy = old[0][11]
+		if int(oxy.find('%')) >= 0:
+			OxygenDay.append({'name': moment, 'value': ['24', oxy[:-1]]})
+		else:
+			OxygenDay.append({'name': moment, 'value': ['24', oxy]})
+		DustDay.append({'name': moment, 'value': ['24', old[0][9]]})
+		SoilTempDay.append({'name': moment, 'value': ['24', old[0][12]]})
+		SoilHumDay.append({'name': moment, 'value': ['24', old[0][13]]})
+	except Exception:
+		pass
 
 	t = {
 		# 'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9]],
@@ -107,30 +137,41 @@ def initweek():
 	# anchorWeek.append({'value': [str(week[0])[5:] + " 00:00:00", 0]})
 	# anchorWeek.append({'value': [today[5:] + " 00:00:00", 0]})
 	for day in week:
-		for hour in range(1, 23, 6):
+		for hour in range(4, 21, 8):
 			QueryTime = []
 			if hour < 10:
 				QueryTime = [str(day), '0' + str(hour)]
 			else:
 				QueryTime = [str(day), str(hour)]
 			old = db.readMinMinute(QueryTime)
+			if old is None:
+				QueryTime = [str(day), str(hour)]
+				old = db.readMinMinute(QueryTime)
+			threeTimeOfDay = ""
+			if hour == 4:
+				pass
+			elif hour == 12:
+				threeTimeOfDay = " noon"
+			else:
+				threeTimeOfDay = " even"
+
 			try:
 				date = old[0][1]
-				DateWeek.append(date[5:])
-				# moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
-				moment = date[5:]
-				TemperatureWeek.append({'value': [moment, old[0][5]]})
-				HumidityWeek.append({'value': [moment, old[0][6]]})
-				IlluminationWeek.append({'value': [moment, old[0][10]]})
-				CarbonDioxideWeek.append({'value': [moment, old[0][8]]})
+				DateWeek.append(date[5:]+threeTimeOfDay)
+				moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+				# moment = date[5:]
+				TemperatureWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, old[0][5]]})
+				HumidityWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, old[0][6]]})
+				IlluminationWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, old[0][10]]})
+				CarbonDioxideWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, old[0][8]]})
 				oxy = old[0][11]
 				if int(oxy.find('%')) >= 0:
-					OxygenWeek.append({'value': [moment, oxy[:-1]]})
+					OxygenWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, oxy[:-1]]})
 				else:
-					OxygenWeek.append({'value': [moment, oxy]})
-				DustWeek.append({'value': [moment, old[0][9]]})
-				SoilTempWeek.append({'value': [moment, old[0][12]]})
-				SoilHumWeek.append({'value': [moment, old[0][13]]})
+					OxygenWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, oxy]})
+				DustWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, old[0][9]]})
+				SoilTempWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, old[0][12]]})
+				SoilHumWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, old[0][13]]})
 			except Exception:
 				pass
 
@@ -162,7 +203,7 @@ def initmonth():
 	SoilTempMonth = []
 	SoilHumMonth = []
 
-	month = beforeDays(30)
+	month = beforeDays(31)
 	# today = str(datetime.date.today())
 	# anchorMonth.append({'value': [str(month[0])[5:] + " 00:00:00", 0]})
 	# anchorMonth.append(	{'value': [today[5:] + " 00:00:00", 0]})
@@ -172,20 +213,20 @@ def initmonth():
 		try:
 			date = old[0][1]
 			DateMonth.append(date[5:])
-			# moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
-			moment = date[5:]
-			TemperatureMonth.append({'value': [moment, old[0][5]]})
-			HumidityMonth.append({'value': [moment, old[0][6]]})
-			IlluminationMonth.append({'value': [moment, old[0][10]]})
-			CarbonDioxideMonth.append({'value': [moment, old[0][8]]})
+			moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+			queryData = date[5:]
+			TemperatureMonth.append({'name': moment, 'value': [queryData, old[0][5]]})
+			HumidityMonth.append({'name': moment, 'value': [queryData, old[0][6]]})
+			IlluminationMonth.append({'name': moment, 'value': [queryData, old[0][10]]})
+			CarbonDioxideMonth.append({'name': moment, 'value': [queryData, old[0][8]]})
 			oxy = old[0][11]
 			if int(oxy.find('%')) >= 0:
-				OxygenMonth.append({'value': [moment, oxy[:-1]]})
+				OxygenMonth.append({'name': moment, 'value': [queryData, oxy[:-1]]})
 			else:
-				OxygenMonth.append({'value': [moment, oxy]})
-			DustMonth.append({'value': [moment, old[0][9]]})
-			SoilTempMonth.append({'value': [moment, old[0][12]]})
-			SoilHumMonth.append({'value': [moment, old[0][13]]})
+				OxygenMonth.append({'name': moment, 'value': [queryData, oxy]})
+			DustMonth.append({'name': moment, 'value': [queryData, old[0][9]]})
+			SoilTempMonth.append({'name': moment, 'value': [queryData, old[0][12]]})
+			SoilHumMonth.append({'name': moment, 'value': [queryData, old[0][13]]})
 
 		except Exception:
 			pass
