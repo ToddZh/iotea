@@ -73,7 +73,7 @@ var chinese = {
     sl1: '&nbsp;&nbsp;日',
     sl2: '&nbsp;&nbsp;周',
     sl3: '&nbsp;&nbsp;月',
-    src:'../static/img/solution3X.png',
+    src:'../static/img/solution3x.png',
 };
 var english = {
     w1: 'Story',

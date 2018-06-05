@@ -45,7 +45,7 @@ def insert(list):
 def readMax():
 	conn = pool.connection()
 	cur = conn.cursor()
-	sql="SELECT  * FROM iotea where id =(SELECT  max(id) FROM iotea.iotea)"
+	sql="SELECT  * FROM iotea where id =(SELECT  max(id) FROM iotea)"
 	r = cur.execute(sql)
 	r = cur.fetchall()
 	cur.close()
