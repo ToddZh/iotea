@@ -49,10 +49,9 @@ var chinese = {
     w33: '茶园历史数据',
     w44: '解决方案',
     w55: '延伸应用',
-    article1ww: '北纬30°，东经103°。坐落在四川雅安东北部的蒙顶山，是青藏高原与四川盆地在极度海拔落差之间的产物。山脉由西向东，茶园堆青叠翠，绿浪翻涌。这对在蒙顶山茶区土生土长的老邓来说，是最稀松平常的风景。<br/><br/>'+
+     article1ww: '北纬30°，东经103°。坐落在四川雅安东北部的蒙顶山，是青藏高原与四川盆地在极度海拔落差之间的产物。山脉由西向东，茶园堆青叠翠，绿浪翻涌。这对在蒙顶山茶区土生土长的老邓来说，是最稀松平常的风景。<br/><br/>'+
     '老邓不老，82年生，是蒙顶山茶区众多茶园主人里比较少见的80后，最爱喝自己茶园里的明前手工甘露，管着分布在1100多米海拔高度的方圆50亩的茶园。</br></br>'+
-    '小时候，因为家里有个小规模的老川茶园，父辈们种茶制茶卖茶过活的耳濡目染，老邓对茶多少有些独特的情感。"虽然跟茶结缘早，但长大了还是选择离开，去了城市生活，高山种茶太苦了。"<br/><br/>'+
-    '但2013年，城市创业失利，老邓命运般地回到了茶园，开始正经学茶、种茶、制茶，延续着祖辈留下的生活方式。<br/><br/>'+
+    '小时候，因为家里有个小规模的老川茶园，父辈们种茶制茶卖茶过活的耳濡目染，老邓对茶多少有些独特的情感。"虽然跟茶结缘早，但长大了还是选择离开，去了城市生活，高山种茶太苦了。"但2013年，城市创业失利，老邓命运般地回到了茶园，开始正经学茶、种茶、制茶，延续着祖辈留下的生活方式。<br/><br/>'+
     '"都说：扬子江心水，蒙山顶上茶。高山种茶海拔高，有机生态的生长环境，茶品质有保障。但同时因为茶园种植密度低，管理成本高，茶树发芽不齐，采茶难度大，导致高山茶产量小，在市场上的价值优势体现不出来。"<br/><br/>'+
     '怎么让消费者深入了解高山茶的有机生长和制茶环境，提升高山茶的价值所在，是老邓这两年一直在思考的问题。机缘巧合，因为认识了上山探茶、为Seeed IoTea智慧生态茶园方案寻找试点茶园的樊老师 <a class="link" href="https://www.seeed.cc/single-post/iotea ">（戳此樊老师上山找茶趣的故事）</a>，这个问题出现转机。<br/><br/>'+
     '双方确定合作意向后，方案细节探讨、原型制作与测试，到方案安装和调试，2018年3月底，高山茶与新科技结合，方案最终成功落地。',
@@ -141,10 +140,13 @@ var english = {
     datacontain7: 'Soil Temperature',
     datacontain8: 'Soil Humidity',
     sl1: '&nbsp;&nbsp;&nbsp;Day',
-    sl2: '&nbsp;&nbsp;&nbsp;Week',
-    sl3: '&nbsp;&nbsp;&nbsp;Month',
+    sl2: '&nbsp;&nbsp;Week',
+    sl3: '&nbsp;&nbsp;Month',
     src:"../static/img/solution tuz'z'z'z'z-03.png",
 };
+  var startTime = 0, //翻屏起始时间  
+        endTime = 0,  
+        now = 0;   
 
 window.onload = function(){
     vue = new Vue({
@@ -154,7 +156,18 @@ window.onload = function(){
         },
         mounted:function(){
             this.draw();
-            document.addEventListener('scroll', this.handleScroll);
+            if ((navigator.userAgent.toLowerCase().indexOf("firefox")!=-1)){   
+        document.addEventListener("DOMMouseScroll",this.scrollFun,false);        
+    }  
+    else if (document.addEventListener) {  
+        document.addEventListener("mousewheel",this.scrollFun,false);  
+    }  
+    else if (document.attachEvent) {  
+        document.attachEvent("onmousewheel",this.scrollFun);   
+    }  
+    else{  
+        document.onmousewheel = this.scrollFun;  
+    }  
         },
         destroyed :function() {
             document.removeEventListener('scroll', this.handleScroll);
@@ -180,6 +193,7 @@ window.onload = function(){
             green2:false,
             green3:false,
             lw:true,
+            s:0,
             a:a,
             b:b,
             c:c,
@@ -224,56 +238,82 @@ window.onload = function(){
                 this.chin=false;
                 this.eng=true;
              },
-             handleScroll :function(){
-           	var scrolltop=document.body.scrollTop|| document.documentElement.scrollTop;
-           	var scrollheight=document.body.scrollHeight|| document.documentElement.scrollHeight;	         
-		if((scrolltop>=scrollheight*1/9)&&(scrolltop<=scrollheight*5/18)){
-			this.story=true;
-              	this.data=false;
-              	this.data1=false;
-              	this.data2=false;
-              	this.solution=false;
-              	this.app=false;
-              	this.lw=false;
-       }else if((scrolltop>=scrollheight*5/18)&&(scrolltop<=scrollheight*11/18)){
-			    this.story=false;
-              	this.data=true;             
-              	this.solution=false;
-              	this.app=false;
-              	this.lw=false;
-              	if(scrolltop>=scrollheight*4/9){
-              	this.data1=false;
-              	this.data2=true;
-              	}else{
-              	this.data1=true;
-              	this.data2=false;
-              	}
-         }else if((scrolltop>=scrollheight*11/18)&&(scrolltop<=scrollheight*7/9)){
-			    this.story=false;
-              	this.data=false;
-              	this.data1=false;
-              	this.data2=false;
-              	this.solution=true;
-              	this.app=false;
-              	this.lw=false;
-         }else if(scrolltop>=scrollheight*7/9){
-			    this.story=false;
-              	this.data=false;
-              	this.data1=false;
-              	this.data2=false;
-              	this.solution=false;
-              	this.app=true;
-              	this.lw=false;
-          }else if(scrolltop<=scrollheight*1/9){
-          	    this.lw=true;
-          	    this.story=false;
-              	this.data=false;
-              	this.data1=false;
-              	this.data2=false;
-              	this.solution=false;
-              	this.app=false;
-          }
-			},
+             scrollFun: function (event){
+        startTime = new Date().getTime();  
+        var delta = event.detail || (-event.wheelDelta);  
+        var arr=[this.lw,this.story,this.data1,this.data2,this.solution,this.app];
+        //mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动
+        //DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动
+        if ((endTime - startTime) < -1000){
+            if(delta>0 && this.s<5){
+                //向下滚动
+                 this.lw=false;
+                 this.story=false;
+                 this.data=false;
+                 this.data1=false;
+                 this.data2=false;
+                 this.solution=false;
+                 this.app=false;                
+                this.s++;
+                if(this.s==0){
+                this.lw=true;
+                }
+                if(this.s==1){
+                this.story=true;
+                }
+                if(this.s==2){
+                this.data=true;
+                this.data1=true;
+                }
+                if(this.s==3){
+                this.data=true;
+                this.data2=true;
+                }
+                if(this.s==4){
+                this.solution=true;
+                }
+                if(this.s==5){
+                this.app=true;
+                }
+        } 
+            if(delta<0 &&this.s<6&&this.s>0){
+                //向上滚动           
+                 this.lw=false;
+                 this.story=false;
+                 this.data=false;
+                 this.data1=false;
+                 this.data2=false;
+                 this.solution=false;
+                 this.app=false;                
+                this.s--;
+                if(this.s==0){
+                this.lw=true;
+                }
+                if(this.s==1){
+                this.story=true;
+                }
+                if(this.s==2){
+                this.data=true;
+                this.data1=true;
+                }
+                if(this.s==3){
+                this.data=true;
+                this.data2=true;
+                }
+                if(this.s==4){
+                this.solution=true;
+                }
+                if(this.s==5){
+                this.app=true;
+                }
+               
+            }
+             endTime = new Date().getTime();  
+        }
+           else{  
+                event.preventDefault();    
+            }    
+    },
               barclick:function(){
               	this.bar=false;
               	this.data=false;
@@ -281,19 +321,15 @@ window.onload = function(){
               bar1click:function(){
               	this.bar=true;
               },
-              storyclick:function(){              
+              storyclick:function(){  
+              	this.lw=false;
               	this.story=true;
               	this.data=false;
               	this.solution=false;
               	this.app=false;
               },
-              dataclick:function(){              
-              	this.story=false;
-              	this.data=true;
-              	this.solution=false;
-              	this.app=false;
-              },
-              data1click:function(){              
+              dataclick:function(){ 
+              	this.lw=false;
               	this.story=false;
               	this.data=true;
               	this.data1=true;
@@ -301,7 +337,17 @@ window.onload = function(){
               	this.solution=false;
               	this.app=false;
               },
-              data2click:function(){              
+              data1click:function(){     
+              	this.lw=false;
+              	this.story=false;
+              	this.data=true;
+              	this.data1=true;
+              	this.data2=false;
+              	this.solution=false;
+              	this.app=false;
+              },
+              data2click:function(){   
+              	this.lw=false;
               	this.story=false;
               	this.data=true;
               	this.data2=true;
@@ -309,13 +355,15 @@ window.onload = function(){
               	this.solution=false;
               	this.app=false;
               },
-              solutionclick:function(){              
+              solutionclick:function(){  
+              	this.lw=false;
               	this.story=false;
               	this.data=false;
               	this.solution=true;
               	this.app=false;
               },
-              appclick:function(){              
+              appclick:function(){   
+              	this.lw=false;
               	this.story=false;
               	this.data=false;
               	this.solution=false;
@@ -580,15 +628,15 @@ var tabContainer888 = document.getElementById('main888');
 //};
 //设置容器高宽
 //resizeContainer();
+
 //日数据
 var a={
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -604,7 +652,7 @@ var a={
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 6,
+            interval: 5,
         },
         axisLine:{
             	lineStyle:{
@@ -646,11 +694,10 @@ var a={
 var b = {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -666,7 +713,7 @@ var b = {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 6,
+            interval: 5,
         },
         axisLine:{
             	lineStyle:{
@@ -708,11 +755,10 @@ var b = {
 var c={
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -728,7 +774,7 @@ var c={
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 6,
+            interval: 5,
         },
         axisLine:{
             	lineStyle:{
@@ -770,11 +816,10 @@ var c={
 var d= {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -790,7 +835,7 @@ var d= {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 6,
+            interval: 5,
         },
         axisLine:{
             	lineStyle:{
@@ -831,11 +876,10 @@ var d= {
 var e= {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -851,7 +895,7 @@ var e= {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 6,
+            interval: 5,
         },
         axisLine:{
             	lineStyle:{
@@ -892,11 +936,10 @@ var e= {
 var f= {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -912,7 +955,7 @@ var f= {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 6,
+            interval: 5,
         },
         axisLine:{
             	lineStyle:{
@@ -953,11 +996,10 @@ var f= {
 var g={
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -973,7 +1015,7 @@ var g={
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 6,
+            interval: 5,
         },
         axisLine:{
             	lineStyle:{
@@ -1015,11 +1057,10 @@ var g={
 var h = {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1035,7 +1076,7 @@ var h = {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 6,
+            interval: 5,
         },
         axisLine:{
             	lineStyle:{
@@ -1078,11 +1119,10 @@ var h = {
 var aa={
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1098,7 +1138,7 @@ var aa={
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 3,
+            interval: 2,
         },
         axisLine:{
             	lineStyle:{
@@ -1140,11 +1180,10 @@ var aa={
 var bb = {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1160,7 +1199,7 @@ var bb = {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 3,
+            interval: 2,
         },
         axisLine:{
             	lineStyle:{
@@ -1202,11 +1241,10 @@ var bb = {
 var cc={
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1222,7 +1260,7 @@ var cc={
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 3,
+            interval: 2,
         },
         axisLine:{
             	lineStyle:{
@@ -1264,11 +1302,10 @@ var cc={
 var dd= {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1284,7 +1321,7 @@ var dd= {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 3,
+            interval: 2,
         },
         axisLine:{
             	lineStyle:{
@@ -1325,11 +1362,10 @@ var dd= {
 var ee= {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1345,7 +1381,7 @@ var ee= {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 3,
+            interval: 2,
         },
         axisLine:{
             	lineStyle:{
@@ -1386,11 +1422,10 @@ var ee= {
 var ff= {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1406,7 +1441,7 @@ var ff= {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 3,
+            interval: 2,
         },
         axisLine:{
             	lineStyle:{
@@ -1447,11 +1482,10 @@ var ff= {
 var gg={
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1467,7 +1501,7 @@ var gg={
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 3,
+            interval: 2,
         },
         axisLine:{
             	lineStyle:{
@@ -1509,11 +1543,10 @@ var gg={
 var hh = {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1529,7 +1562,7 @@ var hh = {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 3,
+            interval: 2,
         },
         axisLine:{
             	lineStyle:{
@@ -1572,11 +1605,10 @@ var hh = {
 var aaa={
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1592,7 +1624,7 @@ var aaa={
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 5,
+            interval: 4,
         },
         axisLine:{
             	lineStyle:{
@@ -1634,11 +1666,10 @@ var aaa={
 var bbb = {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1654,7 +1685,7 @@ var bbb = {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 5,
+            interval: 4,
         },
         axisLine:{
             	lineStyle:{
@@ -1696,11 +1727,10 @@ var bbb = {
 var ccc={
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1716,7 +1746,7 @@ var ccc={
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 5,
+            interval: 4,
         },
         axisLine:{
             	lineStyle:{
@@ -1758,11 +1788,10 @@ var ccc={
 var ddd= {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1778,7 +1807,7 @@ var ddd= {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 5,
+            interval: 4,
         },
         axisLine:{
             	lineStyle:{
@@ -1819,11 +1848,10 @@ var ddd= {
 var eee= {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1839,7 +1867,7 @@ var eee= {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 5,
+            interval: 4,
         },
         axisLine:{
             	lineStyle:{
@@ -1880,11 +1908,10 @@ var eee= {
 var fff= {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1900,7 +1927,7 @@ var fff= {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 5,
+            interval: 4,
         },
         axisLine:{
             	lineStyle:{
@@ -1941,11 +1968,10 @@ var fff= {
 var ggg={
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -1961,7 +1987,7 @@ var ggg={
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 5,
+            interval: 4,
         },
         axisLine:{
             	lineStyle:{
@@ -2003,11 +2029,10 @@ var ggg={
 var hhh = {
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
+         formatter: function (params) {
+            var date = new Date(params[0].data.name);
             return  date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()+ '  '
-            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params.value[1];
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '  ' + params[0].data.value[1];
         },
         axisPointer: {
             animation: false
@@ -2023,7 +2048,7 @@ var hhh = {
     xAxis: {
         type: 'category',
         axisLabel :{
-            interval: 5,
+            interval: 4,
         },
         axisLine:{
             	lineStyle:{
@@ -2061,6 +2086,8 @@ var hhh = {
         },
     ]
 };
+
+
 
 
 

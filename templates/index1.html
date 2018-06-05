@@ -29,7 +29,7 @@ document.write('<script type="text/javascript" >!function(e,t){function n(){var 
 	<div id="app">
 	<div class="loading" v-show="lgbtn4aa&&mobile"  :class="{'fadeout': loadingfade,'hide':!lgbtn4aa}"></div>
         <div class="container hide" id="container">
-                <div id="right" v-if="mobile">
+            <div id="right" v-if="mobile">
                             <div id="lw" v-show="lwa">
                                 <div class="biglogo"><img src="../static/img/Artboard 1 Copy.png"></div>
                                 <div class="word">蒙顶山，物联网的茶</div>
@@ -258,25 +258,23 @@ document.write('<script type="text/javascript" >!function(e,t){function n(){var 
         			<li class="bottomline4" v-show="app"></li>
         		</ul>
         	</div>
-                            <div id="lw">
+                            <div id="lw" v-show="lw">
                                 <div class="biglogo"><img src="../static/img/biglogo.png"></div>
                                 <div class="word">蒙顶山，物联网的茶</div>                        
                             </div>
-                            <div id="about1">
+                            <div id="about1" v-show="story">
                                 <div :class="{'gushi': chin,'gushi1':eng}" v-html="msg.w11"></div>
-                                <div class="aboutimg">
+                                <div class="aboutimg"> 
                                 	<div class="aboutimg1">
                                 		 <img class="p1" src="../static/img/WechatIMG686.png">
                                 		 <img class="p1" src="../static/img/WechatIMG669.png">
                                 		 <img class="p1" src="../static/img/WechatIMG672.png">
                                 	</div>
                                 </div>
-                                <div class="articlecontain">
-                                    <div class="articlecontain1" v-html="msg.article1ww">                                                 
-                                </div>
+                                    <div class="articlecontain" v-html="msg.article1ww">                                                 
                                 </div>
                             </div>                          
-                            <div id="dat1">
+                            <div id="dat1" v-show="data1">
                                     <div id="realtitle" v-html="msg.w22"></div>
                                     <div class="rea"><span id="time1"></span></div>
                                     <div class="dat1contain">
@@ -322,7 +320,7 @@ document.write('<script type="text/javascript" >!function(e,t){function n(){var 
                                             </div>
                                     </div>
                             </div>
-                            <div id="dat2">
+                            <div id="dat2" v-show="data2">
                             	     <div class="dat2title" v-html="msg.w33"></div>
                                      <div id="slider" :class="{'slider': chin,'slider1':eng}">
                                      	<div class="green" :class="{'green1': green1,'green2': green2,'green3': green3}"></div>
@@ -434,14 +432,14 @@ document.write('<script type="text/javascript" >!function(e,t){function n(){var 
                                          </div>
                                     </div>
                            </div>
-                           <div id="solution1">
+                           <div id="solution1" v-show="solution">
                                 <div class="aabs" v-html="msg.w44"></div>                                    
                                 <div id="article1">
                                     <div id="solutionarticle" v-html="msg.solutionarticle"></div>                                        
                                 </div>
                                <div id="solutionimg"><img id="solimg" :src="msg.src"></div>
                             </div>
-                            <div id="application1" >
+                            <div id="application1" v-show="app" class="page">
                                 <div class="aba" v-html="msg.w55"></div>     
                                 <div id="article2" v-html="msg.article2"></div>                                    
                                     <div id="appimg"><img class="pic1" src="../static/img/Group 6.png"><img class="pic1" src="../static/img/Group 7.png"> <img class="pic1" src="../static/img/Group 18.png"><img src="../static/img/Group 12.png"></div>                             

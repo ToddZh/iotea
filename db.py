@@ -3,20 +3,22 @@ from DBUtils.PooledDB import PooledDB
 import configparser
 
 cf = configparser.ConfigParser()
-cf.read("D:/Code/python/iotea/conf/db.ini")
+# cf.read("/data/www/python3_iotea/iotea/db.ini")
 # 打开数据库连接
 # conn = pymysql.connect("localhost", "root", "1234", "iotea")
 # conn = pymysql.connect(host="47.89.243.140", user="root", password="root", db="iotea")
 
 # pool = PooledDB(pymysql, 5, host='47.89.243.140', user='root', passwd='root', db='iotea', port=3306)
-# pool = PooledDB(pymysql, 5, host='localhost', user='root', passwd='1234', db='iotea', port=3306)
-dbname = "db"
-host = cf.get(dbname, "db_host")
-user = cf.get(dbname, "db_user")
-passwd = cf.get(dbname, "db_pass")
-db = cf.get(dbname, "db_name")
-port = cf.get(dbname, "db_port")
-pool = PooledDB(pymysql, 5, host=str(host), user=str(user), passwd=str(passwd), db=str(db), port=int(port))
+pool = PooledDB(pymysql, 5, host='localhost', user='root', passwd='1234', db='iotea', port=3306)
+
+
+# dbname = "db"
+# host = cf.get(dbname, "db_host")
+# user = cf.get(dbname, "db_user")
+# passwd = cf.get(dbname, "db_pass")
+# db = cf.get(dbname, "db_name")
+# port = cf.get(dbname, "db_port")
+# pool = PooledDB(pymysql, 5, host=str(host), user=str(user), passwd=str(passwd), db=str(db), port=int(port))
 
 # def getconn():
 # 	return pool.connection()
@@ -43,7 +45,7 @@ def insert(list):
 def readMax():
 	conn = pool.connection()
 	cur = conn.cursor()
-	sql="SELECT  * FROM iotea.iotea where id =(SELECT  max(id) FROM iotea.iotea)"
+	sql="SELECT  * FROM iotea where id =(SELECT  max(id) FROM iotea.iotea)"
 	r = cur.execute(sql)
 	r = cur.fetchall()
 	cur.close()
@@ -55,7 +57,7 @@ def readMax():
 def readMinMinute(time): # time[date,hour]
 	conn = pool.connection()
 	cur = conn.cursor()
-	sql = "SELECT  * FROM iotea.iotea where date = '%s' and hour = '%s' LIMIT 1" % (time[0], time[1])
+	sql = "SELECT  * FROM iotea where date = '%s' and hour = '%s' LIMIT 1" % (time[0], time[1])
 	r = cur.execute(sql)
 	r = cur.fetchall()
 	cur.close()
@@ -68,7 +70,7 @@ def readMinMinute(time): # time[date,hour]
 def readByDate(date):
 	conn = pool.connection()
 	cur = conn.cursor()
-	sql = "SELECT  * FROM iotea.iotea where date = '%s' and hour = '12' LIMIT 1" % ( date )
+	sql = "SELECT  * FROM iotea where date = '%s' and hour = '12' LIMIT 1" % ( date )
 	r = cur.execute(sql)
 	r = cur.fetchall()
 	cur.close()

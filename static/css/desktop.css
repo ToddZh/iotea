@@ -64,6 +64,9 @@ a {
 a:visited {
 	color: #fff;
 }
+.link:visited{
+	color:#010000;
+}
 .ul {
 	position: fixed;
 	bottom:1.47rem;
@@ -90,7 +93,6 @@ a:visited {
     background: rgba(84,138,161,0.4);
 	font-family: PingFangHK-Semibold;
 	font-size: 0.18rem;
-	opacity: 1;
 	letter-spacing: 0;
 	text-align: justify;
 	z-index: 400;
@@ -285,20 +287,16 @@ a:visited {
 }
 .articlecontain {
 	position: absolute;
-	top:1.92rem;
+	top:1.72rem;
 	left:1.34rem;
 	width: 4.78rem;
-	height:3.94rem ;
-	bottom: 1.82rem;
+	/*height:3.94rem ;*/
 	font-family: PingFangHK-Medium;
 	font-size: 0.14rem;
 	color: #4F6E62;
 	letter-spacing: 0;
 	text-align: left;
-	overflow-y: scroll;
-}
-.articlecontain1{
-	width: 4.5rem;
+	line-height: 0.2rem;
 }
 #solution1 {
 	width: 100%;
