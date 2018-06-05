@@ -52,7 +52,7 @@ def initday():
 				QueryTime = [str(day), str(hour)]
 				old = db.readMinMinute(QueryTime)
 			if not old:
-				old = [['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0']]
+				old = [['0', '00', '00', '00', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0']]
 			try:
 				date = str(day)
 
@@ -101,14 +101,14 @@ def initday():
 	QueryTime = [today, '00']
 	old = db.readMinMinute(QueryTime)
 	if not old:
-		QueryTime = [str(day), '0']
+		QueryTime = [str(today), '0']
 		old = db.readMinMinute(QueryTime)
 	if not old:
-		old = [['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0']]
+		old = [['0', '00', '00', '00', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0']]
 	try:
-		date = str(day)
+		date = str(today)
 		date = date[:4] + '/' + date[5:7] + '/' + date[8:]
-		moment = date[5:] + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
+		moment = date + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
 
 		DateDay.append('24')
 		TemperatureDay.append({'name': moment, 'value': ['24', old[0][5]]})
