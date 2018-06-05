@@ -81,7 +81,23 @@ def initday():
 				pass  #应该传给前端数据缺少标志 前端显示缺少数据
 
 	# 取得今天零点数据
-	today = datetime.date.today()
+	# today = datetime.date.today()
+	utc_dt = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc)
+	bj_dt = utc_dt.astimezone(datetime.timezone(datetime.timedelta(hours=8)))
+	year = str(bj_dt.year)
+	month = ""
+	day = ""
+	if int(bj_dt.month) < 10:
+		month = '0' + str(bj_dt.month)
+	else:
+		month = str(bj_dt.month)
+
+	if int(bj_dt.day) < 10:
+		day = '0' + str(bj_dt.day)
+	else:
+		day = str(bj_dt.day)
+	today = "%s-%s-%s" % (year, month, day)
+
 	QueryTime = [today, '00']
 	old = db.readMinMinute(QueryTime)
 	if not old:

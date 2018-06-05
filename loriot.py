@@ -19,11 +19,11 @@ def getLoriotData():
 			utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)
 			# print(utc_dt)
 			bj_dt = utc_dt.astimezone(timezone(timedelta(hours=8)))
-			print(bj_dt)
+			# print(bj_dt)
 			# 格式化时间
-			print(str(bj_dt.year))
-			print(str(bj_dt.month))
-			print(str(bj_dt.day))
+			# print(str(bj_dt.year))
+			# print(str(bj_dt.month))
+			# print(str(bj_dt.day))
 			year = str(bj_dt.year)
 			month = ""
 			day = ""

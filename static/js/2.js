@@ -32,8 +32,9 @@ var date=new Date();
 var year=date.getFullYear();
 var month=date.getMonth()+1;
 var day=date.getDate();
-time1.innerHTML=year+'/'+month+'/'+day;
+// time1.innerHTML=year+'/'+month+'/'+day;
 var curMonthDays=new Date(year,month,0).getDate();
+var timee1=year+'/'+month+'/'+day;
 var timeee=year+'/'+month+'/'+(day-1); 
 
 var chinese = {
@@ -189,6 +190,7 @@ window.onload = function(){
         	eng:false,
         	chin:true,
             timee:timeee,
+            timee1:timee1,
             green1:true,
             green2:false,
             green3:false,
