@@ -3,22 +3,22 @@ from DBUtils.PooledDB import PooledDB
 import configparser
 
 cf = configparser.ConfigParser()
-cf.read("/data/www/python3_iotea/iotea/db.ini")
+# cf.read("/data/www/python3_iotea/iotea/conf/db.ini")
 # 打开数据库连接
 # conn = pymysql.connect("localhost", "root", "1234", "iotea")
 # conn = pymysql.connect(host="47.89.243.140", user="root", password="root", db="iotea")
 
 # pool = PooledDB(pymysql, 5, host='47.89.243.140', user='root', passwd='root', db='iotea', port=3306)
-# pool = PooledDB(pymysql, 5, host='localhost', user='root', passwd='1234', db='iotea', port=3306)
+pool = PooledDB(pymysql, 5, host='localhost', user='root', passwd='1234', db='iotea', port=3306)
 
 
-dbname = "db"
-host = cf.get(dbname, "db_host")
-user = cf.get(dbname, "db_user")
-passwd = cf.get(dbname, "db_pass")
-db = cf.get(dbname, "db_name")
-port = cf.get(dbname, "db_port")
-pool = PooledDB(pymysql, 5, host=str(host), user=str(user), passwd=str(passwd), db=str(db), port=int(port))
+# dbname = "db"
+# host = cf.get(dbname, "db_host")
+# user = cf.get(dbname, "db_user")
+# passwd = cf.get(dbname, "db_pass")
+# db = cf.get(dbname, "db_name")
+# port = cf.get(dbname, "db_port")
+# pool = PooledDB(pymysql, 5, host=str(host), user=str(user), passwd=str(passwd), db=str(db), port=int(port))
 
 # def getconn():
 # 	return pool.connection()
