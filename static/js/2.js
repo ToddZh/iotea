@@ -33,7 +33,7 @@ var year=date.getFullYear();
 var month=date.getMonth()+1;
 var day=date.getDate();
 // time1.innerHTML=year+'/'+month+'/'+day;
-var curMonthDays=new Date(year,month,0).getDate();
+var curMonthDays=new Date(year,month-1,0).getDate();
 var timee1=year+'/'+month+'/'+day;
 var timeee=year+'/'+month+'/'+(day-1); 
 
@@ -196,6 +196,7 @@ window.onload = function(){
             green3:false,
             lw:true,
             s:0,
+            s1:0,
             a:a,
             b:b,
             c:c,
@@ -247,7 +248,7 @@ window.onload = function(){
         //mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动
         //DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动
         if ((endTime - startTime) < -1000){
-            if(delta>0 && this.s<5){
+             if(delta>0 && this.s<5){
                 //向下滚动
                  this.lw=false;
                  this.story=false;
@@ -256,26 +257,32 @@ window.onload = function(){
                  this.data2=false;
                  this.solution=false;
                  this.app=false;                
-                this.s++;
+                 this.s++;
                 if(this.s==0){
-                this.lw=true;
+                this.lw=true;               
                 }
                 if(this.s==1){
                 this.story=true;
+                this.bar=false;	
+                this.s1=1;               
                 }
                 if(this.s==2){
+                this.s1=2;
                 this.data=true;
                 this.data1=true;
                 }
                 if(this.s==3){
+                this.s1=3;
                 this.data=true;
                 this.data2=true;
                 }
                 if(this.s==4){
+                this.s1=4;
                 this.solution=true;
                 }
                 if(this.s==5){
                 this.app=true;
+                this.s1=5;
                 }
         } 
             if(delta<0 &&this.s<6&&this.s>0){
@@ -287,7 +294,8 @@ window.onload = function(){
                  this.data2=false;
                  this.solution=false;
                  this.app=false;                
-                this.s--;
+                this.s1--;
+                this.s=this.s1;
                 if(this.s==0){
                 this.lw=true;
                 }
@@ -329,6 +337,8 @@ window.onload = function(){
               	this.data=false;
               	this.solution=false;
               	this.app=false;
+              	this.s=0;
+              	this.s1=2;
               },
               dataclick:function(){ 
               	this.lw=false;
@@ -338,6 +348,8 @@ window.onload = function(){
               	this.data2=false;
               	this.solution=false;
               	this.app=false;
+              	this.s=1;
+              	this.s1=3;
               },
               data1click:function(){     
               	this.lw=false;
@@ -347,6 +359,8 @@ window.onload = function(){
               	this.data2=false;
               	this.solution=false;
               	this.app=false;
+              	this.s=1;
+              	this.s1=3;
               },
               data2click:function(){   
               	this.lw=false;
@@ -356,6 +370,8 @@ window.onload = function(){
               	this.data1=false;
               	this.solution=false;
               	this.app=false;
+              	this.s=2;
+              	this.s1=4;
               },
               solutionclick:function(){  
               	this.lw=false;
@@ -363,6 +379,8 @@ window.onload = function(){
               	this.data=false;
               	this.solution=true;
               	this.app=false;
+              	this.s=3;
+              	this.s1=5;
               },
               appclick:function(){   
               	this.lw=false;
@@ -370,6 +388,8 @@ window.onload = function(){
               	this.data=false;
               	this.solution=false;
               	this.app=true;
+              	this.s=4;
+              	this.s1=6;
               },
             sl1clik:function(){
                 this.box3a=true;
@@ -422,15 +442,22 @@ window.onload = function(){
                 this.box33a=false;
                 this.box333a=true;
                 if(day == 1){
+                	if(month==3){
+                    var dayy1=curMonthDays;
+                    var monthh1=month-1;
+                    var monthh=month-2;
+                    var dayy=curMonthDays+2;
+                	}else{
                     var dayy1=curMonthDays;
                     var monthh1=month-1;
                     var monthh=month-1;
-                    var dayy=curMonthDays-(31-day);
+                    var dayy=curMonthDays-29;
+                	}
                 }else{
                     dayy1=day-1;
                     monthh1=month;
                     monthh=month-1;
-                    dayy=curMonthDays-(31-day);
+                    dayy=curMonthDays-(30-day);
                 }
                 this.green1=false;
                 this.green2=false;
