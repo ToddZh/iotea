@@ -16,12 +16,12 @@
     if (window.innerWidth <800) {
     document.write('<script type="text/javascript" >!function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(320,780);<\/script>');
     }else{
-document.write('<script type="text/javascript" >!function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(1366,5000);<\/script>');  
+document.write('<script type="text/javascript" >!function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(1366,5000);<\/script>');
 }
     </script>
     <link media="(min-width:800px)" style="text:css" rel="stylesheet" href="../static/css/desktop.css">
     <link media="(max-width:800px)" style="text:css" rel="stylesheet" href="../static/css/mobile.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.4/vue.js"></script>
+    <script src="../static/js/vue.js"></script>
     <title>lotea</title>
 </head>
 <body>
@@ -243,7 +243,7 @@ document.write('<script type="text/javascript" >!function(e,t){function n(){var 
         					<li @click="data2click" class="dat2li" :class={'whitecolor':data2,'greycolor':!data2}><a href="#dat2" v-html="msg.w222"></a></li>
         					<li class="bottomline22" v-show="data2"></li>
         		</ul>
-        	<div class="menu" v-show="bar" :class="{'bggrey':lw,'bgblue':!lw}">        		
+        	<div class="menu" v-show="bar" :class="{'bggrey':lw,'bgblue':!lw}" id="menu">
         		<div id="bar" @click="barclick"><img src="../static/img/Group Copy 10.png"></div>
         		<div class="trans"><span id="eng" @click="chooseEnglish" :class="{'engclick': eng}">EN</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span id="chin" @click="chooseChinese" :class="{'engclick': chin}">中</span></div>
         		<ul class="ul">
@@ -447,14 +447,25 @@ document.write('<script type="text/javascript" >!function(e,t){function n(){var 
         </div>
         </div>
         </div>
-    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="../static/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="../static/js/jquery.lazyload.js" type="text/javascript"></script>
     <script src="../static/js/echarts.min.js"></script>
     <script type="text/javascript">
-        if (window.innerWidth <800) {
-            document.write('<script type="text/javascript" src="../static/js/1.js"><\/script>');
-        }else{
-            document.write('<script type="text/javascript" src="../static/js/2.js"><\/script>');
-        }
+    $(window).resize(function(){
+       location.reload()
+    });
+    $(window).bind('resize', function(event) {
+      if (window.RE_LOAD) clearTimeout(window.RE_LOAD)
+      window.parseFloat = setTimeout(function () {
+        this.location.reload(false)
+      },100)
+    });
+    if (window.innerWidth < 800) {
+      document.write('<script id="sc1" type="text/javascript" src="../static/js/1.js"><\/script>');
+    } else {
+      document.write('<script id="sc2" type="text/javascript" src="../static/js/2.js"><\/script>');
+    }
+
     </script>
 </body>
 </html>
