@@ -528,7 +528,7 @@ animation-duration: 2s;
 	  -webkit-overflow-scrolling: touch;   /*这句是为了滑动更顺畅*/ 
 }
 .bgpic {
-	background:url(../img/background.png) no-repeat center center fixed ;  
+	background:url(../img/bigindex.png) no-repeat center center fixed ;
 	background-size: cover;
 }
 #dat1,#dat2 {

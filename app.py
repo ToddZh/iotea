@@ -183,33 +183,33 @@ def initweek():
 				date = date[:4] + '/' + date[5:7] + '/' + date[8:]
 				DateWeek.append(date[5:] + threeTimeOfDay)
 				moment = date + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
-				# moment = date[5:]
-				TemperatureWeek.append({'name': moment, 'value': [date[5:] + threeTimeOfDay, old[0][5]]})
-				HumidityWeek.append({'name': moment, 'value': [date[5:] + threeTimeOfDay, old[0][6]]})
-				IlluminationWeek.append({'name': moment, 'value': [date[5:] + threeTimeOfDay, old[0][10]]})
-				CarbonDioxideWeek.append({'name': moment, 'value': [date[5:] + threeTimeOfDay, old[0][8]]})
+				xAxisTime = removeZero(date[5:])
+				TemperatureWeek.append({'name': moment, 'value': [xAxisTime + threeTimeOfDay, old[0][5]]})
+				HumidityWeek.append({'name': moment, 'value': [xAxisTime + threeTimeOfDay, old[0][6]]})
+				IlluminationWeek.append({'name': moment, 'value': [xAxisTime + threeTimeOfDay, old[0][10]]})
+				CarbonDioxideWeek.append({'name': moment, 'value': [xAxisTime + threeTimeOfDay, old[0][8]]})
 				oxy = old[0][11]
 				if int(oxy.find('%')) >= 0:
-					OxygenWeek.append({'name': moment, 'value': [date[5:] + threeTimeOfDay, oxy[:-1]]})
+					OxygenWeek.append({'name': moment, 'value': [xAxisTime + threeTimeOfDay, oxy[:-1]]})
 				else:
-					OxygenWeek.append({'name': moment, 'value': [date[5:] + threeTimeOfDay, oxy]})
-				DustWeek.append({'name': moment, 'value': [date[5:] + threeTimeOfDay, old[0][9]]})
-				SoilTempWeek.append({'name': moment, 'value': [date[5:] + threeTimeOfDay, old[0][12]]})
-				SoilHumWeek.append({'name': moment, 'value': [date[5:] + threeTimeOfDay, old[0][13]]})
+					OxygenWeek.append({'name': moment, 'value': [xAxisTime + threeTimeOfDay, oxy]})
+				DustWeek.append({'name': moment, 'value': [xAxisTime + threeTimeOfDay, old[0][9]]})
+				SoilTempWeek.append({'name': moment, 'value': [xAxisTime + threeTimeOfDay, old[0][12]]})
+				SoilHumWeek.append({'name': moment, 'value': [xAxisTime + threeTimeOfDay, old[0][13]]})
 			except Exception:
 				date = str(day)
 				date = date[:4] + '/' + date[5:7] + '/' + date[8:]
 				DateWeek.append(date[5:]+threeTimeOfDay)
 				moment = date + ' ' + str(hour) + ':00:00'
-				# moment = date[5:]
-				TemperatureWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, '0']})
-				HumidityWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, '0']})
-				IlluminationWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, '0']})
-				CarbonDioxideWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, '0']})
-				OxygenWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, '0']})
-				DustWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, '0']})
-				SoilTempWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, '0']})
-				SoilHumWeek.append({'name': moment, 'value': [date[5:]+threeTimeOfDay, '0']})
+				xAxisTime = removeZero(date[5:])
+				TemperatureWeek.append({'name': moment, 'value': [xAxisTime+threeTimeOfDay, '0']})
+				HumidityWeek.append({'name': moment, 'value': [xAxisTime+threeTimeOfDay, '0']})
+				IlluminationWeek.append({'name': moment, 'value': [xAxisTime+threeTimeOfDay, '0']})
+				CarbonDioxideWeek.append({'name': moment, 'value': [xAxisTime+threeTimeOfDay, '0']})
+				OxygenWeek.append({'name': moment, 'value': [xAxisTime+threeTimeOfDay, '0']})
+				DustWeek.append({'name': moment, 'value': [xAxisTime+threeTimeOfDay, '0']})
+				SoilTempWeek.append({'name': moment, 'value': [xAxisTime+threeTimeOfDay, '0']})
+				SoilHumWeek.append({'name': moment, 'value': [xAxisTime+threeTimeOfDay, '0']})
 	t = {
 		# 'anchorWeek': anchorWeek,
 		'DateWeek': DateWeek,
@@ -250,7 +250,7 @@ def initmonth():
 			date = date[:4] + '/' + date[5:7] + '/' + date[8:]
 			DateMonth.append(date[5:])
 			moment = date + ' ' + old[0][2] + ':' + old[0][3] + ':' + old[0][4]
-			queryData = date[5:]
+			queryData = removeZero(date[5:])
 			TemperatureMonth.append({'name': moment, 'value': [queryData, old[0][5]]})
 			HumidityMonth.append({'name': moment, 'value': [queryData, old[0][6]]})
 			IlluminationMonth.append({'name': moment, 'value': [queryData, old[0][10]]})
@@ -268,14 +268,15 @@ def initmonth():
 			date = date[:4] + '/' + date[5:7] + '/' + date[8:]
 			DateMonth.append(date[5:])
 			moment = date + " 00:00:00"
-			TemperatureMonth.append({'name': moment, 'value': [date[5:], '0']})
-			HumidityMonth.append({'name': moment, 'value': [date[5:], '0']})
-			IlluminationMonth.append({'name': moment, 'value': [date[5:], '0']})
-			CarbonDioxideMonth.append({'name': moment, 'value': [date[5:], '0']})
-			OxygenMonth.append({'name': moment, 'value': [date[5:], '0']})
-			DustMonth.append({'name': moment, 'value': [date[5:], '0']})
-			SoilTempMonth.append({'name': moment, 'value': [date[5:], '0']})
-			SoilHumMonth.append({'name': moment, 'value': [date[5:], '0']})
+			queryData = removeZero(date[5:])
+			TemperatureMonth.append({'name': moment, 'value': [queryData, '0']})
+			HumidityMonth.append({'name': moment, 'value': [queryData, '0']})
+			IlluminationMonth.append({'name': moment, 'value': [queryData, '0']})
+			CarbonDioxideMonth.append({'name': moment, 'value': [queryData, '0']})
+			OxygenMonth.append({'name': moment, 'value': [queryData, '0']})
+			DustMonth.append({'name': moment, 'value': [queryData, '0']})
+			SoilTempMonth.append({'name': moment, 'value': [queryData, '0']})
+			SoilHumMonth.append({'name': moment, 'value': [queryData, '0']})
 
 	t = {
 		# 'anchorMonth': anchorMonth,
@@ -297,6 +298,15 @@ def beforeDays(n):
 	for i in range(1, n+1)[::-1]:
 		before_n_days.append(str(datetime.date.today() - datetime.timedelta(days=i)))
 	return before_n_days
+
+def removeZero(string):
+	xAxisTime = string
+	if xAxisTime[0] == '0':
+		xAxisTime = xAxisTime[1:]
+	loc = xAxisTime.find('/')
+	if xAxisTime[loc+1] == '0':
+		xAxisTime = xAxisTime[:loc+1] + xAxisTime[loc+2:]
+	return xAxisTime
 
 
 if __name__=="__main__":

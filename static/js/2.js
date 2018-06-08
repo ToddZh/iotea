@@ -18,7 +18,7 @@ var article=document.getElementById("article");
 var article1=document.getElementById("article1");
 var dat1=document.getElementById("dat1");
 var dat2=document.getElementById("dat2");
-var application1=document.getElementById("application1");                 
+var application1=document.getElementById("application1");
 var box3=document.getElementById("box3");
 var box33=document.getElementById("box33");
 var box333=document.getElementById("box333");
@@ -35,7 +35,7 @@ var day=date.getDate();
 // time1.innerHTML=year+'/'+month+'/'+day;
 var curMonthDays=new Date(year,month-1,0).getDate();
 var timee1=year+'/'+month+'/'+day;
-var timeee=year+'/'+month+'/'+(day-1); 
+var timeee=year+'/'+month+'/'+(day-1);
 
 var chinese = {
     w1: '故事',
@@ -44,7 +44,7 @@ var chinese = {
     w4: '生态茶园<br/>解决方案',
     w5: '延伸应用',
     w11: '故事',
-    w22: '茶园数据',
+    w22: '茶园实时数据',
     w221:'实时',
     w222:'历史',
     w33: '茶园历史数据',
@@ -145,9 +145,9 @@ var english = {
     sl3: '&nbsp;&nbsp;Month',
     src:"../static/img/solution tuz'z'z'z'z-03.png",
 };
-  var startTime = 0, //翻屏起始时间  
-        endTime = 0,  
-        now = 0;   
+  var startTime = 0, //翻屏起始时间
+        endTime = 0,
+        now = 0;
 
 window.onload = function(){
     vue = new Vue({
@@ -157,23 +157,23 @@ window.onload = function(){
         },
         mounted:function(){
             this.draw();
-            if ((navigator.userAgent.toLowerCase().indexOf("firefox")!=-1)){   
-        document.addEventListener("DOMMouseScroll",this.scrollFun,false);        
-    }  
-    else if (document.addEventListener) {  
-        document.addEventListener("mousewheel",this.scrollFun,false);  
-    }  
-    else if (document.attachEvent) {  
-        document.attachEvent("onmousewheel",this.scrollFun);   
-    }  
-    else{  
-        document.onmousewheel = this.scrollFun;  
-    }  
+            if ((navigator.userAgent.toLowerCase().indexOf("firefox")!=-1)){
+        document.addEventListener("DOMMouseScroll",this.scrollFun,false);
+    }
+    else if (document.addEventListener) {
+        document.addEventListener("mousewheel",this.scrollFun,false);
+    }
+    else if (document.attachEvent) {
+        document.attachEvent("onmousewheel",this.scrollFun);
+    }
+    else{
+        document.onmousewheel = this.scrollFun;
+    }
         },
         destroyed :function() {
             document.removeEventListener('scroll', this.handleScroll);
         },
-        data:{ 
+        data:{
         	msg: chinese ,
         	logo:"../static/img/biglogo.png",
         	mobile:false,
@@ -187,8 +187,8 @@ window.onload = function(){
         	box3a:true,
         	box33a:false,
         	box333a:false,
-        	eng:false,
-        	chin:true,
+        	eng:true,
+        	chin:false,
             timee:timeee,
             timee1:timee1,
             green1:true,
@@ -228,168 +228,265 @@ window.onload = function(){
             Oxygen:'',
             Dust:'',
             SoilTemperature:'',
-            SoilMoisture:''
+            SoilMoisture:'',
+            menuStatus: 1,
+            nextStatus: 1,
+            ull: ""
         },
         methods: {
             chooseChinese: function () {
                 this.msg = chinese;
-                this.chin=true;
-                this.eng=false;
+                this.chin=false;
+                this.eng=true;
                 },
             chooseEnglish: function () {
                 this.msg = english;
-                this.chin=false;
-                this.eng=true;
+                this.chin=true;
+                this.eng=false;
+             },
+             changeFn(bool1, bool2, bool3, bool4, bool5, bool6) {
+               $('#lw').css('display', bool1)
+               $('#about1').css('display', bool2)
+               $('#dat1').css('display', bool3)
+               $('#dat2').css('display', bool4)
+               $('#solution1').css('display', bool5)
+               $('#application1').css('display', bool6)
+               this.lw=false;
+               this.story=false;
+               this.data=false;
+               this.data1=false;
+               this.data2=false;
+               this.solution=false;
+               this.app=false;
              },
              scrollFun: function (event){
-        startTime = new Date().getTime();  
-        var delta = event.detail || (-event.wheelDelta);  
+        startTime = new Date().getTime();
+        var delta = event.detail || (-event.wheelDelta);
         var arr=[this.lw,this.story,this.data1,this.data2,this.solution,this.app];
         //mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动
         //DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动
         if ((endTime - startTime) < -1000){
              if(delta>0 && this.s<5){
                 //向下滚动
-                 this.lw=false;
-                 this.story=false;
-                 this.data=false;
-                 this.data1=false;
-                 this.data2=false;
-                 this.solution=false;
-                 this.app=false;                
-                 this.s++;
-                if(this.s==0){
-                this.lw=true;               
+                // 翻页动画
+                this.s ++;
+                this.changeFn('none', 'none', 'none', 'none', 'none', 'none')
+                let _this = this
+                if (this.s == 0) {
+                  this.lw=true;
+                  $('#lw').css('display', 'block')
                 }
-                if(this.s==1){
-                this.story=true;
-                this.bar=false;	
-                this.s1=1;               
+                if (this.s == 1) {
+                  this.story=true;
+                  let _this = this;
+                  $('#lw').css('display', 'block')
+                  $('#about1').css('display', 'block')
+                  $('#lw').slideUp(800,function() {
+                    _this.s1 =1
+                  });
+                  this.menuStatus = 1;
+                  this.barChange();
                 }
-                if(this.s==2){
-                this.s1=2;
-                this.data=true;
-                this.data1=true;
+                if (this.s == 2) {
+                  this.data=true;
+                  this.data1=true;
+                  $('#about1').css('display', 'block')
+                  $('#dat1').css('display', 'block')
+                  $('#about1').slideUp(800,function() {
+                    _this.s1 =2
+                  });
+                  if (this.menuStatus == 0 || this.menuStatus == '0') {
+                    this.data = false;
+                  }
                 }
-                if(this.s==3){
-                this.s1=3;
-                this.data=true;
-                this.data2=true;
+                if (this.s == 3) {
+                  this.data=true;
+                  this.data2=true;
+                  $('#dat1').css('display', 'block')
+                  $('#dat2').css('display', 'block')
+                  $('#dat1').slideUp(800,function() {
+                    _this.s1 =3
+                  });
+                  if (this.menuStatus == 0 || this.menuStatus == '0') {
+                    this.data = false;
+                  }
                 }
-                if(this.s==4){
-                this.s1=4;
-                this.solution=true;
+                if (this.s == 4) {
+                  this.solution=true;
+                  $('#dat2').css('display', 'block')
+                  $('#solution1').css('display', 'block')
+                  $('#dat2').slideUp(800,function() {
+                    _this.s1 =4
+                  });
                 }
-                if(this.s==5){
-                this.app=true;
-                this.s1=5;
+                if (this.s == 5) {
+                  this.app = true;
+                  $('#application1').css('display', 'block')
+                  $('#solution1').css('display', 'block')
+                  $('#solution1').slideUp(800,function() {
+                    _this.s1 =5
+                  });
                 }
-        } 
+        }
             if(delta<0 &&this.s<6&&this.s>0){
-                //向上滚动           
-                 this.lw=false;
-                 this.story=false;
-                 this.data=false;
-                 this.data1=false;
-                 this.data2=false;
-                 this.solution=false;
-                 this.app=false;                
+                //向上滚动
                 this.s1--;
                 this.s=this.s1;
-                if(this.s==0){
-                this.lw=true;
+                // 翻页动画
+                this.changeFn('none', 'none', 'none', 'none', 'none', 'none');
+                let _this = this;
+                if (this.s == 0) {
+                  this.lw=true;
+                  $('#about1').css('display', 'block')
+                  $('#lw').slideDown(800);
+                  this.s = 0;
                 }
-                if(this.s==1){
-                this.story=true;
+                if (this.s == 1) {
+                  console.log(this.s)
+                  this.story=true;
+                  $('#dat1').css('display', 'block')
+                  $('#about1').slideDown(800);
                 }
-                if(this.s==2){
-                this.data=true;
-                this.data1=true;
+                if (this.s == 2) {
+                  this.data=true;
+                  this.data1=true;
+                  $('#dat2').css('display', 'block')
+                  $('#dat1').slideDown(800);
+                  if (this.menuStatus == 0 || this.menuStatus == '0') {
+                    this.data = false;
+                  }
                 }
-                if(this.s==3){
-                this.data=true;
-                this.data2=true;
+                if (this.s == 3) {
+                  this.data=true;
+                  this.data2=true;
+                  $('#solution1').css('display', 'block')
+                  $('#dat2').slideDown(800)
+                  if (this.menuStatus == 0 || this.menuStatus == '0') {
+                    this.data = false;
+                  }
                 }
-                if(this.s==4){
-                this.solution=true;
+                if (this.s == 4) {
+                  this.solution=true;
+                  $('#application1').css('display', 'block')
+                  $('#solution1').slideDown(800);
                 }
-                if(this.s==5){
-                this.app=true;
+                if (this.s == 5) {
+                  this.app=true;
+                  $('#application1').css('display', 'block');
                 }
-               
+
             }
-             endTime = new Date().getTime();  
+             endTime = new Date().getTime();
         }
-           else{  
-                event.preventDefault();    
-            }    
+           else{
+                event.preventDefault();
+            }
     },
-              barclick:function(){
-              	this.bar=false;
-              	this.data=false;
-              },
-              bar1click:function(){
-              	this.bar=true;
-              },
-              storyclick:function(){  
-              	this.lw=false;
-              	this.story=true;
-              	this.data=false;
-              	this.solution=false;
-              	this.app=false;
+    barChange() {
+      if (this.munuStatus == 1 || this.menuStatus == '1') {
+        $("#bar").css({
+          "transition": "all 0.2s",
+          "-webkit-transition": "all 0.2s",
+          "-moz-transition": "all 0.2s",
+          "-o-transition": "all 0.2s",
+          "transform": "rotate(90deg)",
+          "-webkit-transform": "rotate(90deg)",
+          "-moz-transform": "rotate(90deg)",
+          "-o-transform": "rotate(90deg)",
+          "position": "absolute",
+          "top":" 0.185rem",
+          "left": "0.22rem",
+        });
+        $("#menu").animate({'border-radius': '50%', 'top': '0.545rem', 'left': '0.44rem', 'width': '0.67rem', 'height': '0.67rem','position': 'fixed', 'overflow': 'hidden'}, 200);
+        $("#menu #trans, #menu #u").hide(200);
+        $(".menulogo").hide(200)
+        this.menuStatus = 0;
+        if (this.s == 3 || this.s == '3' || this.s == 2 || this.s == '2') {
+          this.data = false;
+        }
+        return
+      } else {
+        $("#bar").css({
+          "transition": "all 0.2s",
+          "-webkit-transition": "all 0.2s",
+          "-moz-transition": "all 0.2s",
+          "-o-transition": "all 0.2s",
+          "transform": "rotate(180deg)",
+          "-webkit-transform": "rotate(180deg)",
+          "-moz-transform": "rotate(180deg)",
+          "-o-transform": "rotate(180deg)",
+          "position": "fixed",
+          "position": "absolute",
+          "top":" 1.42rem",
+          "left": "0.6rem"
+        });
+        $("#menu").animate({'border-radius': '0', 'top': '0', 'left': '0', 'width': '1.5rem', 'height': '100%', 'position': 'fixed', 'overflow': 'hidden'}, 200);
+        $("#menu #trans, #menu #u").show(200);
+        this.menuStatus = 1;
+        $(".menulogo").show(200)
+        return
+      }
+    },
+    nextFn: function () {
+      let _this = this;
+      if (this.nextStatus == 1) {
+        $(".aboutimg1").animate({"left": "-3.6rem"}, 500, function () {
+          _this.nextStatus = 0;
+        })
+      } else {
+        $(".aboutimg1").animate({"left": "0rem"}, 500, function () {
+          _this.nextStatus = 1;
+        })
+      }
+    },
+    barclick:function(){
+      this.barChange();
+    },
+    // bar1click:function(){
+    //   this.bar = true;
+    //   $("#menu").animate({'border-radius': '0', 'top': '0', 'left': '0', 'width': '1.5rem', 'height': '100%', 'position': 'fixed', 'overflow': 'hidden'}, 800)
+    // },
+              storyclick:function(){
+                this.changeFn('none', 'block', 'none', 'none', 'none', 'none')
               	this.s=0;
               	this.s1=2;
+                this.story=true;
+                this.ull = false;
               },
-              dataclick:function(){ 
-              	this.lw=false;
-              	this.story=false;
-              	this.data=true;
-              	this.data1=true;
-              	this.data2=false;
-              	this.solution=false;
-              	this.app=false;
+              dataclick:function(){
+                this.data = true;
+              	this.s=1;
+              	this.s1=3;
+                this.ull = "ull"
+              },
+              data1click:function(){
+                this.changeFn('none', 'none', 'block', 'none', 'none', 'none')
+                this.data = true;
+                this.data1 =true;
               	this.s=1;
               	this.s1=3;
               },
-              data1click:function(){     
-              	this.lw=false;
-              	this.story=false;
-              	this.data=true;
-              	this.data1=true;
-              	this.data2=false;
-              	this.solution=false;
-              	this.app=false;
-              	this.s=1;
-              	this.s1=3;
-              },
-              data2click:function(){   
-              	this.lw=false;
-              	this.story=false;
+              data2click:function(){
+                this.changeFn('none', 'none', 'none', 'block', 'none', 'none')
               	this.data=true;
               	this.data2=true;
-              	this.data1=false;
-              	this.solution=false;
-              	this.app=false;
+                this.data1 = false;
               	this.s=2;
               	this.s1=4;
               },
-              solutionclick:function(){  
-              	this.lw=false;
-              	this.story=false;
-              	this.data=false;
+              solutionclick:function(){
+                this.changeFn('none', 'none', 'none', 'none', 'block', 'none')
               	this.solution=true;
-              	this.app=false;
               	this.s=3;
               	this.s1=5;
+                this.ull = false;
               },
-              appclick:function(){   
-              	this.lw=false;
-              	this.story=false;
-              	this.data=false;
-              	this.solution=false;
+              appclick:function(){
+                this.changeFn('none', 'none', 'none', 'none', 'none', 'block')
               	this.app=true;
               	this.s=4;
               	this.s1=6;
+                this.ull = false;
               },
             sl1clik:function(){
                 this.box3a=true;
@@ -406,7 +503,7 @@ window.onload = function(){
 			monthh1=month;
 			dayy1=day-1;
 			}
-			this.timee=year+'/'+monthh1+'/'+dayy1; 
+			this.timee=year+'/'+monthh1+'/'+dayy1;
         },
             sl2clik:function(){
                 this.box3a=false;
@@ -465,7 +562,7 @@ window.onload = function(){
                 this.timee=monthh+'/'+dayy+'-'+monthh1+'/'+dayy1;
                 // this.draw();
 
-            },           
+            },
             draw:function(){
                 var tabContainer1 = document.getElementById('main1');
                 var tabContainer2 = document.getElementById('main2');
@@ -566,17 +663,17 @@ window.onload = function(){
             },
         },
     })
-}    
+}
 
 
 /*图表开始
- * 
+ *
  */
 
 var realdata = [document.getElementById("Temperature"),document.getElementById("Humidity"),document.getElementById("Illumination"),
     document.getElementById("CarbonDioxide"),document.getElementById("Oxygen"),document.getElementById("Dust"),
     document.getElementById("SoilTemperature"),document.getElementById("SoilMoisture")];
-    
+
 
 var tabContainer1 = document.getElementById('main1');
 var tabContainer2 = document.getElementById('main2');

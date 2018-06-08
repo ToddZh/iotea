@@ -158,6 +158,17 @@ body {
   height: 100%;
 }
 
+/*font-family*/
+@font-face {
+	font-family: "PingFangHK-Semibold";
+	src: url("../fonts/PingFang Heavy 2.ttf");
+}
+
+/*font-family*/
+@font-face {
+	font-family: "PingFangHK-Light";
+	src: url("../fonts/PingFang ExtraLight 2.tmp");
+}
 #app {
   width: 100%;
   height: 100%;
@@ -203,13 +214,13 @@ a:visited {
   height: 2.5rem;
   font-family: PingFangHK-Semibold;
   font-size: 0.18rem;
-  x letter-spacing: 0;
+  letter-spacing: 0;
   text-align: justify;
   z-index: 400;
 }
 
 .bggrey {
-  background: rgba(238, 238, 238, 0.2);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .ull {
@@ -218,7 +229,8 @@ a:visited {
   left: 1.5rem;
   width: 0.74rem;
   height: 100%;
-  background: rgba(84, 138, 161, 0.4);
+  background: #548AA1;
+  opacity: .6;
   font-family: PingFangHK-Semibold;
   font-size: 0.18rem;
   letter-spacing: 0;
@@ -226,11 +238,25 @@ a:visited {
   z-index: 400;
   padding-right: .5rem;
 }
+.menulogo {
+  width: .76rem;
+  height: .21rem;
+  position: fixed;
+  top: .65rem;
+  left: .37rem;
+}
+
+.menulogo img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 #bar {
   position: fixed;
-  top: 0.545rem;
-  left: 0.625rem;
+  top: 1.42rem;
+  left: 0.6rem;
   width: 0.3rem;
   height: 0.3rem;
   cursor: pointer;
@@ -294,7 +320,7 @@ a:visited {
   height: 0.02rem;
   background: #fff;
   position: absolute;
-  top: 0.26rem;
+  top: 0.32rem;
   left: 0.6rem;
 }
 
@@ -303,7 +329,7 @@ a:visited {
   height: 0.02rem;
   background: #fff;
   position: absolute;
-  top: 0.97rem;
+  top: 1.03rem;
   left: 0.6rem;
 }
 
@@ -321,7 +347,7 @@ a:visited {
   height: 0.02rem;
   background: #fff;
   position: absolute;
-  bottom: 2.73rem;
+  bottom: 2.66rem;
   left: 0.2rem;
 }
 
@@ -330,7 +356,7 @@ a:visited {
   height: 0.02rem;
   background: #fff;
   position: absolute;
-  top: 1.7rem;
+  top: 1.76rem;
   left: 0.6rem;
 }
 
@@ -339,31 +365,47 @@ a:visited {
   height: 0.02rem;
   background: #fff;
   position: absolute;
-  top: 2.4rem;
+  top: 2.46rem;
   left: 0.6rem;
 }
 
 #lw {
   width: 100%;
   height: 100%;
-  background: green;
   position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+#lwb {
+  width: 100%;
+  height: 10.47rem;
+  position: absolute;
+  top:0;
+  left:0;
+  margin:0;
+  padding:0;
 }
 
 .trans {
   position: fixed;
-  top: 1.06rem;
-  left: 0.41rem;
+  top: 1.89rem;
+  left: 0.39rem;
   font-family: PingFangHK-Light;
   font-size: 0.18rem;
   color: #FFFFFF;
   letter-spacing: 0;
   text-align: justify;
   cursor: pointer;
+  width: .72rem;
+  text-align: center;
 }
 
 .engclick {
-  opacity: 0.9;
+  opacity: 0.6;
 }
 
 .biglogo {
@@ -385,30 +427,69 @@ a:visited {
   text-align: justify;
 }
 
+.ital {
+  width: 1.27rem;
+  height: 0.99rem;
+  position: absolute;
+  left: 8.5rem;
+  top: 2.2rem;
+  transform:rotate(90deg);
+-ms-transform:rotate(90deg); 	/* IE 9 */
+-moz-transform:rotate(90deg); 	/* Firefox */
+-webkit-transform:rotate(90deg); /* Safari 和 Chrome */
+-o-transform:rotate(90deg); 	/* Opera */
+font-family: PingFangHK-Semibold;
+font-size: .24rem;
+color: #FFFFFF;
+letter-spacing: 0;
+text-align: justify;
+}
+
+.shengtai {
+  position: absolute;
+  top:2.79rem;
+  left: 50%;
+  width:3rem;
+  margin-left: -1.5rem;
+font-family: PingFangHK-Light;
+font-size: 18px;
+color: #FFFFFF;
+letter-spacing: 0;
+text-align: center;
+}
+
 #about1 {
   width: 100%;
   height: 100%;
   position: relative;
-  overflow-x: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
 }
 
 .gushi {
+  width: 10.77rem;
   position: absolute;
-  top: 1.12rem;
-  left: 1.8rem;
+  top: .62rem;
+  left: 50%;
   opacity: 0.9;
   font-family: PingFangHK-Semibold;
   font-size: 0.28rem;
   font-weight: 600;
   color: #406C77;
   letter-spacing: 0;
+  margin-left: -5.385rem;
   text-align: left;
 }
 
 .gushi1 {
+  width: 10.77rem;
+  margin-left: -5.385rem;
   position: absolute;
-  top: 1.12rem;
-  left: 1.8rem;
+  top: .62rem;
+  left: 50%;
   opacity: 0.9;
   font-family: PingFangHK-Semibold;
   font-size: 0.28rem;
@@ -419,25 +500,50 @@ a:visited {
 }
 
 .aboutimg {
-  width: 6.77rem;
+  width: 10.77rem;
   height: 100%;
   position: absolute;
-  top: 0;
-  left: 6.91rem;
+  top: 1.25rem;
+  left: 50%;
   bottom: 0;
-  overflow-y: scroll;
+  margin-left: -5.385rem;
   overflow-x: hidden;
 }
 
 .aboutimg1 {
-  width: 6.77rem;
+  width: 16rem;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .aboutimg1 img {
-  width: 6.77rem;
-  height: 4.47rem;
+  width: 3.5rem;
+  height: 2.3rem;
   padding: 0;
   margin: 0;
+  margin-right: .1rem;
+}
+
+.btn-next {
+  width: .49rem;
+  height: .49rem;
+  position: absolute;
+  top: 2.1rem;
+  right: .9rem;
+  background: #A2A2A2;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.36;
+}
+
+.btn-next img {
+  width: .117rem;
+  height: .229rem;
+  margin: 0;
+  padding: 0;
+  margin-top: .13rem;
+  margin-left: .17rem;
 }
 
 .p1 {
@@ -449,9 +555,10 @@ a:visited {
 
 .articlecontain {
   position: absolute;
-  top: 1.72rem;
-  left: 1.8rem;
-  width: 4.78rem;
+  top: 3.78rem;
+  left: 50%;
+  margin-left: -5.385rem;
+  width: 10.77rem;
   /*height:3.94rem ;*/
   font-family: PingFangHK-Medium;
   font-size: 0.14rem;
@@ -465,12 +572,20 @@ a:visited {
   width: 100%;
   height: 100%;
   position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
 }
 
+
 .aabs {
+  width: 10.77rem;
+  margin-left: -5.385rem;
   position: absolute;
   top: 1.52rem;
-  left: 1.8rem;
+  left: 50%;
   ont-family: PingFangHK-Semibold;
   font-weight: 600;
   opacity: 0.9;
@@ -482,10 +597,11 @@ a:visited {
 }
 
 #article1 {
+  width: 10.77rem;
+  margin-left: -5.385rem;
   position: absolute;
-  left: 1.8rem;
+  left: 50%;
   top: 2.41rem;
-  width: 4.33rem;
   height: 5.21rem;
   font-family: PingFangHK-Medium;
   font-size: 0.16rem;
@@ -494,9 +610,13 @@ a:visited {
   text-align: justify;
 }
 
+#solutionarticle {
+  width: 4.33rem;
+}
+
 #solutionimg {
   width: 6.5rem;
-  height: 100%;
+  height: 10.47rem;
   position: absolute;
   top: 0;
   left: 6.88rem;
@@ -515,12 +635,19 @@ a:visited {
   height: 100%;
   background: #25637C;
   position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
 }
 
 #realtitle {
+  width: 10.77rem;
+  margin-left: -5.385rem;
   position: absolute;
-  top: 0.52rem;
-  left: 3rem;
+  top: 0.62rem;
+  left: 50%;
   opacity: 0.9;
   font-family: PingFangHK-Semibold;
   font-size: 0.28rem;
@@ -531,11 +658,13 @@ a:visited {
 }
 
 .rea {
+  width: 10.77rem;
+  margin-left: -5.385rem;
   text-align: left;
   font-weight: 600;
   position: absolute;
-  top: 1rem;
-  left: 3rem;
+  top: 1.2rem;
+  left: 50%;
   opacity: 0.9;
   font-family: PingFangHK-Semibold;
   font-size: 0.2rem;
@@ -544,9 +673,10 @@ a:visited {
 }
 
 .dat1contain {
+  margin-left: -4.56rem;
   position: absolute;
   top: 2.13rem;
-  left: 3rem;
+  left: 50%;
   width: 9.12rem;
   height: 3.75rem;
   font-size: 0.2rem;
@@ -577,13 +707,25 @@ a:visited {
   height: 100%;
   background: #25637C;
   position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   overflow-x: auto;
 }
-
+.historybox {
+  width: 10.77rem;
+  height: .4rem;
+  line-height: .4rem;
+  position: relative;
+  top: 0.62rem;
+  left: 50%;
+  margin-left: -5.385rem;
+}
 .dat2title {
   position: absolute;
-  top: 0.52rem;
-  left: 3rem;
+  top: 0;
+  left: 0;
   font-weight: 600;
   opacity: 0.9;
   font-family: PingFangHK-Semibold;
@@ -609,32 +751,67 @@ a:visited {
 
 #box3 {
   position: absolute;
-  left: 3rem;
+  left: 50%;
   /*bottom: 0.95rem;*/
   top: 1.78rem;
   width: 1240px;
+  margin-left: -620px;
 }
 
 #box33 {
   position: absolute;
-  left: 3rem;
+  left: 50%;
   top: 1.78rem;
   /*bottom: 0.95rem;*/
   width: 1240px;
+  margin-left: -620px;
 }
 
 #box333 {
   position: absolute;
-  left: 3rem;
+  left: 50%;
   top: 1.78rem;
   /*bottom: 0.95rem;*/
   width: 1240px;
+  margin-left: -620px;
+}
+
+@media screen and (max-width:1240px){
+  #box3 {
+    position: absolute;
+    left: 0;
+    /*bottom: 0.95rem;*/
+    top: 1.78rem;
+    width: 1240px;
+    margin-left: 0;
+    overflow-x: auto;
+  }
+
+  #box33 {
+    position: absolute;
+    left: 0;
+    top: 1.78rem;
+    /*bottom: 0.95rem;*/
+    width: 1240px;
+    margin-left: 0;
+    overflow-x: auto;
+  }
+
+  #box333 {
+    position: absolute;
+    left: 0;
+    top: 1.78rem;
+    /*bottom: 0.95rem;*/
+    width: 1240px;
+    margin-left: 0;
+    overflow-x: auto;
+  }
 }
 
 .time11 {
   position: absolute;
-  top: 0.93rem;
-  left: 3rem;
+  top: 0.5rem;
+  left: 0;
   font-family: PingFangHK-Semibold;
   font-weight: 600;
   font-size: 0.2rem;
@@ -645,8 +822,8 @@ a:visited {
 
 .time111 {
   position: absolute;
-  top: 0.93rem;
-  left: 3rem;
+  top: 0.5rem;
+  left: 0rem;
   font-family: PingFangHK-Semibold;
   font-weight: 600;
   font-size: 0.2rem;
@@ -657,8 +834,8 @@ a:visited {
 
 .slider {
   position: absolute;
-  top: 0.57rem;
-  left: 5rem;
+  top: 0rem;
+  left: 2rem;
   width: 1.47rem;
   height: 0.46rem;
   font-size: 0.2rem;
@@ -670,8 +847,8 @@ a:visited {
 
 .slider1 {
   position: absolute;
-  top: 0.57rem;
-  left: 5.3rem;
+  top: 0rem;
+  left: 2rem;
   width: 1.47rem;
   height: 0.46rem;
   font-size: 0.12rem;
@@ -794,11 +971,16 @@ a:visited {
   width: 100%;
   height: 100%;
   position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
 }
 
 .aba {
   position: absolute;
-  top: 0.64rem;
+  top: 0.95rem;
   left: 2.24rem;
   opacity: 0.9;
   font-weight: 600;
@@ -859,13 +1041,99 @@ a:visited {
 }
 
 .bgblue {
-  background: #25637C;
+  background: #548AA1;
 }
 
 .whitecolor {
   color: #fff;
+  opacity: 1;
 }
 
 .greycolor {
   color: #fff;
+  opacity: .6;
+}
+
+#ull {
+  width: .75rem;
+  opacity: .6;
+  padding-right: .5rem;
+  transition: width 2s, opacity 2s, padding-right 2s;
+  -webkit-ransition: width 2s, opacity 2s, padding-right 2s;
+  -moz-transition: width 2s, opacity 2s, padding-right 2s;
+  -o-transition: width 2s, opacity 2s, padding-right 2s;
+  animation: showWidth 2s linear 0.1;
+  -webkit-animation: showWidth 2s linear 0.1;
+  -moz-animation: showWidth 2s linear 0.1;
+  -o-animation: showWidth 2s linear 0.1;
+}
+
+
+@keyframes showWidth {
+  10% {
+    width: .2rem;
+    opacity: .1;
+    padding-right: .1rem;
+  }
+  50% {
+    width: .45rem;
+    opacity: .4;
+    padding-right: .3rem;
+  }
+  100% {
+    width: .75rem;
+    opacity: .6;
+    padding-right: .5rem;
+  }
+}
+@-o-keyframes showWidth {
+  10% {
+    width: .2rem;
+    opacity: .1;
+    padding-right: .1rem;
+  }
+  50% {
+    width: .45rem;
+    opacity: .4;
+    padding-right: .3rem;
+  }
+  100% {
+    width: .75rem;
+    opacity: .6;
+    padding-right: .5rem;
+  }
+}
+@-webkit-keyframes showWidth {
+  10% {
+    width: .2rem;
+    opacity: .1;
+    padding-right: .1rem;
+  }
+  50% {
+    width: .45rem;
+    opacity: .4;
+    padding-right: .3rem;
+  }
+  100% {
+    width: .75rem;
+    opacity: .6;
+    padding-right: .5rem;
+  }
+}
+@-moz-keyframes showWidth {
+  10% {
+    width: .2rem;
+    opacity: .1;
+    padding-right: .1rem;
+  }
+  50% {
+    width: .45rem;
+    opacity: .4;
+    padding-right: .3rem;
+  }
+  100% {
+    width: .75rem;
+    opacity: .6;
+    padding-right: .5rem;
+  }
 }

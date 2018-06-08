@@ -31,7 +31,7 @@ document.write('<script type="text/javascript" >!function(e,t){function n(){var 
         <div class="container hide" id="container">
             <div id="right" v-if="mobile">
                             <div id="lw" v-show="lwa">
-                                <div class="biglogo"><img src="../static/img/Artboard 1 Copy.png"></div>
+                                <div class="biglogo"><a href="https://www.seeed.cc"><img src="../static/img/Artboard 1 Copy.png"></a></div>
                                 <div class="word">蒙顶山，物联网的茶</div>
                                 <div class="trans"><span id="eng" @click="chooseEnglish" :class="{'engclick': eng}">EN</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span id="chin" @click="chooseChinese" :class="{'engclick': chin}">中</span></div>
                                 <div class="lg0"><img src="../static/img/INTERNET OF TEA Copy.png"></div>
@@ -227,7 +227,7 @@ document.write('<script type="text/javascript" >!function(e,t){function n(){var 
                             <div id="application1" v-show="lgbtn5a">
                                 <div class="back" @click="back"><img src="../static/img/back1.png"></div>
                                 <div class="aba" v-html="msg.w55"></div>
-                    
+
                                 <div id="box4">
                                     <div id="appimg"><img class="pic1" src="../static/img/Group 6.png"><img src="../static/img/Group 7.png"> <img class="pic1" src="../static/img/Group 18.png"><img src="../static/img/Group 20 Copy.png"></div>
                                     <div id="article2" v-html="msg.article2">
@@ -236,45 +236,54 @@ document.write('<script type="text/javascript" >!function(e,t){function n(){var 
                             </div>
                 </div>
             <div id="right" v-else="!mobile">
-        	<div id="bar1" v-show="!bar" @click="bar1click"><img src="../static/img/Group 16.png"></div>
-        	<ul class="ull" v-show="bar&&data">       					       
+        	<!-- <div id="bar1" v-show="!bar" @click="bar1click"><img src="../static/img/Group 16.png"></div> -->
+        	<ul class="ull" v-show="bar&&data" :id="ull">
         					<li @click="data1click" class="dat1li" :class={'whitecolor':data1,'greycolor':!data1}><a href="#dat1" v-html="msg.w221"></a></li>
         					<li class="bottomline21" v-show="data1"></li>
         					<li @click="data2click" class="dat2li" :class={'whitecolor':data2,'greycolor':!data2}><a href="#dat2" v-html="msg.w222"></a></li>
         					<li class="bottomline22" v-show="data2"></li>
         		</ul>
         	<div class="menu" v-show="bar" :class="{'bggrey':lw,'bgblue':!lw}" id="menu">
-        		<div id="bar" @click="barclick"><img src="../static/img/Group Copy 10.png"></div>
-        		<div class="trans"><span id="eng" @click="chooseEnglish" :class="{'engclick': eng}">EN</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span id="chin" @click="chooseChinese" :class="{'engclick': chin}">中</span></div>
-        		<ul class="ul">
+            <div class="menulogo"><a href="https://www.seeed.cc"><img src="../static/img/biglogo.png" alt=""></a></div>
+        		<div class="trans" id="trans"><span id="eng" @click="chooseEnglish" :class="{'engclick': eng}">EN</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span id="chin" @click="chooseChinese" :class="{'engclick': chin}">中</span></div>
+            <div id="bar" @click="barclick"><img src="../static/img/Group Copy 10.png"></div>
+        		<ul class="ul" id="u">
         			<li id="story"  @click="storyclick" :class={'whitecolor':story,'greycolor':!story}><a href="#about1" v-html="msg.w11"></a></li>
         			<li class="bottomline1" v-show="story"></li>
-        			<li id="data" v-html="msg.w22" @click="dataclick" :class={'whitecolor':data,'greycolor':!data}>         			 	 
+        			<li id="data" v-html="msg.w22" @click="dataclick" :class={'whitecolor':data,'greycolor':!data}>
         			</li>
-        			<li class="bottomline2" v-show="data" v-show="data"></li>
+        			<li class="bottomline2" v-show="data1 || data2"></li>
         			<li id="solution" @click="solutionclick" :class={'whitecolor':solution,'greycolor':!solution}><a href="#solution1" v-html="msg.w44"></a></li>
         			<li class="bottomline3" v-show="solution"></li>
-        			<li id="application" @click="appclick" :class={'whitecolor':app,'greycolor':!app}><a href="#application1" v-html="msg.w55"></a></li> 
+        			<li id="application" @click="appclick" :class={'whitecolor':app,'greycolor':!app}><a href="#application1" v-html="msg.w55"></a></li>
         			<li class="bottomline4" v-show="app"></li>
         		</ul>
         	</div>
-                            <div id="lw" v-show="lw">
-                                <div class="biglogo"><img src="../static/img/biglogo.png"></div>
-                                <div class="word">蒙顶山，物联网的茶</div>                        
+                            <div id="lw">
+                              <img id="lwb" src="../static/img/bigindex.png" alt="">
+                                <div class="biglogo"><a href="https://www.seeed.cc"><img src="../static/img/biglogo.png"></a></div>
+                                <div class="word">蒙顶山，物联网的茶</div>
+                                <div class="ital">INTERNET OF TEA</div>
+                                <div class="shengtai">Seeed IoTea 智慧生态茶园</div>
                             </div>
-                            <div id="about1" v-show="story">
+                            <div id="about1">
                                 <div :class="{'gushi': chin,'gushi1':eng}" v-html="msg.w11"></div>
-                                <div class="aboutimg"> 
+                                <div class="aboutimg">
                                 	<div class="aboutimg1">
                                 		 <img class="p1" src="../static/img/WechatIMG686.png">
                                 		 <img class="p1" src="../static/img/WechatIMG669.png">
                                 		 <img class="p1" src="../static/img/WechatIMG672.png">
+                                     <img class="p1" src="../static/img/WechatIMG667.png">
                                 	</div>
                                 </div>
-                                    <div class="articlecontain" v-html="msg.article1ww">                                                 
+                                <div class="btn-next" @click="nextFn">
+                                  <img src="../static/img/Path 5 Copy.png" alt="" v-if="nextStatus == 1">
+                                  <img src="../static/img/Path 55 Copy.png" alt="" v-else>
                                 </div>
-                            </div>                          
-                            <div id="dat1" v-show="data1">
+                                    <div class="articlecontain" v-html="msg.article1ww">
+                                </div>
+                            </div>
+                            <div id="dat1">
                                     <div id="realtitle" v-html="msg.w22"></div>
                                     <div class="rea"><span id="time1" v-html="timee1"></span></div>
                                     <div class="dat1contain">
@@ -320,15 +329,17 @@ document.write('<script type="text/javascript" >!function(e,t){function n(){var 
                                             </div>
                                     </div>
                             </div>
-                            <div id="dat2" v-show="data2">
-                            	     <div class="dat2title" v-html="msg.w33"></div>
-                                     <div id="slider" :class="{'slider': chin,'slider1':eng}">
-                                     	<div class="green" :class="{'green1': green1,'green2': green2,'green3': green3}"></div>
-	                                     <div id="sl1" @click="sl1clik" class="sl1" v-html="msg.sl1"></div>
-	                                     <div id="sl2" @click="sl2clik" class="sl2" v-html="msg.sl2"></div>
-	                                     <div id="sl3" @click="sl3clik" class="sl3" v-html="msg.sl3"></div>
-                                     </div>
-                                     <div id="time11" :class="{'time11': chin,'time111': eng}" v-html="timee"></div>
+                            <div id="dat2">
+                            	     <div class="historybox">
+                                     <div class="dat2title" v-html="msg.w33"></div>
+                                       <div id="slider" :class="{'slider': chin,'slider1':eng}">
+                                       	<div class="green" :class="{'green1': green1,'green2': green2,'green3': green3}"></div>
+  	                                     <div id="sl1" @click="sl1clik" class="sl1" v-html="msg.sl1"></div>
+  	                                     <div id="sl2" @click="sl2clik" class="sl2" v-html="msg.sl2"></div>
+  	                                     <div id="sl3" @click="sl3clik" class="sl3" v-html="msg.sl3"></div>
+                                       </div>
+                                       <div id="time11" :class="{'time11': chin,'time111': eng}" v-html="timee"></div>
+                                   </div>
                                      <div id="box3" v-show="box3a">
                                          <div class="tabcontain">
                                          <div class="sub"><img src="../static/img/Temperature.png"><span v-html="msg.datacontain1"></span><span style="font-size: 0.1rem;">/°C</span></div>
@@ -432,14 +443,14 @@ document.write('<script type="text/javascript" >!function(e,t){function n(){var 
                                          </div>
                                     </div>
                            </div>
-                           <div id="solution1" v-show="solution">
+                           <div id="solution1">
                                 <div class="aabs" v-html="msg.w44"></div>
                                 <div id="article1">
                                     <div id="solutionarticle" v-html="msg.solutionarticle"></div>
                                 </div>
                                <div id="solutionimg"><img id="solimg" :src="msg.src"></div>
                             </div>
-                             <div id="application1" v-show="app" class="page">
+                             <div id="application1" class="page">
                                 <div class="aba" v-html="msg.w55"></div>
                                 <div id="article2" v-html="msg.article2"></div>
                                 <div id="appimg"><img class="pic11" src="../static/img/Group 6.png"><img class="pic22" src="../static/img/Group 7.png"> <img class="pic33" src="../static/img/Group 18.png"><img class="pic44" src="../static/img/Group 20 Copy.png"></div>
@@ -447,9 +458,10 @@ document.write('<script type="text/javascript" >!function(e,t){function n(){var 
         </div>
         </div>
         </div>
-    <script src="../static/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="../static/js/jquery-1.12.4.min.js" type="text/javascript"></script>
     <script src="../static/js/jquery.lazyload.js" type="text/javascript"></script>
     <script src="../static/js/echarts.min.js"></script>
+    <!-- Initialize Swiper -->
     <script type="text/javascript">
     $(window).resize(function(){
        location.reload()
@@ -465,7 +477,6 @@ document.write('<script type="text/javascript" >!function(e,t){function n(){var 
     } else {
       document.write('<script id="sc2" type="text/javascript" src="../static/js/2.js"><\/script>');
     }
-
     </script>
 </body>
 </html>
