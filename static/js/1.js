@@ -160,8 +160,13 @@ window.onload = function(){
         },
         mounted:function(){
             this.draw();
+            initmonth();
+            initday();
+            initweek();
         },
-        data:{ 
+        data:{
+            now: '',
+            today: '',
         	msg: chinese ,
         	mobile:true,
         	touchstart1:false,
@@ -278,21 +283,39 @@ window.onload = function(){
                 var self=this;
                 this.lgbtn5a=false;
                 this.draw();
-		         if(day==1){
-		        	if(month==1){		        				        	
-					var monthh1=12;
-					var dayy1=curMonthDays;
-					year=year-1;
-		        	}else{
-		        	var monthh1=month-1;
-					var dayy1=curMonthDays;
-					}
-		        	}else{
-					monthh1=month;
-					dayy1=day-1;
-					}
-					this.timee=year+'/'+monthh1+'/'+dayy1; 
-		 
+                if(day==1){
+                    if(month==1){
+                        var monthh1=12;
+                        var dayy1=curMonthDays;
+                        year=year-1;
+                    }
+                    else{
+                        var monthh1=month-1;
+                        var dayy1=curMonthDays;
+                    }
+                }
+                else{
+                    monthh1=month;
+                    dayy1=day-1;
+                }
+                this.timee=year+'/'+monthh1+'/'+dayy1;
+
+                if(this.today != ''){
+                    var day = new Date();
+                    this.now = day.getDate();
+                    var x = this.today;
+                    var y = x.indexOf('-',6);
+                    var date = this.today.substring(y+1);
+                    if(date[0]=='0'){
+                        date = date.substring(1)
+                    }
+                    if (this.now != date){
+                        initmonth();
+                        initday();
+                        initweek();
+                    }
+                }
+
                 if(this.a.series[0].data==''){
                     setTimeout(function(){
                         self.loadingfade=true ;//使用渐隐的方法淡出loading page
@@ -413,7 +436,7 @@ window.onload = function(){
                     dayy1=day-1;
                     monthh1=month;
                     monthh=month-1;
-                    dayy=curMonthDays-(30-day);
+                    dayy=curMonthDays-(31-day);
                 }
                 this.green1=false;
                 this.green2=false;
@@ -2129,9 +2152,9 @@ window.addEventListener('resize',function(){
 //初始化数据
 setTimeout(function () {
     getdata();
-    initday();
-    initweek();
-    initmonth();
+    // initday();
+    // initweek();
+    // initmonth();
 }, 2000);
 
 //定时从后台读取数据
@@ -2172,6 +2195,7 @@ function initday(){
 		success:function(data){
 		    console.log(data);
 		    // vue.a.xAxis.data = data
+            vue.today = data.Today;
             vue.a.series[0].data = data.TemperatureDay;
             vue.b.series[0].data = data.HumidityDay;
             vue.c.series[0].data = data.IlluminationDay;

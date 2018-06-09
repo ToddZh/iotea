@@ -129,6 +129,7 @@ def initday():
 	t = {
 		# 'Data': [data[0][5], data[0][6], data[0][10], data[0][8], data[0][11], data[0][9]],
 		# 'anchorDay': anchorDay,
+		'Today' : today,
 		'DateDay': DateDay,
 		'TemperatureDay': TemperatureDay,
 		'HumidityDay': HumidityDay,

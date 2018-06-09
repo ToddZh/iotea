@@ -155,6 +155,21 @@ window.onload = function(){
         updated:function(){
             this.draw();
         },
+        created() {
+          // 防止笔记本没有鼠标 使用键盘上下箭头分页
+          this.changeFn('true', 'false', 'false', 'false', 'false', 'false')
+          let _this = this;
+          document.onkeydown=function(e){
+            e=e||window.event;
+            if(e.keyCode == 40) {
+              // 下移
+             _this.downFn()
+            } else if (e.keyCode == 38) {
+              // 上移
+              _this.upFn()
+            }
+          }
+        },
         mounted:function(){
             this.draw();
             if ((navigator.userAgent.toLowerCase().indexOf("firefox")!=-1)){
@@ -244,13 +259,13 @@ window.onload = function(){
                 this.chin=true;
                 this.eng=false;
              },
-             changeFn(bool1, bool2, bool3, bool4, bool5, bool6) {
-               $('#lw').css('display', bool1)
-               $('#about1').css('display', bool2)
-               $('#dat1').css('display', bool3)
-               $('#dat2').css('display', bool4)
-               $('#solution1').css('display', bool5)
-               $('#application1').css('display', bool6)
+             changeFn: function(bool1, bool2, bool3, bool4, bool5, bool6) {
+               $('#lwbox').css('display', bool1)
+               $('#aboutbox').css('display', bool2)
+               $('#dat1box').css('display', bool3)
+               $('#dat2box').css('display', bool4)
+               $('#solubox').css('display', bool5)
+               $('#appbox').css('display', bool6)
                this.lw=false;
                this.story=false;
                this.data=false;
@@ -258,6 +273,127 @@ window.onload = function(){
                this.data2=false;
                this.solution=false;
                this.app=false;
+             },
+             downFn: function () {
+               //向下滚动
+               // 翻页动画
+               this.s ++;
+               this.changeFn('none', 'none', 'none', 'none', 'none', 'none')
+               let _this = this
+               if (this.s == 0) {
+                 this.lw=true;
+                 $('#lwbox').css('display', 'block')
+               }
+               if (this.s == 1) {
+                 this.story=true;
+                 let _this = this;
+                 $('#lwbox').css('display', 'block')
+                 $('#aboutbox').css('display', 'block')
+                 $('#lwbox').slideUp(800,function() {
+                   _this.s1 =1
+                 });
+                 this.menuStatus = 1;
+                 this.barChange();
+               }
+               if (this.s == 2) {
+                 this.data=true;
+                 this.data1=true;
+                 $('#aboutbox').css('display', 'block')
+                 $('#dat1box').css('display', 'block')
+                 $('#aboutbox').slideUp(800,function() {
+                   _this.s1 =2
+                 });
+                 if (this.menuStatus == 0 || this.menuStatus == '0') {
+                   this.data = false;
+                 }
+               }
+               if (this.s == 3) {
+                 this.data=true;
+                 this.data2=true;
+                 $('#dat1box').css('display', 'block')
+                 $('#dat2box').css('display', 'block')
+                 $('#dat1box').slideUp(800,function() {
+                   _this.s1 =3
+                 });
+                 if (this.menuStatus == 0 || this.menuStatus == '0') {
+                   this.data = false;
+                 }
+               }
+               if (this.s == 4) {
+                 this.solution=true;
+                 $('#dat2box').css('display', 'block')
+                 $('#solubox').css('display', 'block')
+                 $('#dat2box').slideUp(800,function() {
+                   _this.s1 =4
+                 });
+               }
+               if (this.s == 5) {
+                 this.app = true;
+                 $('#appbox').css('display', 'block')
+                 $('#solubox').css('display', 'block')
+                 $('#solubox').slideUp(800,function() {
+                   _this.s1 =5;
+                 });
+               }
+               if (this.s >= 5) {
+                 this.s = 5;
+                 this.s1 = 5;
+                 $('#appbox').css('display', 'block')
+               }
+             },
+             upFn: function () {
+               //向上滚动
+               this.s1--;
+               this.s=this.s1;
+               // 翻页动画
+               this.changeFn('none', 'none', 'none', 'none', 'none', 'none');
+               let _this = this;
+               if (this.s == 0) {
+                 this.lw=true;
+                 $('#aboutbox').css('display', 'block')
+                 $('#lwbox').slideDown(800);
+                 this.s = 0;
+               }
+               if (this.s == 1) {
+                 console.log(this.s)
+                 this.story=true;
+                 $('#dat1box').css('display', 'block')
+                 $('#aboutbox').slideDown(800);
+               }
+               if (this.s == 2) {
+                 this.data=true;
+                 this.data1=true;
+                 $('#dat2box').css('display', 'block')
+                 $('#dat1box').slideDown(800);
+                 if (this.menuStatus == 0 || this.menuStatus == '0') {
+                   this.data = false;
+                 }
+               }
+               if (this.s == 3) {
+                 this.data=true;
+                 this.data2=true;
+                 $('#solubox').css('display', 'block')
+                 $('#dat2box').slideDown(800)
+                 if (this.menuStatus == 0 || this.menuStatus == '0') {
+                   this.data = false;
+                 }
+               }
+               if (this.s == 4) {
+                 this.solution=true;
+                 $('#appbox').css('display', 'block')
+                 $('#solubox').slideDown(800);
+               }
+               if (this.s == 5) {
+                 this.app=true;
+                 $('#appbox').css('display', 'block');
+                 this.s = 5;
+               }
+              if (this.s <= 0){
+                 this.s1 = 0;
+                 this.s = 0;
+                 $("#lwbox").css("display", 'block')
+               }
+
              },
              scrollFun: function (event){
         startTime = new Date().getTime();
@@ -267,122 +403,19 @@ window.onload = function(){
         //DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动
         if ((endTime - startTime) < -1000){
              if(delta>0 && this.s<5){
-                //向下滚动
-                // 翻页动画
-                this.s ++;
-                this.changeFn('none', 'none', 'none', 'none', 'none', 'none')
-                let _this = this
-                if (this.s == 0) {
-                  this.lw=true;
-                  $('#lw').css('display', 'block')
-                }
-                if (this.s == 1) {
-                  this.story=true;
-                  let _this = this;
-                  $('#lw').css('display', 'block')
-                  $('#about1').css('display', 'block')
-                  $('#lw').slideUp(800,function() {
-                    _this.s1 =1
-                  });
-                  this.menuStatus = 1;
-                  this.barChange();
-                }
-                if (this.s == 2) {
-                  this.data=true;
-                  this.data1=true;
-                  $('#about1').css('display', 'block')
-                  $('#dat1').css('display', 'block')
-                  $('#about1').slideUp(800,function() {
-                    _this.s1 =2
-                  });
-                  if (this.menuStatus == 0 || this.menuStatus == '0') {
-                    this.data = false;
-                  }
-                }
-                if (this.s == 3) {
-                  this.data=true;
-                  this.data2=true;
-                  $('#dat1').css('display', 'block')
-                  $('#dat2').css('display', 'block')
-                  $('#dat1').slideUp(800,function() {
-                    _this.s1 =3
-                  });
-                  if (this.menuStatus == 0 || this.menuStatus == '0') {
-                    this.data = false;
-                  }
-                }
-                if (this.s == 4) {
-                  this.solution=true;
-                  $('#dat2').css('display', 'block')
-                  $('#solution1').css('display', 'block')
-                  $('#dat2').slideUp(800,function() {
-                    _this.s1 =4
-                  });
-                }
-                if (this.s == 5) {
-                  this.app = true;
-                  $('#application1').css('display', 'block')
-                  $('#solution1').css('display', 'block')
-                  $('#solution1').slideUp(800,function() {
-                    _this.s1 =5
-                  });
-                }
+                this.downFn();
         }
             if(delta<0 &&this.s<6&&this.s>0){
-                //向上滚动
-                this.s1--;
-                this.s=this.s1;
-                // 翻页动画
-                this.changeFn('none', 'none', 'none', 'none', 'none', 'none');
-                let _this = this;
-                if (this.s == 0) {
-                  this.lw=true;
-                  $('#about1').css('display', 'block')
-                  $('#lw').slideDown(800);
-                  this.s = 0;
-                }
-                if (this.s == 1) {
-                  console.log(this.s)
-                  this.story=true;
-                  $('#dat1').css('display', 'block')
-                  $('#about1').slideDown(800);
-                }
-                if (this.s == 2) {
-                  this.data=true;
-                  this.data1=true;
-                  $('#dat2').css('display', 'block')
-                  $('#dat1').slideDown(800);
-                  if (this.menuStatus == 0 || this.menuStatus == '0') {
-                    this.data = false;
-                  }
-                }
-                if (this.s == 3) {
-                  this.data=true;
-                  this.data2=true;
-                  $('#solution1').css('display', 'block')
-                  $('#dat2').slideDown(800)
-                  if (this.menuStatus == 0 || this.menuStatus == '0') {
-                    this.data = false;
-                  }
-                }
-                if (this.s == 4) {
-                  this.solution=true;
-                  $('#application1').css('display', 'block')
-                  $('#solution1').slideDown(800);
-                }
-                if (this.s == 5) {
-                  this.app=true;
-                  $('#application1').css('display', 'block');
-                }
-
+                this.upFn();
             }
              endTime = new Date().getTime();
         }
            else{
                 event.preventDefault();
             }
+
     },
-    barChange() {
+    barChange:function() {
       if (this.munuStatus == 1 || this.menuStatus == '1') {
         $("#bar").css({
           "transition": "all 0.2s",
@@ -395,7 +428,7 @@ window.onload = function(){
           "-o-transform": "rotate(90deg)",
           "position": "absolute",
           "top":" 0.185rem",
-          "left": "0.22rem",
+          "left": "0.205rem",
         });
         $("#menu").animate({'border-radius': '50%', 'top': '0.545rem', 'left': '0.44rem', 'width': '0.67rem', 'height': '0.67rem','position': 'fixed', 'overflow': 'hidden'}, 200);
         $("#menu #trans, #menu #u").hide(200);
@@ -428,7 +461,7 @@ window.onload = function(){
       }
     },
     nextFn: function () {
-      let _this = this;
+      let_this = this;
       if (this.nextStatus == 1) {
         $(".aboutimg1").animate({"left": "-3.6rem"}, 500, function () {
           _this.nextStatus = 0;
@@ -448,44 +481,38 @@ window.onload = function(){
     // },
               storyclick:function(){
                 this.changeFn('none', 'block', 'none', 'none', 'none', 'none')
-              	this.s=0;
-              	this.s1=2;
+              	this.s=1;
                 this.story=true;
                 this.ull = false;
               },
               dataclick:function(){
                 this.data = true;
-              	this.s=1;
-              	this.s1=3;
+              	this.s=2;
                 this.ull = "ull"
               },
               data1click:function(){
                 this.changeFn('none', 'none', 'block', 'none', 'none', 'none')
                 this.data = true;
                 this.data1 =true;
-              	this.s=1;
-              	this.s1=3;
+              	this.s=2;
               },
               data2click:function(){
                 this.changeFn('none', 'none', 'none', 'block', 'none', 'none')
               	this.data=true;
               	this.data2=true;
                 this.data1 = false;
-              	this.s=2;
-              	this.s1=4;
+              	this.s=3;
               },
               solutionclick:function(){
                 this.changeFn('none', 'none', 'none', 'none', 'block', 'none')
               	this.solution=true;
-              	this.s=3;
-              	this.s1=5;
+              	this.s=4;
                 this.ull = false;
               },
               appclick:function(){
                 this.changeFn('none', 'none', 'none', 'none', 'none', 'block')
               	this.app=true;
-              	this.s=4;
-              	this.s1=6;
+              	this.s=5;
                 this.ull = false;
               },
             sl1clik:function(){
@@ -554,7 +581,7 @@ window.onload = function(){
                     dayy1=day-1;
                     monthh1=month;
                     monthh=month-1;
-                    dayy=curMonthDays-(30-day);
+                    dayy=curMonthDays-(31-day);
                 }
                 this.green1=false;
                 this.green2=false;
