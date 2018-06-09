@@ -1139,3 +1139,29 @@ text-align: center;
     padding-right: .5rem;
   }
 }
+
+#lwbox, #aboutbox, #dat1box, #dat2box, #solubox, #appbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#lwbox {
+  z-index: 300;
+}
+#aboutbox {
+  z-index: 299;
+}
+#dat1box {
+  z-index: 298;
+}
+#dat2box {
+  z-index: 297;
+}
+#solubox {
+  z-index: 296;
+}
+#appbox {
+  z-index: 295;
+}

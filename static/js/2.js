@@ -461,7 +461,7 @@ window.onload = function(){
       }
     },
     nextFn: function () {
-      let_this = this;
+      let _this = this;
       if (this.nextStatus == 1) {
         $(".aboutimg1").animate({"left": "-3.6rem"}, 500, function () {
           _this.nextStatus = 0;
