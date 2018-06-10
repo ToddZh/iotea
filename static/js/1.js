@@ -283,15 +283,18 @@ window.onload = function(){
                 var self=this;
                 this.lgbtn5a=false;
                 this.draw();
+                var monthh1=12;
+                var dayy1;
+                var monthh1;
+                var dayy1;
                 if(day==1){
                     if(month==1){
-                        var monthh1=12;
-                        var dayy1=curMonthDays;
+                        dayy1=curMonthDays;
                         year=year-1;
                     }
                     else{
-                        var monthh1=month-1;
-                        var dayy1=curMonthDays;
+                        monthh1=month-1;
+                        dayy1=curMonthDays;
                     }
                 }
                 else{
@@ -301,8 +304,8 @@ window.onload = function(){
                 this.timee=year+'/'+monthh1+'/'+dayy1;
 
                 if(this.today != ''){
-                    var day = new Date();
-                    this.now = day.getDate();
+                    var today = new Date();
+                    this.now = today.getDate();
                     var x = this.today;
                     var y = x.indexOf('-',6);
                     var date = this.today.substring(y+1);
