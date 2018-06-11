@@ -139,9 +139,9 @@ var english = {
     datacontain6: 'PM',
     datacontain7: 'Soil Temperature',
     datacontain8: 'Soil Humidity',
-    sl1: '&nbsp;&nbsp;&nbsp;Day',
+    sl1: '&nbsp;&nbsp;&nbsp;&nbsp;Day',
     sl2: '&nbsp;&nbsp;&nbsp;Week',
-    sl3: '&nbsp;&nbsp;&nbsp;Month',
+    sl3: '&nbsp;&nbsp;&nbsp;&nbsp;Mon',
     src:'../static/img/solution en 3X.png',
 };
 window.onload = function(){

@@ -69,9 +69,9 @@ var chinese = {
     datacontain6: '粉尘',
     datacontain7: '土壤温度',
     datacontain8: '土壤湿度',
-    sl1: '&nbsp;&nbsp;日',
-    sl2: '&nbsp;&nbsp;周',
-    sl3: '&nbsp;&nbsp;月',
+    sl1: '&nbsp;&nbsp;&nbsp;&nbsp;日',
+    sl2: '&nbsp;&nbsp;&nbsp;&nbsp;周',
+    sl3: '&nbsp;&nbsp;&nbsp;&nbsp;月',
     src:"../static/img/solution tuz'z'z'z'z-03.png"
 };
 var english = {
@@ -140,9 +140,9 @@ var english = {
     datacontain6: 'PM',
     datacontain7: 'Soil Temperature',
     datacontain8: 'Soil Humidity',
-    sl1: '&nbsp;&nbsp;&nbsp;Day',
-    sl2: '&nbsp;&nbsp;Week',
-    sl3: '&nbsp;&nbsp;Month',
+    sl1: '&nbsp;Day',
+    sl2: 'Week',
+    sl3: '&nbsp;Mon',
     src:"../static/img/solution tuz'z'z'z'z-03.png",
 };
   var startTime = 0, //翻屏起始时间
