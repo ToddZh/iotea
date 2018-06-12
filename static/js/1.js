@@ -144,7 +144,7 @@ var english = {
     sl3: '&nbsp;&nbsp;&nbsp;&nbsp;Mon',
     src:'../static/img/solution en 3X.png',
 };
-window.onload = function(){
+$(function() {
     setTimeout(function(){
         var loader = document.getElementsByClassName("sk-spinner")[0];
         var container=document.getElementById("container");
@@ -548,7 +548,7 @@ window.onload = function(){
             },
         },
     })
-}
+});
     
 
     

@@ -8,3 +8,4 @@ online_asr
 venv/
 __pycache__/
 conf/
+static/video/

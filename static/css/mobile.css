@@ -32,7 +32,26 @@ audio,canvas,video,progress{display:inline-block;}
 body{
 	background:#fff;
 	width: 100%;
-	}
+}
+
+/*font-family*/
+
+@font-face {
+  font-family: "PingFangHK-Semibold";
+  src: url("../fonts/PingFangBold.ttf");
+}
+
+/*font-family*/
+
+@font-face {
+  font-family: "PingFangHK-Light";
+  src: url("../fonts/PingFangLight.ttf");
+}
+
+@font-face {
+  font-family: "PingFangHK-Medium";
+  src: url("../fonts/PingFangMedium.ttf");
+}
 /*input::-webkit-input-speech-button {display: none}*/
 button,input,textarea{
 -webkit-tap-highlight-color: rgba(0,0,0,0);
