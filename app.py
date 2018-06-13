@@ -295,9 +295,11 @@ def initmonth():
 	return init
 
 def beforeDays(n):
+	utc_dt = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc)
+	bj_dt = utc_dt.astimezone(datetime.timezone(datetime.timedelta(hours=8)))
 	before_n_days = []
 	for i in range(1, n+1)[::-1]:
-		before_n_days.append(str(datetime.date.today() - datetime.timedelta(days=i)))
+		before_n_days.append(str(bj_dt.date() - datetime.timedelta(days=i)))
 	return before_n_days
 
 def removeZero(string):

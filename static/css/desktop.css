@@ -159,14 +159,10 @@ body {
   height: 100%;
 }
 
-/*font-family*/
-
 @font-face {
   font-family: "PingFangHK-Semibold";
   src: url("../fonts/PingFangBold.ttf");
 }
-
-/*font-family*/
 
 @font-face {
   font-family: "PingFangHK-Light";
@@ -529,9 +525,14 @@ a:visited {
 .shengtai1 {
   opacity: 1;
   transition: opacity 0.5s;
-  -webkit-ransition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
   animation: sheng-top 0.5s ease-in-out 0.01s 1;
   -webkit-animation: sheng-top 0.5s ease-in-out 0.01s 1;
+  -o-animation: sheng-top 0.5s ease-in-out 0.01s 1;
+  -moz-animation: sheng-top 0.5s ease-in-out 0.01s 1;
+  z-index: 402;
 }
 
 @keyframes sheng-top {
@@ -547,6 +548,30 @@ a:visited {
 }
 
 @-webkit-keyframes sheng-top {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes sheng-top {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes sheng-top {
   0% {
     opacity: 0;
   }
@@ -819,6 +844,7 @@ a:visited {
   right: 0;
   left: 0;
   bottom: 0;
+  overflow: auto;
 }
 
 .historybox {
@@ -827,7 +853,7 @@ a:visited {
   position: absolute;
   top: 0.62rem;
   left: 50%;
-  margin-left: -480px;
+  margin-left: -4.8rem;
   width: 960px;
 }
 
@@ -863,7 +889,7 @@ a:visited {
   position: absolute;
   top: 1.55rem;
   left: 50%;
-  margin-left: -480px;
+  margin-left: -4.8rem;
 }
 
 .time11 {
@@ -1215,9 +1241,36 @@ a:visited {
   -o-transition: all 0.5s;
   -webkit-animation: sk-pulseScaleOut 0.5s infinite ease-in-out;
   animation: sk-pulseScaleOut 0.5s infinite ease-in-out;
+  -webkit-animation: sk-pulseScaleOut 0.5s infinite ease-in-out;
+  -moz-animation: sk-pulseScaleOut 0.5s infinite ease-in-out;
+  -o-animation: sk-pulseScaleOut 0.5s infinite ease-in-out;
 }
 
 @-webkit-keyframes sk-pulseScaleOut {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes sk-pulseScaleOut {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@-o-keyframes sk-pulseScaleOut {
   0% {
     -webkit-transform: scale(0);
     transform: scale(0);
