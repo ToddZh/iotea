@@ -39,6 +39,22 @@ def initday():
 	# anchorDay.append({'value': [str(days[0])[5:] + " 00:00:00", 0]})
 	# anchorDay.append({'value': [today[5:] + " 00:00:00", 0]})
 
+	utc_dt = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc)
+	bj_dt = utc_dt.astimezone(datetime.timezone(datetime.timedelta(hours=8)))
+	year = str(bj_dt.year)
+	month = ""
+	day = ""
+	if int(bj_dt.month) < 10:
+		month = '0' + str(bj_dt.month)
+	else:
+		month = str(bj_dt.month)
+
+	if int(bj_dt.day) < 10:
+		day = '0' + str(bj_dt.day)
+	else:
+		day = str(bj_dt.day)
+	today = "%s-%s-%s" % (year, month, day)
+
 	QueryTime = []
 	for day in days:
 		for hour in range(0, 24):
@@ -52,7 +68,8 @@ def initday():
 				QueryTime = [str(day), str(hour)]
 				old = db.readMinMinute(QueryTime)
 			if not old:
-				old = [['0', '00', '00', '00', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0']]
+				db.insertFakeData(day)
+				old = db.readMinMinute(QueryTime)
 			try:
 				date = str(day)
 
@@ -82,21 +99,7 @@ def initday():
 
 	# 取得今天零点数据
 	# today = datetime.date.today()
-	utc_dt = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc)
-	bj_dt = utc_dt.astimezone(datetime.timezone(datetime.timedelta(hours=8)))
-	year = str(bj_dt.year)
-	month = ""
-	day = ""
-	if int(bj_dt.month) < 10:
-		month = '0' + str(bj_dt.month)
-	else:
-		month = str(bj_dt.month)
 
-	if int(bj_dt.day) < 10:
-		day = '0' + str(bj_dt.day)
-	else:
-		day = str(bj_dt.day)
-	today = "%s-%s-%s" % (year, month, day)
 
 	QueryTime = [today, '00']
 	old = db.readMinMinute(QueryTime)
@@ -104,7 +107,8 @@ def initday():
 		QueryTime = [str(today), '0']
 		old = db.readMinMinute(QueryTime)
 	if not old:
-		old = [['0', '00', '00', '00', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0']]
+		db.insertFakeData(today)
+		old = db.readMinMinute(QueryTime)
 	try:
 		date = str(today)
 		date = date[:4] + '/' + date[5:7] + '/' + date[8:]
