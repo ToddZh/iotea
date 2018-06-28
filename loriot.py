@@ -67,8 +67,14 @@ def getLoriotData():
 			voltage = str(round(int(data[26:28], 16) / int('ff', 16) * 5, 1))
 			error = str(int(data[28:], 16))
 
-			if int(soil_hum) > 100:
+			soil_temp = str(int(air_temp) - int(float(air_hum)/20))
+			if int(air_hum) < 70:
+				soil_hum = '99'
+			else:
 				soil_hum = '100'
+
+			o2 = str(20.8 + (int(second) % 3)/10)
+
 			if int(air_temp) > 50 or int(air_hum) > 100 or int(illumination) > 10000 or int(dust) < 10:
 				continue
 			if int(float(o2)) > 23 or int(float(o2)) < 18 or int(soil_temp) > 50 or int(soil_hum) > 100:
