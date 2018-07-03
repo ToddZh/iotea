@@ -73,7 +73,7 @@ def getLoriotData():
 			else:
 				soil_hum = '100'
 
-			o2 = str(20.8 + (int(second) % 3)/10)
+			o2 = str(round(float(20.8 + (int(second) % 3)/10), 1))
 
 			if int(air_temp) > 50 or int(air_hum) > 100 or int(illumination) > 10000 or int(dust) < 10:
 				continue
